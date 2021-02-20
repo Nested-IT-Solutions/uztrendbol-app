@@ -279,6 +279,7 @@
   }
   .header-section .search-area .auto-search .search-box input {
     width: 100%;
+    padding: 5px 15px;
     font-size: 14px;
     border-radius: 10px !important;
     background: #fff;
@@ -289,6 +290,66 @@
     font-size: 14px;
     top: 15px;
   }
+
+  .has-search{
+    margin: 5px 5px 5px 5px;
+    background: white;
+    position: relative;
+    float: left;
+    width: 80%;
+    margin-top: 0;
+    display: block;
+  }
+
+
+  .has-search input.form-control {
+    height: 25px;
+    border-radius: 10px;
+    padding-left: 25px;
+    border: none;
+    background: #eee;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 10px;
+
+
+  }
+
+  .has-search i {
+    position: absolute;
+    top: 18px;
+    left: 8px;
+  }
+
+
+.overlay .closebtn {
+  top: 14px !important;
+  right: 12px !important;
+  font-size: 14px !important;
+  z-index: 1;
+  font-weight: 500;
+
+}
+
+.bx-search {
+  color: #F3780E;
+}
+
+.overlay .overlay-content .buttons button {
+  margin-top: 15px;
+  border-color: #d8d8d8;
+}
+
+
+
+
+
+
+
+
+
+
+
   /*====== Login page ======*/
   .section-login-page {
     width: 100% !important;
@@ -316,7 +377,21 @@
     color: #ffffff;
   }
 
+
+
+
+
 }
+
+
+
+
+
+
+
+
+
+
 
 /*i
 ===============================================================

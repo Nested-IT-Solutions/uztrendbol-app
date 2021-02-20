@@ -16,6 +16,7 @@
    	 <!-- Material design icons CSS -->
     <link rel="stylesheet" href="vendor/materializeicon/material-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href='https://unpkg.com/boxicons@2.0.7/css/boxicons.min.css' rel='stylesheet'>
 
     <!-- app CSS -->
     <link rel="stylesheet" href="assets/css/fontawesome-all.min.css">
@@ -38,19 +39,14 @@
 			<!--header start -->
             <header class="row m-0 fixed-header no-shadow">
                 <div class="form-group has-search">
-                    <span class="fa fa-search form-control-feedback"></span>
+                    <!-- <span class="fa fa-search form-control-feedback"></span> -->
+                    <i class='bx bx-search'></i>
                     <input type="text" class="form-control" placeholder=" Search Brand or Category" onclick="openNav()">
                 </div>
                 <div class="top-right">
                     <a class="notification-icon" href="#">
-                    <i class="icon material-icons">notifications<span class="badge color-red" id="topmsg2"></span>
-                    </i>
-                    </a>
-                    <a class="setting-icon" href="#" data-toggle="modal" data-target="#top_modal">
-                        <i class="icon material-icons">settings<span class="badge color-red" id="topmsg2"></span>
-                        </i>
-                    </a>
-                    <a class="language-icon" href="#"data-toggle="modal" data-target="#top_modal"><img src="img/flags/gb.png" /></a>
+                    <i class="icon material-icons">notifications<span class="badge color-red" id="topmsg2"></span> </i> </a>
+
                 </div>
             </header>
             <!--header ends -->
@@ -66,35 +62,23 @@
                 <div class="modal-body">
                     <select name="se" id="se" class="" onchange="MM_jumpMenu('parent',this,0)">
 
-
                         <option value="/lang-change.asp?lang=1" selected> English</option>
-
-
 
                         <option value="/lang-change.asp?lang=2"> Türkçe</option>
 
-
-
                         <option value="/lang-change.asp?lang=3"> Uzbek</option>
 
-
-
                         <option value="/lang-change.asp?lang=4"> Russian</option>
-
 
                     </Select>
                     <hr>
                     <select name="searchalpha" id="searchalpha" class="" onchange="MM_jumpMenu('parent',this,0)">
 
-
                         <option value="/currency-change.asp?cur=1" selected> US Dollar</option>
-
 
                         <option value="/currency-change.asp?cur=6"> Euro</option>
 
-
                         <option value="/currency-change.asp?cur=13"> TL</option>
-
 
                         <option value="/currency-change.asp?cur=14"> SOM</option>
 
@@ -132,18 +116,22 @@
                         <input name="seo" type="hidden" id="searchField2" value="" />
                         <input name="sid" type="hidden" id="searchField" value="" />
                     </form>
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> Cancel</a>
                     <div class="has-search" style="float:left;width: 100%;">
-                        <input type="text" id="birds" class="has-search-2" placeholder=" Search Brand or Category">
+                        <i class='bx bx-search'></i>
+                        <input type="text" class="form-control" placeholder=" Search Brand or Category" onclick="openNav()">
                     </div>
-                    <hr>
-                    <button type="button" class="btn btn-outline-dark btn-sm">Recently Searched</button>
-                    <button type="button" class="btn btn-outline-dark btn-sm">Test</button>
-                    <button type="button" class="btn btn-outline-dark btn-sm">Popular Products</button>
+
+                    <div class="buttons">
+                        <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Recently Searched</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm"> <i class='bx bx-search'></i> Test</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Popular Products</button>
+                    </div>
+
                 </div>
             </div>
 
-            <script>
+            <script> 
                 function openNav() {
                     document.getElementById("myNav").style.width = "100%";
                 }
@@ -2232,6 +2220,7 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
+<script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
 <script src="js/owl.carousel.min.js"></script>
 
 <script>

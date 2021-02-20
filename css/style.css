@@ -2403,17 +2403,10 @@ header.fixed-header{
      -moz-box-shadow: 0 1px 5px #888888; 
      box-shadow: 0 1px 5px #E5E5E5;
 }
-.has-search{
-    width: 70%;
-    margin: 5px 5px 5px 5px;
-    background: white;
-    position: relative;
-    float: left;
-    display: block;
-}
+
 .top-right {
     float: right;
-    width: 25%;
+    width: 15%;
     display: block;
 }
 .nav-link {
@@ -2436,15 +2429,7 @@ header.fixed-header{
     z-index: 99999;
     position: absolute;
 }
-.has-search input.form-control {
-    height: 25px;
-    border-radius: 10px;
-    padding-left: 25px;
-    border: none;
-    background: #eee;
-    padding-top: 3px;
-    padding-bottom: 3px;
-}
+
 header.fixed-header .has-search .form-control-feedback {
     height: 0;
     padding: 0;
@@ -2456,7 +2441,7 @@ header.fixed-header .has-search .form-control-feedback {
 .top-right a i {
     color: #626365;
     margin: 10px 2px;
-    font-size: 18px;
+    font-size: 30px;
 }
 a.language-icon {
     top: -5px;
@@ -2502,26 +2487,11 @@ button.btn.btn-outline-dark.btn-sm {
     margin-left: 3px;
 }
 
-.overlay .closebtn {
-    top: -17px !important;
-    right: 12px !important;
-    z-index: 1;
 
-}
 .overlay .overlay-content .has-search input {
     width: 80%;
 }
-.overlay .overlay-content .closebtn {
-    font-size: 50px !important; 
-}
 
-.has-search-2 {
-    margin-bottom: 10px;
-    border: none;
-    background: #F3F2F7;
-    padding: 10px 65px;
-    border-radius: 3px;
-}
 
 .modal-content{
     display: none;
