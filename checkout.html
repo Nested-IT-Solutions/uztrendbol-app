@@ -1,0 +1,2628 @@
+
+<!doctype html>
+
+<html lang="en" class="md">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icon/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="img/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap-4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Material design icons CSS -->
+    <link rel="stylesheet" href="vendor/materializeicon/material-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- app CSS -->
+    <link id="theme" rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/add.css" type="text/css">
+    <link rel="stylesheet" href="css/tab.css" type="text/css">
+    <link rel="stylesheet" href="css/search.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap-side-modals.css">
+    <!-- tAG -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="slide/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="slide/slick/slick-theme.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script>
+  $( function() {
+   // function log( message ) {
+     // $( "<div/>" ).text( message ).prependTo( "#log" );
+     // $( "#log" ).attr( "scrollTop", 0 );
+   // }
+ 
+    $.ajax({
+       url: "https://app.uztrendbol.com/xml/app-arama-EN.xml",
+      dataType: "xml",
+      success: function( xmlResponse ) {
+        var data = $( "urunler", xmlResponse ).map(function() {
+          return {
+            value: $( "name", this ).text() + ", " +
+              ( $.trim( $( "countryName", this ).text() ) || "(unknown country)" ),
+            id2: $( "countryCode", this ).text(),  id: $( "geonameId", this ).text(),
+          };
+        }).get();
+      //  $( "#birds" ).autocomplete({
+         // source: data,
+          //minLength: 0,
+          //select: function( event, ui ) {
+            //log( ui.item ?
+             // "Selected: " + ui.item.value + ", geonameId: " + ui.item.id :
+             // "Nothing selected, input was " + this.value );
+			  // $("#searchField").val(ui.item.id);
+        //$("#searchForm").submit(); 
+         // }
+		  
+        //});
+		$("#birds").autocomplete({
+      source: data,
+          minLength: 3,
+    select: function(event, ui) { 
+        $("#searchField").val(ui.item.id);
+	 $("#searchField2").val(ui.item.id2);
+	 
+        $("#searchForm").submit(); }
+});
+      }
+    });
+  } );
+    </script>
+
+    <title>Siparişlerim</title>
+</head>
+
+<body class="cpush-content-right theme-light color-theme-green">
+<script type="text/javascript">
+/*
+jQuery(function($){				
+	$('#SehirID').dependent({ parent:'UlkeID', group: 'il_ilce_bucak' });
+	$('#SemtID').dependent({ parent:'SehirID', group: 'il_ilce_bucak' });
+	$('#BucakID').dependent({ parent:'SemtID', group: 'il_ilce_bucak' });   
+});
+*/
+
+$(document).ready(function() {
+	$("#UlkeID").change(function () {
+		$.ajax({
+			type: 'POST',
+			url: '/post.asp?islem=ilx',
+			data: 'id='+$(this).val(),
+			beforeSend: function() {
+				//$('#SehirID').html('Yükleniyor....');
+			},
+			error: function() {
+				//$('#SehirID').html('Bir hata algilandi.');
+			},
+			success: function(veri){
+				$('#SehirID').html(veri);
+			}
+		});
+	});
+	$("#SehirID").change(function () {
+		$.ajax({
+			type: 'POST',
+			url: '/post.asp?islem=ilce',
+			data: 'id='+$(this).val(),
+			beforeSend: function() {
+				//$('#ilceID').html('Yükleniyor....');
+			},
+			error: function() {
+				//$('#ilceID').html('Bir hata algilandi.');
+			},
+			success: function(veri){
+				$('#ilceID').html(veri);
+			}
+		});
+	});
+	$("#ilceID").change(function () {
+		$.ajax({
+			type: 'POST',
+			url: '/post.asp?islem=semt',
+			data: 'id='+$(this).val(),
+			beforeSend: function() {
+				//$('#semt').html('Yükleniyor....');
+			},
+			error: function() {
+				//$('#semt').html('Bir hata algilandi.');
+			},
+			success: function(veri){
+				$('#semt').html(veri);
+			}
+		});
+	});
+});
+$(document).ready(function() {
+	$("#UlkeID2").change(function () {
+		$.ajax({
+			type: 'POST',
+			url: '/post2.asp?islem=ilx2',
+			data: 'id='+$(this).val(),
+			beforeSend: function() {
+				//$('#SehirID').html('Yükleniyor....');
+			},
+			error: function() {
+				//$('#SehirID').html('Bir hata algilandi.');
+			},
+			success: function(veri){
+				$('#SehirID2').html(veri);
+			}
+		});
+	});
+	$("#SehirID2").change(function () {
+		$.ajax({
+			type: 'POST',
+			url: '/post2.asp?islem=ilce2',
+			data: 'id='+$(this).val(),
+			beforeSend: function() {
+				//$('#ilceID').html('Yükleniyor....');
+			},
+			error: function() {
+				//$('#ilceID').html('Bir hata algilandi.');
+			},
+			success: function(veri){
+				$('#ilceID2').html(veri);
+			}
+		});
+	});
+	$("#ilceID2").change(function () {
+		$.ajax({
+			type: 'POST',
+			url: '/post2.asp?islem=semt2',
+			data: 'id='+$(this).val(),
+			beforeSend: function() {
+				//$('#semt').html('Yükleniyor....');
+			},
+			error: function() {
+				//$('#semt').html('Bir hata algilandi.');
+			},
+			success: function(veri){
+				$('#semt2').html(veri);
+			}
+		});
+	});
+});
+// Without JQuery
+//var slider = new Slider('#ex2', {});
+</script> 
+ <script>
+$("#form").submit(function(event){
+	event.preventDefault(); //prevent default action 
+	var post_url = $(this).attr("action"); //get form action url
+	var request_method = $(this).attr("method"); //get form GET/POST method
+	var form_data = $(this).serialize(); //Encode form elements for submission
+	
+	$.ajax({
+		url : post_url,
+		type: request_method,
+		data : form_data
+	}).done(function(response){ //
+		$("#server-results2").html(response);
+	});
+});
+</script>
+    <div class="wrapper">
+        <!-- sidebar left start -->
+        <div class="sidebar sidebar-left">
+        </div>
+        <!-- sidebar left ends -->
+        <!-- sidebar right start -->
+        <div class="sidebar sidebar-right">
+        </div>
+        <!-- sidebar right ends -->
+        <!-- fullscreen menu start -->
+        <!-- fullscreen menu ends -->
+
+        <!-- page main start -->
+        <div class="page">
+            <header class="row m-0 fixed-header no-shadow" style="background: white; box-shadow: 1px 1px #E5E5E5; -webkit-box-shadow: 0 10px 5px #E5E5E5; -moz-box-shadow: 0 1px 5px #888888; box-shadow: 0 1px 5px #E5E5E5;">
+                  <style>
+  .nav-link {
+            display: block;
+            padding: 0px;
+            padding-top: 10px;
+        }     	
+    </style>
+
+		<div class="col left" style="font-size: 14px; font-weight: 600; top: 10px;">
+         Welcome &nbsp;  <span style="color: #F3780E; font-weight: 600;">Dear Visitor</span>
+    
+</div>
+<div class="right">
+    <a href="javascript:void(0)" onclick="openNav()"><i class="material-icons" style="color: #F3780E;">search</i></a>
+	 <a href="#" style="color: orange; margin: 0px 0px 0px 0px;"  data-toggle="modal"  data-target="#top_modal">
+<i class="icon material-icons">settings<span class="badge color-red" id="topmsg2"></span>
+</i>
+</a>
+</div>
+
+            </header>
+               <style>
+       .ui-selectmenu-menu {
+           z-index: 99999;
+           position: absolute;
+       }
+
+       .ui-menu {
+           z-index: 99999;
+           position: absolute;
+       }
+
+       . ui-widget {
+           z-index: 99999;
+           position: absolute;
+       }
+   </style>
+   
+   <div id="myNav" class="overlay">
+       <div class="overlay-content">
+
+           <form name="Form" id="searchForm" method="get" action="/murun-detay/index.html">
+               <input name="seo" type="hidden" id="searchField2" value="" />
+               <input name="sid" type="hidden" id="searchField" value="" />
+
+           </form>
+
+           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          
+           <div class="has-search" style="float:left;width: 100%;">
+               <input type="text" id="birds" class="" style="width: 100%;color:red;" placeholder=" Search Brand or Category">
+           </div>
+           <hr>
+           <button type="button" class="btn btn-outline-dark btn-sm">Recently Searched</button>
+           <button type="button" class="btn btn-outline-dark btn-sm">Test</button>
+           <button type="button" class="btn btn-outline-dark btn-sm">Popular Products</button>
+
+       </div>
+   </div>
+
+
+
+
+   <script>
+       function openNav() {
+           document.getElementById("myNav").style.width = "100%";
+       }
+
+       function closeNav() {
+           document.getElementById("myNav").style.width = "0%";
+       }
+   </script>
+            <div class="page-content">
+
+                <!--footer start -->
+                   <nav class="tabber tabber-bottom">
+<div class="nav nav-tabs " id="nav-tab" role="tablist">
+<a class="nav-item nav-link  " id="nav-find-tab" data-toggle="tab2" href="index.html" role="tab" aria-controls="nav-find" aria-selected="true"><i class="icon material-icons">home</i><span class="tabbar-label">Home</span></a>
+<a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="all-menu.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">search<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Categories</span> </a>
+<a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="favorites.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">favorite<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Favorites</span> </a>
+<a class="nav-item nav-link  active" id="nav-cart-tab" data-toggle="tab2" href="basket.html" role="tab" aria-controls="nav-cart" aria-selected="false"> <i class="icon material-icons">shopping_cart<span class="badge color-red" id="topmsg"></span></i> <span class="tabbar-label"> My Cart</span> </a>
+<a class="nav-item nav-link  " id="nav-profile-tab" data-toggle="tab2" href="login.html" role="tab" aria-controls="nav-profile" aria-selected="false"> <i class="icon material-icons">account_circle</i> <span class="tabbar-label">My Acc</span> </a>
+                    </div>
+                </nav> 
+                <!--footer ends -->
+                <!-- h100 start -->
+                <div class="" style="background: #F5F5F5; width: 99%;">
+                    	 <script type="text/javascript">
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+</script>
+	<script type="text/javascript">
+$(document).bind("mobileinit", function(){ $.mobile.hashListeningEnabled = false; }); 
+
+// boolean that stores if a swipe has been performed.
+var bScrolled = false;
+// countdown in ms before resetting the boolean.
+var iTime = 1000;
+var oTimeout;
+window.addEventListener('mousewheel', function(e) {
+  if (e.wheelDeltaY === 0) {
+  // there is an horizontal scroll
+    if (!bScrolled) {
+    // no need to set bScrolled to true if it has been done within the iTime time. 
+      bScrolled = true;
+      oTimeout = setTimeout(function(){
+        bScrolled = false;
+      }, iTime);
+    }
+  }
+});
+
+window.onpopstate = function() {
+  // clear the timeout to be sure we keep the correct value for bScrolled
+  clearTimeout(oTimeout);
+  // check if there has been a swipe prior to the change of history state
+  if (bScrolled) {
+    // check which browser & OS the user is using, then
+    // trigger your awesome custom transition.
+  }
+}
+</script> 
+	<div class="modal top fade" id="top_modal" tabindex="-1" role="dialog" aria-labelledby="top_modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+		Change Language and Currency
+      </div>
+      <div class="modal-body">
+     <select name="se" id="se" class="" onchange="MM_jumpMenu('parent',this,0)">
+          			          
+        
+          <option value="/lang-change.asp?lang=1"  selected> English</option>
+                    
+
+        
+          <option value="/lang-change.asp?lang=2" > Türkçe</option>
+                    
+
+        
+          <option value="/lang-change.asp?lang=3" > Uzbek</option>
+                    
+
+        
+          <option value="/lang-change.asp?lang=4" > Russian</option>
+                    
+
+</Select>
+<hr>
+		<select name="searchalpha" id="searchalpha" class="" onchange="MM_jumpMenu('parent',this,0)">
+          			          
+        
+          <option value="/currency-change.asp?cur=1"  selected> US Dollar</option>
+                    
+        
+          <option value="/currency-change.asp?cur=6" > Euro</option>
+                    
+        
+          <option value="/currency-change.asp?cur=13" > TL</option>
+                    
+        
+          <option value="/currency-change.asp?cur=14" > SOM</option>
+                    
+	</Select>
+	 </div>
+      <div class="modal-footer modal-footer-fixed d-none">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+     
+      </div>
+    </div>
+  </div>
+</div>
+     
+	 <!-- Button trigger modal -->
+
+	 
+
+
+<div class="container">
+
+    <div class="card border-0 shadow-sm mt-3">
+        <div class="card-body">
+            <div class="row ">
+                <div class="col-3">
+                    <p class="text-secondary mb-1 small">Amount without VAT</p>
+                    <h6 class="mb-0">7.93&nbsp; &#36;</h6>
+                </div>
+                <div class="col-3 text-center">
+                    <p class="text-secondary mb-1 small">Vat</p>
+                    <h6 class="mb-0">0.00 &nbsp;&#36;</h6>
+                </div>
+                <div class="col-3 text-center">
+                    <p class="text-secondary mb-1 small">Amount</p>
+                    <h6 class="mb-0">7.93 &nbsp;&#36;</h6>
+                </div>
+                <div class="col-3 text-right">
+                    <p class="text-secondary mb-1 small">Nakliye</p>
+                    <h6 class="mb-0">0.04 &nbsp;&#36; </h6>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="card mb-4 border-0 shadow-sm border-top-dashed">
+        <div class="card-body text-center">
+           
+  
+   <p class="text-secondary my-1">Total amount</p>
+            <h3 class="mb-0">7.97 &nbsp; &#36;</h3>
+			
+            
+			
+			
+            <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Order Summary</a>
+        </div>
+    </div>
+
+
+    <div class="collapse" id="collapseExample" style="">
+        <a data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample">Close Order Summary</a>
+        <div class="card shadow-sm border-0">
+            <div class="card-body">
+
+                <ul class="list-group list-group-flush mb-4">
+                    
+
+                     <li class="list-group-item">
+                    <div class="row">
+                        <div class="col px-0">
+                            <span style="color: #49ca49; font-weight:600px; margin-right: 10px; font-size: 11px;"><a href="#"> Seller Information : <b>Uztrenbol Standart    ></b> </a></span>
+
+                        </div>
+                        <div class="pull-right">
+                            <span style="color: #49ca49; font-weight: bold; margin-right: 10px; font-size: 11px;"><i class="fa fa-check" aria-hidden="true"></i>%5  </span> 
+                        </div>
+                    </div>
+
+                </li>
+
+
+                <li class="list-group-item">
+                    <div class="row" style="color: #319f84; border-bottom: 1px solid lightgrey;">
+                        <div class="card-text" style="float: left; width: 20%;">
+                            <a href="/murun-detay/index.html?sid=1095">
+                                <figure class="product-image h-auto">
+                                    <img src="https://www.uztrendbol.com/content/images/thumbs/0001232_963-tarz-kadin-pembe-ncili-elbise-3022.jpeg" title="1058-" alt="1058-963 Tarz Kadın Pembe İncili Elbise 3022" style="width: 100px;"></figure>
+                            </a>
+                        </div>
+                        <div style="float: left; width: 75%;">
+                            <a href="/murun-detay/index.html?sid=1095" class="text-dark mb-1 h6 d-block" title="1058-963 Tarz Kadın Pembe İncili Elbise 3022" > <span style="font-size: 12px; color: grey;">Kurumsal Ticaret-963 Tarz Kadın Pembe İncili Elbise 3022</span></a>
+
+
+                            
+                            <p style="font-size: 12px; color: grey;">Beden:L<br></p>
+
+                            
+                            <p style="font-size: 12px; color: grey;">Estimated Delivery: </p>
+                            <p style="font-size: 12px; color: grey;">Weight: 9 |: 0.04&#36; </p>
+                         
+
+                            <div style="float: left; width: 60%;">
+                                <div class="custom-select" style="width: 140px;">
+                                    <select onchange="MM_jumpMenu1058('self',this,0)" name="quant1058" required>
+
+                                        <option value="" selected="">Your Choice</option>
+                                        
+                                        <option value="1"  selected >1 </option>
+                                        
+                                        <option value="2" >2 </option>
+                                        
+                                        <option value="3" >3 </option>
+                                        
+                                        <option value="4" >4 </option>
+                                        
+                                        <option value="5" >5 </option>
+                                        
+                                        <option value="6" >6 </option>
+                                        
+                                        <option value="7" >7 </option>
+                                        
+                                        <option value="8" >8 </option>
+                                        
+                                        <option value="9" >9 </option>
+                                        
+                                        <option value="10" >10 </option>
+                                        
+                                    </select>
+                                </div>
+                            </div>
+						
+                            <div style="float: left; width: 40%">
+                                <h6 class="text-success font-weight-normal mb-0">
+                                    <span style="color: #a2a2a2; font-weight: 600;"><del>13&nbsp;&#36; </del> </span>
+									 <span style="color: #F3780E; font-weight: 500;">&nbsp;  <del> 7.93 &nbsp; &#36;</del>	</span>
+                                    <br>
+								
+                                    <span style="color: #F3780E; font-weight: 500;">
+									
+									 7.54 &nbsp; &#36; </span>
+                                 
+                                </h6>
+                            </div>
+
+
+
+                        </div>
+                        <div style="float: left; width: 5%">
+                          <button onclick="document.getElementById('id1058').style.display='block'" class="w3-button"><i class="fa fa-trash"></i></button>
+                            <br>
+                        </div>
+                    </div>
+<div class="w3-container">
+
+  <div id="id1058" class="w3-modal">
+    <div class="w3-modal-content">
+      <div class="w3-container">
+                            <div class="modal-body" style="    text-align: left;">
+
+
+                                <ul class="list-group">
+
+                                    <li class="list-group-item"><i class="fa fa-trash  mx-2"></i><a href="#" onclick="location.href='basket.html?xbasket=del&SC_id=1058'">Delete</a></li>
+                                    <li class="list-group-item"><i class="fa fa-heart mx-2"></i><a href="#" onclick="location.href='basket.html?xbasket=edit&SC_id=1058'"> Delete and Add to Favorites</a></li>
+
+                                </ul>
+                                <button type="button" class="btn btn-secondary" onclick="document.getElementById('id1058').style.display='none'">Cancel</button>
+                            </div>
+      </div>
+    </div>
+  </div>
+</div>
+         
+                </li>
+
+                         
+                </ul>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+<!--
+function MM_findObj(n, d) { //v3.0
+  var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
+    d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
+  if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
+  for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document); return x;
+}
+function MM_swapImage() { //v3.0
+  var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
+   if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
+}
+function MM_swapImgRestore() { //v3.0
+  var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
+}
+
+function MM_preloadImages() { //v3.0
+ var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
+   var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
+   if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
+}
+
+function MM_jumpMenu1(targ,selObj,restore){ //v3.0
+  eval(targ+".location='/modemeyap/index.html?teslimatyontemi="+selObj.options[selObj.selectedIndex].value+"&teslimat=00&fatura=00&odemeyontemi=00&display=0&cid=8448'");
+  if (restore) selObj.selectedIndex=0;
+}
+function MM_jumpMenu2(targ,selObj,restore){ //v3.0
+  eval(targ+".location='/modemeyap/index.html?teslimatyontemi=00&teslimat="+selObj.options[selObj.selectedIndex].value+"&fatura=00&odemeyontemi=00&display=0&cid=8448'");
+  if (restore) selObj.selectedIndex=0;
+}
+function MM_jumpMenu3(targ,selObj,restore){ //v3.0
+  eval(targ+".location='/modemeyap/index.html?teslimatyontemi=00&teslimat=00&fatura="+selObj.options[selObj.selectedIndex].value+"&odemeyontemi=00&display=0&cid=8448'");
+  if (restore) selObj.selectedIndex=0;
+}
+function MM_jumpMenu4(targ,selObj,restore){ //v3.0
+  eval(targ+".location='/modemeyap/index.html?teslimatyontemi=00&teslimat=00&fatura=00&odemeyontemi="+selObj.options[selObj.selectedIndex].value+"&display=0&cid=8448'");
+  if (restore) selObj.selectedIndex=0;
+}
+function MM_jumpMenu5(targ,selObj,restore){ //v3.0
+  eval(targ+".location='/modemeyap/index.html?teslimatyontemi=00&teslimat=00&fatura=00&odemeyontemi="+selObj.options[selObj.selectedIndex].value+"&display=0&cid=8448'");
+  if (restore) selObj.selectedIndex=0;
+}
+function MM_openBrWindow(theURL,winName,features) { //v2.0
+  window.open(theURL,winName,features);
+}
+//-->
+    </script>
+
+
+    
+    <script>
+$("#form").submit(function(event){
+	event.preventDefault(); //prevent default action 
+	var post_url = $(this).attr("action"); //get form action url
+	var request_method = $(this).attr("method"); //get form GET/POST method
+	var form_data = $(this).serialize(); //Encode form elements for submission
+	
+	$.ajax({
+		url : post_url,
+		type: request_method,
+		data : form_data
+	}).done(function(response){ //
+		$("#server-results2").html(response);
+	});
+});
+    </script>
+
+    <form name="siparis" id="siparis" action="/modemeyap/index.html" method="get">
+
+
+
+        <p class="text-center text-secondary mb-0">Shipping Methods</p>
+        <div class="card shadow-sm border-0 mb-3">
+            <div class="card-body p-3">
+                <div class="media">
+                    <div class="icon align-self-center">
+                        <i class="material-icons h1 mb-0 mr-3">transfer_within_a_station</i>
+                    </div>
+                    <div class="media-body">
+
+                        <select class="custom-select" id="teslimatyontemi" name="teslimatyontemi" onchange="MM_jumpMenu1('self',this,0)" required>
+                            <option value="" selected="">Shipping Methods</option>
+
+
+
+                            
+                            <option value="4" >Send with Cargo  (UZEkspres)&nbsp;</option>
+
+                            
+                        </select>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <p class="text-center text-secondary mb-0">Delivery Address
+		<sup><a href="#" class=" text-success ml-2" data-toggle="modal" data-target="#id01" onclick="document.getElementById('site-header').style.display='none'"><b>New Address</b></a></sup>
+		</p>
+        <div class="card shadow-sm border-0 mb-3">
+            <div class="card-body p-3">
+                <div class="media">
+                    <div class="icon align-self-center">
+                        <i class="material-icons h1 mb-0 mr-3">local_shipping</i>
+                    </div>
+                    <div class="media-body">
+
+
+                        <select class="custom-select" name="teslimat" onchange="MM_jumpMenu2('self',this,0)" id="myselect2" required>
+                            <option value="" selected="">Delivery Address</option>
+
+                            
+                          
+                        </select>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <!-- <input type="text" size="30" name="display" id="display" onclick="MM_jumpMenu5('self',this,0)" >-->
+
+
+
+        <!-- <input type="button" id="showVal" value="Adresi Kopyala">>-->
+        
+        <div id="faturakopyala">
+            <a href="/modemeyap/index.html?teslimatyontemi=00&teslimat=00&fatura=00&odemeyontemi=00&display=1"> Copy Invoice Address</a>
+        </div>
+        
+
+
+        <p class="text-center text-secondary mb-0">Billing Address<sup>
+		<a href="#" class=" text-success ml-2" data-toggle="modal" data-target="#id02" onclick="document.getElementById('site-header').style.display='none'" ><b>New Address</b></a></sup>
+		</p>
+        <div class="card shadow-sm border-0 mb-3">
+            <div class="card-body p-3">
+                <div class="media">
+                    <div class="icon align-self-center">
+                        <i class="material-icons h1 mb-0 mr-3">insert_chart</i>
+                    </div>
+                    <div class="media-body">
+                        <select class="custom-select"  name="fatura" id="myselect" onchange="MM_jumpMenu3('self',this,0)" required>
+                            <option value="" selected="">Billing Address</option>
+                            
+
+                          
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <script>
+						  
+						  $('#myselect').change(function() {
+    var opval = $(this).val();
+    if(opval=="secondoption"){
+        $('#myModal').modal("show");
+    }
+});
+						  $('#myselect2').change(function() {
+    var opval = $(this).val();
+    if(opval=="secondoption2"){
+        $('#myModal2').modal("show");
+    }
+});
+        </script>
+
+
+        <script type="text/javascript">
+
+            (function () {
+
+                // get references to select list and display text box
+                var sel = document.getElementById('myselect2');
+                var el = document.getElementById('display');
+
+
+                function getSelectedOption(sel) {
+                    var opt;
+                    for (var i = 0, len = sel.options.length; i < len; i++) {
+                        opt = sel.options[i];
+                        if (opt.selected === true) {
+                            break;
+                        }
+                    }
+                    return opt;
+                }
+
+                // assign onclick handlers to the buttons
+                document.getElementById('showVal').onclick = function () {
+                    el.value = sel.value;
+                    document.getElementById("myselect").disabled = true;
+                    document.getElementById("faturakopyala").style.display = "none";
+                    document.getElementById("faturakopyalama").style.display = "block";
+                }
+                document.getElementById('showVal2').onclick = function () {
+                    el.value = sel.value;
+                    document.getElementById("myselect").disabled = false;
+                    document.getElementById("faturakopyala").style.display = "block";
+                    document.getElementById("faturakopyalama").style.display = "none";
+                }
+
+                document.getElementById('showTxt').onclick = function () {
+                    // access text property of selected option
+                    el.value = sel.options[sel.selectedIndex].text;
+                }
+
+                document.getElementById('doLoop').onclick = function () {
+                    var opt = getSelectedOption(sel);
+                    el.value = opt.value;
+                }
+
+            }());
+
+// immediate function to preserve global namespace
+        </script>
+        <p class="text-center text-secondary mb-0">Secure Payment</p>
+        <div class="card shadow-sm border-0 mb-3">
+            <div class="card-body p-3">
+                <div class="media">
+                    <div class="icon align-self-center">
+                        <i class="material-icons h1 mb-0 mr-3">payment</i>
+                    </div>
+                    <div class="media-body">
+                        <select class="custom-select" name="odemeyontemi" onchange="MM_jumpMenu4('self',this,0)" required="">
+                            <option value="" selected="">Payment methods</option>
+
+                            <option value="cart" >Pay With Credit Card</option>
+                            <option value="havaleeft" >Money Order / EFT </option>
+                            <option value="kapidaodeme" >Pay at the door100&#36;</option>
+                            <option value="cari" >Payment From Current Account </option>
+
+                        </select>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="terms-of-service">
+            <div>
+                <input id="termsofservice" type="checkbox" name="termsofservice" required>
+                <label for="termsofservice">
+                   I have read the Preliminary Information Conditions and the Distance Sales Contract, I approve</label>
+
+                <script>
+									   $(document).ready(function() {
+									       $('#read-terms').on('click', function(e) {
+									           e.preventDefault();
+									           displayPopupContentFromUrl('/t-popup/conditionsofuse', 'Terms of service');
+									       });
+									   });
+                </script>
+            </div>
+        </div>
+        <style>
+            #overflowTest1 {
+                color: black;
+                padding: 15px;
+                width: 100%;
+                height: 100px;
+                overflow: scroll;
+                border: 1px solid #ccc;
+            }
+
+            #overflowTest2 {
+                color: black;
+                padding: 15px;
+                width: 100%;
+                height: 100px;
+                overflow: scroll;
+                border: 1px solid #ccc;
+            }
+
+            #overflowTest3 {
+                color: black;
+                padding: 15px;
+                width: 100%;
+                height: 100px;
+                overflow: scroll;
+                border: 1px solid #ccc;
+            }
+
+            #overflowTest4 {
+                color: black;
+                padding: 15px;
+                width: 100%;
+                height: 100px;
+                overflow: scroll;
+                border: 1px solid #ccc;
+            }
+        </style>
+        <div id="overflowTest1">
+            <p>Put your shipping &amp; returns information here. You can edit this in the admin site.</p>
+        </div>
+        <div id="overflowTest2">
+            deger atanmamis
+        </div>
+        <div id="overflowTest3">
+            <p>Put your conditions of use information here. You can edit this in the admin site.</p>
+        </div>
+
+        
+        <ul class="nav bg-light nav-pills rounded nav-fill mb-3" role="tablist">
+            <li class="nav-item">
+                <a class="" data-toggle="pill" href="#nav-tab-card">
+                    <i class="fa fa-credit-card"></i>Pay With Credit Card</a></li>
+        </ul>
+        <div class="tab-content">
+            <div class="tab-pane fade active show" id="nav-tab-card3">
+                <p class="alert alert-success">Total amount : 7.97 &nbsp; &#36; - Pay With Credit Card</p>
+                <input type="hidden" name="kart" value="0" />
+                <input type="hidden" name="indirim" value="" />
+                <input type="hidden" name="kupon" value="0.00" />
+                <input type="submit" style="background: #F3780E!important;" class="btn btn-lg btn-default text-white btn-block btn-rounded shadow" value="Pay" />
+            </div>
+            <!-- tab-pane.// -->
+        </div>
+        
+    </form>
+</div>
+
+<script>
+        $(window).on('load', function() {
+
+        });
+
+</script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $("#BillingNewAddress_CountryId").change(function () {
+            var selectedItem = $(this).val();
+            var ddlStates = $("#BillingNewAddress_StateProvinceId");
+            var statesProgress = $("#states-loading-progress");
+            statesProgress.show();
+            $.ajax({
+                cache: false,
+                type: "GET",
+                url: "/country/getstatesbycountryid",
+                data: { "countryId": selectedItem, "addSelectStateItem": "false" },
+                success: function (data) {
+                    ddlStates.html('');
+                    $.each(data, function (id, option) {
+                        ddlStates.append($('<option></option>').val(option.id).html(option.name));
+                    });
+                    statesProgress.hide();
+                },
+                error: function (xhr, ajaxOptions, thrownError) {
+                    alert('Failed to retrieve states.');
+                    statesProgress.hide();
+                }
+            });
+        });
+    });
+</script>
+<input data-val="true" data-val-number="The field Id must be a number." data-val-required="'Id' değeri boş olamaz." id="BillingNewAddress_Id" name="BillingNewAddress.Id" type="hidden" value="0">
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="id02" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">My Invoice Addresses</h5>
+       
+      </div>
+      <div class="modal-body">
+          <!-- Custom styles for this template -->
+
+
+<form action="/adres/index.html?adres=ok" method="get" id="formx">
+
+    <input type="hidden" name="uid" value="8448">
+    <input type="hidden" value="ok" name="adres" />
+    <div class="edit-address">
+        <div class="form-group">
+            <label for="BillingNewAddress_FirstName">Quick Identification:</label>
+            <input class="form-control" data-val="true" data-val-required="Başlık:Ev,İş,Depo" name="address_attribute_5" type="text" value="" placeholder="Title: Home, Office, Warehouse" required>
+        </div>
+
+        <div class="form-group">
+            <label>Account type:</label>
+
+            <input id="address_attribute_1_1x" checked onclick="myFunction()" type="radio" required name="address_attribute_1" value="1">
+            <label for="address_attribute_1_1">Individual</label>
+
+            <input id="address_attribute_1_2x" onclick="myFunction2()" required type="radio" name="address_attribute_1" value="2">
+            <label for="address_attribute_1_2">Corporate</label>
+
+
+
+
+
+        </div>
+
+
+
+        <div id="myDIV">
+            <div class="form-group">
+
+                <label>Your Citizenship Number:</label>
+
+                <input name="address_attribute_2" type="text" class="form-control" id="address_attribute_2x">
+            </div>
+
+        </div>
+
+
+
+
+        <div id="myDIV2" style="display: none;">
+            <div class="form-group">
+                <label for="BillingNewAddress_Company">Company name:</label>
+                <input class="form-control" id="BillingNewAddress_Companyx" name="BillingNewAddress.Company" type="text" value="">
+            </div>
+
+            <div class="form-group">
+                <label>Tax Administration:</label>
+
+                <input name="address_attribute_3" type="text" class="form-control" id="address_attribute_3x">
+            </div>
+            <div class="form-group">
+                <label> Your Tax Number:</label>
+
+                <input name="address_attribute_4" type="text" class="form-control" id="address_attribute_4x">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label for="BillingNewAddress_FirstName">Name:</label>
+            <input class="form-control" data-val="true" data-val-required="Adı gerekli." id="BillingNewAddress_FirstNamex" name="BillingNewAddress.FirstName" type="text" value="" required>
+        </div>
+        <div class="form-group">
+            <label for="BillingNewAddress_LastName"> Surname:</label>
+            <input class="form-control" data-val="true" data-val-required="Soy Adı gerekli." id="BillingNewAddress_LastNamex" name="BillingNewAddress.LastName" type="text" value="" required>
+        </div>
+        <div class="form-group">
+            <label for="BillingNewAddress_Email">Email:</label>
+            <input class="form-control" data-val="true" data-val-email="Hatalı E-posta" data-val-required="Email gerekli." id="BillingNewAddress_Emailx" name="BillingNewAddress.Email" type="text" value="" required>
+        </div>
+        <div class="form-group">
+            <label for="BillingNewAddress_PhoneNumber">Phone:</label>
+            <input required class="form-control" data-val="true" data-val-required="Telefon girmelisiniz." id="BillingNewAddress_PhoneNumberx" name="BillingNewAddress.PhoneNumber" type="text" value="">
+        </div>
+        <div class="form-group">
+            <label for="BillingNewAddress_CountryId">Country:</label>
+            
+            <select name="UlkeID" id="UlkeID" class="il_ilce_bucak form-control">
+                <option value="0">Your Choice</option>
+                
+                <option value="1" title="AnaGrup_1" >United States</option>
+                
+                <option value="2" title="AnaGrup_2" >Canada</option>
+                
+                <option value="3" title="AnaGrup_3" >Argentina</option>
+                
+                <option value="4" title="AnaGrup_4" >Armenia</option>
+                
+                <option value="5" title="AnaGrup_5" >Aruba</option>
+                
+                <option value="6" title="AnaGrup_6" >Australia</option>
+                
+                <option value="7" title="AnaGrup_7" >Austria</option>
+                
+                <option value="8" title="AnaGrup_8" >Azerbaijan</option>
+                
+                <option value="9" title="AnaGrup_9" >Bahamas</option>
+                
+                <option value="10" title="AnaGrup_10" >Bangladesh</option>
+                
+                <option value="11" title="AnaGrup_11" >Belarus</option>
+                
+                <option value="12" title="AnaGrup_12" >Belgium</option>
+                
+                <option value="13" title="AnaGrup_13" >Belize</option>
+                
+                <option value="14" title="AnaGrup_14" >Bermuda</option>
+                
+                <option value="15" title="AnaGrup_15" >Bolivia</option>
+                
+                <option value="16" title="AnaGrup_16" >Bosnia and Herzegowina</option>
+                
+                <option value="17" title="AnaGrup_17" >Brazil</option>
+                
+                <option value="18" title="AnaGrup_18" >Bulgaria</option>
+                
+                <option value="19" title="AnaGrup_19" >Cayman Islands</option>
+                
+                <option value="20" title="AnaGrup_20" >Chile</option>
+                
+                <option value="21" title="AnaGrup_21" >China</option>
+                
+                <option value="22" title="AnaGrup_22" >Colombia</option>
+                
+                <option value="23" title="AnaGrup_23" >Costa Rica</option>
+                
+                <option value="24" title="AnaGrup_24" >Croatia</option>
+                
+                <option value="25" title="AnaGrup_25" >Cuba</option>
+                
+                <option value="26" title="AnaGrup_26" >Cyprus</option>
+                
+                <option value="27" title="AnaGrup_27" >Czech Republic</option>
+                
+                <option value="28" title="AnaGrup_28" >Denmark</option>
+                
+                <option value="29" title="AnaGrup_29" >Dominican Republic</option>
+                
+                <option value="30" title="AnaGrup_30" >East Timor</option>
+                
+                <option value="31" title="AnaGrup_31" >Ecuador</option>
+                
+                <option value="32" title="AnaGrup_32" >Egypt</option>
+                
+                <option value="33" title="AnaGrup_33" >Finland</option>
+                
+                <option value="34" title="AnaGrup_34" >France</option>
+                
+                <option value="35" title="AnaGrup_35" >Georgia</option>
+                
+                <option value="36" title="AnaGrup_36" >Germany</option>
+                
+                <option value="37" title="AnaGrup_37" >Gibraltar</option>
+                
+                <option value="38" title="AnaGrup_38" >Greece</option>
+                
+                <option value="39" title="AnaGrup_39" >Guatemala</option>
+                
+                <option value="40" title="AnaGrup_40" >Hong Kong</option>
+                
+                <option value="41" title="AnaGrup_41" >Hungary</option>
+                
+                <option value="42" title="AnaGrup_42" >India</option>
+                
+                <option value="43" title="AnaGrup_43" >Indonesia</option>
+                
+                <option value="44" title="AnaGrup_44" >Ireland</option>
+                
+                <option value="45" title="AnaGrup_45" >Israel</option>
+                
+                <option value="46" title="AnaGrup_46" >Italy</option>
+                
+                <option value="47" title="AnaGrup_47" >Jamaica</option>
+                
+                <option value="48" title="AnaGrup_48" >Japan</option>
+                
+                <option value="49" title="AnaGrup_49" >Jordan</option>
+                
+                <option value="50" title="AnaGrup_50" >Kazakhstan</option>
+                
+                <option value="51" title="AnaGrup_51" >Korea, Democratic People's Republic of</option>
+                
+                <option value="52" title="AnaGrup_52" >Kuwait</option>
+                
+                <option value="53" title="AnaGrup_53" >Malaysia</option>
+                
+                <option value="54" title="AnaGrup_54" >Mexico</option>
+                
+                <option value="55" title="AnaGrup_55" >Netherlands</option>
+                
+                <option value="56" title="AnaGrup_56" >New Zealand</option>
+                
+                <option value="57" title="AnaGrup_57" >Norway</option>
+                
+                <option value="58" title="AnaGrup_58" >Pakistan</option>
+                
+                <option value="59" title="AnaGrup_59" >Palestine</option>
+                
+                <option value="60" title="AnaGrup_60" >Paraguay</option>
+                
+                <option value="61" title="AnaGrup_61" >Peru</option>
+                
+                <option value="62" title="AnaGrup_62" >Philippines</option>
+                
+                <option value="63" title="AnaGrup_63" >Poland</option>
+                
+                <option value="64" title="AnaGrup_64" >Portugal</option>
+                
+                <option value="65" title="AnaGrup_65" >Puerto Rico</option>
+                
+                <option value="66" title="AnaGrup_66" >Qatar</option>
+                
+                <option value="67" title="AnaGrup_67" >Romania</option>
+                
+                <option value="68" title="AnaGrup_68" >Russian Federation</option>
+                
+                <option value="69" title="AnaGrup_69" >Saudi Arabia</option>
+                
+                <option value="70" title="AnaGrup_70" >Singapore</option>
+                
+                <option value="71" title="AnaGrup_71" >Slovakia (Slovak Republic)</option>
+                
+                <option value="72" title="AnaGrup_72" >Slovenia</option>
+                
+                <option value="73" title="AnaGrup_73" >South Africa</option>
+                
+                <option value="74" title="AnaGrup_74" >Spain</option>
+                
+                <option value="75" title="AnaGrup_75" >Sweden</option>
+                
+                <option value="76" title="AnaGrup_76" >Switzerland</option>
+                
+                <option value="77" title="AnaGrup_77" >Taiwan</option>
+                
+                <option value="78" title="AnaGrup_78" >Thailand</option>
+                
+                <option value="79" title="AnaGrup_79"  selected>Türkiye</option>
+                
+                <option value="80" title="AnaGrup_80" >Ukraine</option>
+                
+                <option value="81" title="AnaGrup_81" >United Arab Emirates</option>
+                
+                <option value="82" title="AnaGrup_82" >United Kingdom</option>
+                
+                <option value="83" title="AnaGrup_83" >United States minor outlying islands</option>
+                
+                <option value="84" title="AnaGrup_84" >Uruguay</option>
+                
+                <option value="85" title="AnaGrup_85" >Uzbekistan</option>
+                
+                <option value="86" title="AnaGrup_86" >Venezuela</option>
+                
+                <option value="87" title="AnaGrup_87" >Serbia</option>
+                
+                <option value="88" title="AnaGrup_88" >Afghanistan</option>
+                
+                <option value="89" title="AnaGrup_89" >Albania</option>
+                
+                <option value="90" title="AnaGrup_90" >Algeria</option>
+                
+                <option value="91" title="AnaGrup_91" >American Samoa</option>
+                
+                <option value="92" title="AnaGrup_92" >Andorra</option>
+                
+                <option value="93" title="AnaGrup_93" >Angola</option>
+                
+                <option value="94" title="AnaGrup_94" >Anguilla</option>
+                
+                <option value="95" title="AnaGrup_95" >Antarctica</option>
+                
+                <option value="96" title="AnaGrup_96" >Antigua and Barbuda</option>
+                
+                <option value="97" title="AnaGrup_97" >Bahrain</option>
+                
+                <option value="98" title="AnaGrup_98" >Barbados</option>
+                
+                <option value="99" title="AnaGrup_99" >Benin</option>
+                
+                <option value="100" title="AnaGrup_100" >Bhutan</option>
+                
+                <option value="101" title="AnaGrup_101" >Botswana</option>
+                
+                <option value="102" title="AnaGrup_102" >Bouvet Island</option>
+                
+                <option value="103" title="AnaGrup_103" >British Indian Ocean Territory</option>
+                
+                <option value="104" title="AnaGrup_104" >Brunei Darussalam</option>
+                
+                <option value="105" title="AnaGrup_105" >Burkina Faso</option>
+                
+                <option value="106" title="AnaGrup_106" >Burundi</option>
+                
+                <option value="107" title="AnaGrup_107" >Cambodia</option>
+                
+                <option value="108" title="AnaGrup_108" >Cameroon</option>
+                
+                <option value="109" title="AnaGrup_109" >Cape Verde</option>
+                
+                <option value="110" title="AnaGrup_110" >Central African Republic</option>
+                
+                <option value="111" title="AnaGrup_111" >Chad</option>
+                
+                <option value="112" title="AnaGrup_112" >Christmas Island</option>
+                
+                <option value="113" title="AnaGrup_113" >Cocos (Keeling) Islands</option>
+                
+                <option value="114" title="AnaGrup_114" >Comoros</option>
+                
+                <option value="115" title="AnaGrup_115" >Congo</option>
+                
+                <option value="116" title="AnaGrup_116" >Congo (Democratic Republic of the)</option>
+                
+                <option value="117" title="AnaGrup_117" >Cook Islands</option>
+                
+                <option value="118" title="AnaGrup_118" >Cote D'Ivoire</option>
+                
+                <option value="119" title="AnaGrup_119" >Djibouti</option>
+                
+                <option value="120" title="AnaGrup_120" >Dominica</option>
+                
+                <option value="121" title="AnaGrup_121" >El Salvador</option>
+                
+                <option value="122" title="AnaGrup_122" >Equatorial Guinea</option>
+                
+                <option value="123" title="AnaGrup_123" >Eritrea</option>
+                
+                <option value="124" title="AnaGrup_124" >Estonia</option>
+                
+                <option value="125" title="AnaGrup_125" >Ethiopia</option>
+                
+                <option value="126" title="AnaGrup_126" >Falkland Islands (Malvinas)</option>
+                
+                <option value="127" title="AnaGrup_127" >Faroe Islands</option>
+                
+                <option value="128" title="AnaGrup_128" >Fiji</option>
+                
+                <option value="129" title="AnaGrup_129" >French Guiana</option>
+                
+                <option value="130" title="AnaGrup_130" >French Polynesia</option>
+                
+                <option value="131" title="AnaGrup_131" >French Southern Territories</option>
+                
+                <option value="132" title="AnaGrup_132" >Gabon</option>
+                
+                <option value="133" title="AnaGrup_133" >Gambia</option>
+                
+                <option value="134" title="AnaGrup_134" >Ghana</option>
+                
+                <option value="135" title="AnaGrup_135" >Greenland</option>
+                
+                <option value="136" title="AnaGrup_136" >Grenada</option>
+                
+                <option value="137" title="AnaGrup_137" >Guadeloupe</option>
+                
+                <option value="138" title="AnaGrup_138" >Guam</option>
+                
+                <option value="139" title="AnaGrup_139" >Guinea</option>
+                
+                <option value="140" title="AnaGrup_140" >Guinea-bissau</option>
+                
+                <option value="141" title="AnaGrup_141" >Guyana</option>
+                
+                <option value="142" title="AnaGrup_142" >Haiti</option>
+                
+                <option value="143" title="AnaGrup_143" >Heard and Mc Donald Islands</option>
+                
+                <option value="144" title="AnaGrup_144" >Honduras</option>
+                
+                <option value="145" title="AnaGrup_145" >Iceland</option>
+                
+                <option value="146" title="AnaGrup_146" >Iran (Islamic Republic of)</option>
+                
+                <option value="147" title="AnaGrup_147" >Iraq</option>
+                
+                <option value="148" title="AnaGrup_148" >Kenya</option>
+                
+                <option value="149" title="AnaGrup_149" >Kiribati</option>
+                
+                <option value="150" title="AnaGrup_150" >Korea</option>
+                
+                <option value="151" title="AnaGrup_151" >Kyrgyzstan</option>
+                
+                <option value="152" title="AnaGrup_152" >Lao People's Democratic Republic</option>
+                
+                <option value="153" title="AnaGrup_153" >Latvia</option>
+                
+                <option value="154" title="AnaGrup_154" >Lebanon</option>
+                
+                <option value="155" title="AnaGrup_155" >Lesotho</option>
+                
+                <option value="156" title="AnaGrup_156" >Liberia</option>
+                
+                <option value="157" title="AnaGrup_157" >Libyan Arab Jamahiriya</option>
+                
+                <option value="158" title="AnaGrup_158" >Liechtenstein</option>
+                
+                <option value="159" title="AnaGrup_159" >Lithuania</option>
+                
+                <option value="160" title="AnaGrup_160" >Luxembourg</option>
+                
+                <option value="161" title="AnaGrup_161" >Macau</option>
+                
+                <option value="162" title="AnaGrup_162" >Macedonia</option>
+                
+                <option value="163" title="AnaGrup_163" >Madagascar</option>
+                
+                <option value="164" title="AnaGrup_164" >Malawi</option>
+                
+                <option value="165" title="AnaGrup_165" >Maldives</option>
+                
+                <option value="166" title="AnaGrup_166" >Mali</option>
+                
+                <option value="167" title="AnaGrup_167" >Malta</option>
+                
+                <option value="168" title="AnaGrup_168" >Marshall Islands</option>
+                
+                <option value="169" title="AnaGrup_169" >Martinique</option>
+                
+                <option value="170" title="AnaGrup_170" >Mauritania</option>
+                
+                <option value="171" title="AnaGrup_171" >Mauritius</option>
+                
+                <option value="172" title="AnaGrup_172" >Mayotte</option>
+                
+                <option value="173" title="AnaGrup_173" >Micronesia</option>
+                
+                <option value="174" title="AnaGrup_174" >Moldova</option>
+                
+                <option value="175" title="AnaGrup_175" >Monaco</option>
+                
+                <option value="176" title="AnaGrup_176" >Mongolia</option>
+                
+                <option value="177" title="AnaGrup_177" >Montenegro</option>
+                
+                <option value="178" title="AnaGrup_178" >Montserrat</option>
+                
+                <option value="179" title="AnaGrup_179" >Morocco</option>
+                
+                <option value="180" title="AnaGrup_180" >Mozambique</option>
+                
+                <option value="181" title="AnaGrup_181" >Myanmar</option>
+                
+                <option value="182" title="AnaGrup_182" >Namibia</option>
+                
+                <option value="183" title="AnaGrup_183" >Nauru</option>
+                
+                <option value="184" title="AnaGrup_184" >Nepal</option>
+                
+                <option value="185" title="AnaGrup_185" >Netherlands Antilles</option>
+                
+                <option value="186" title="AnaGrup_186" >New Caledonia</option>
+                
+                <option value="187" title="AnaGrup_187" >Nicaragua</option>
+                
+                <option value="188" title="AnaGrup_188" >Niger</option>
+                
+                <option value="189" title="AnaGrup_189" >Nigeria</option>
+                
+                <option value="190" title="AnaGrup_190" >Niue</option>
+                
+                <option value="191" title="AnaGrup_191" >Norfolk Island</option>
+                
+                <option value="192" title="AnaGrup_192" >Northern Mariana Islands</option>
+                
+                <option value="193" title="AnaGrup_193" >Oman</option>
+                
+                <option value="194" title="AnaGrup_194" >Palau</option>
+                
+                <option value="195" title="AnaGrup_195" >Panama</option>
+                
+                <option value="196" title="AnaGrup_196" >Papua New Guinea</option>
+                
+                <option value="197" title="AnaGrup_197" >Pitcairn</option>
+                
+                <option value="198" title="AnaGrup_198" >Reunion</option>
+                
+                <option value="199" title="AnaGrup_199" >Rwanda</option>
+                
+                <option value="200" title="AnaGrup_200" >Saint Kitts and Nevis</option>
+                
+                <option value="201" title="AnaGrup_201" >Saint Lucia</option>
+                
+                <option value="202" title="AnaGrup_202" >Saint Vincent and the Grenadines</option>
+                
+                <option value="203" title="AnaGrup_203" >Samoa</option>
+                
+                <option value="204" title="AnaGrup_204" >San Marino</option>
+                
+                <option value="205" title="AnaGrup_205" >Sao Tome and Principe</option>
+                
+                <option value="206" title="AnaGrup_206" >Senegal</option>
+                
+                <option value="207" title="AnaGrup_207" >Seychelles</option>
+                
+                <option value="208" title="AnaGrup_208" >Sierra Leone</option>
+                
+                <option value="209" title="AnaGrup_209" >Solomon Islands</option>
+                
+                <option value="210" title="AnaGrup_210" >Somalia</option>
+                
+                <option value="211" title="AnaGrup_211" >South Georgia & South Sandwich Islands</option>
+                
+                <option value="212" title="AnaGrup_212" >South Sudan</option>
+                
+                <option value="213" title="AnaGrup_213" >Sri Lanka</option>
+                
+                <option value="214" title="AnaGrup_214" >St. Helena</option>
+                
+                <option value="215" title="AnaGrup_215" >St. Pierre and Miquelon</option>
+                
+                <option value="216" title="AnaGrup_216" >Sudan</option>
+                
+                <option value="217" title="AnaGrup_217" >Suriname</option>
+                
+                <option value="218" title="AnaGrup_218" >Svalbard and Jan Mayen Islands</option>
+                
+                <option value="219" title="AnaGrup_219" >Swaziland</option>
+                
+                <option value="220" title="AnaGrup_220" >Syrian Arab Republic</option>
+                
+                <option value="221" title="AnaGrup_221" >Tajikistan</option>
+                
+                <option value="222" title="AnaGrup_222" >Tanzania</option>
+                
+                <option value="223" title="AnaGrup_223" >Togo</option>
+                
+                <option value="224" title="AnaGrup_224" >Tokelau</option>
+                
+                <option value="225" title="AnaGrup_225" >Tonga</option>
+                
+                <option value="226" title="AnaGrup_226" >Trinidad and Tobago</option>
+                
+                <option value="227" title="AnaGrup_227" >Tunisia</option>
+                
+                <option value="228" title="AnaGrup_228" >Turkmenistan</option>
+                
+                <option value="229" title="AnaGrup_229" >Turks and Caicos Islands</option>
+                
+                <option value="230" title="AnaGrup_230" >Tuvalu</option>
+                
+                <option value="231" title="AnaGrup_231" >Uganda</option>
+                
+                <option value="232" title="AnaGrup_232" >Vanuatu</option>
+                
+                <option value="233" title="AnaGrup_233" >Vatican City State (Holy See)</option>
+                
+                <option value="234" title="AnaGrup_234" >Viet Nam</option>
+                
+                <option value="235" title="AnaGrup_235" >Virgin Islands (British)</option>
+                
+                <option value="236" title="AnaGrup_236" >Virgin Islands (U.S.)</option>
+                
+                <option value="237" title="AnaGrup_237" >Wallis and Futuna Islands</option>
+                
+                <option value="238" title="AnaGrup_238" >Western Sahara</option>
+                
+                <option value="239" title="AnaGrup_239" >Yemen</option>
+                
+                <option value="240" title="AnaGrup_240" >Zambia</option>
+                
+                <option value="241" title="AnaGrup_241" >Zimbabwe</option>
+                
+            </select>
+            
+        </div>
+
+        <div class="form-group">
+            <label for="BillingNewAddress_StateProvinceId">City:</label>
+            <select name="SehirID" id="SehirID" class="il_ilce_bucak form-control">
+                <option value=""></option>
+
+                
+                <option value="1707" >Zonguldak</option>
+                
+                <option value="1706" >Yozgat</option>
+                
+                <option value="1705" >Yalova</option>
+                
+                <option value="1704" >Van</option>
+                
+                <option value="1703" >Uşak</option>
+                
+                <option value="1702" >Tunceli</option>
+                
+                <option value="1701" >Trabzon</option>
+                
+                <option value="1700" >Tokat</option>
+                
+                <option value="1699" >Tekirdağ</option>
+                
+                <option value="1698" >Şırnak</option>
+                
+                <option value="1697" >Şanlıurfa</option>
+                
+                <option value="1696" >Sivas</option>
+                
+                <option value="1695" >Sinop</option>
+                
+                <option value="1694" >Siirt</option>
+                
+                <option value="1693" >Samsun</option>
+                
+                <option value="1692" >Sakarya</option>
+                
+                <option value="1691" >Rize</option>
+                
+                <option value="1690" >Osmaniye</option>
+                
+                <option value="1689" >Ordu</option>
+                
+                <option value="1688" >Niğde</option>
+                
+                <option value="1687" >Nevşehir</option>
+                
+                <option value="1686" >Muş</option>
+                
+                <option value="1685" >Muğla</option>
+                
+                <option value="1684" >Mersin</option>
+                
+                <option value="1683" >Mardin</option>
+                
+                <option value="1682" >Manisa</option>
+                
+                <option value="1681" >Malatya</option>
+                
+                <option value="1680" >Kütahya</option>
+                
+                <option value="1679" >Konya</option>
+                
+                <option value="1678" >Kocaeli</option>
+                
+                <option value="1677" >Kilis</option>
+                
+                <option value="1676" >Kırşehir</option>
+                
+                <option value="1675" >Kırklareli</option>
+                
+                <option value="1674" >Kırıkkale</option>
+                
+                <option value="1673" >Kayseri</option>
+                
+                <option value="1672" >Kastamonu</option>
+                
+                <option value="1671" >Kars</option>
+                
+                <option value="1670" >Karaman</option>
+                
+                <option value="1669" >Karabük</option>
+                
+                <option value="1668" >Kahramanmaraş</option>
+                
+                <option value="1667" >İzmir</option>
+                
+                <option value="1666" selected >İstanbul</option>
+                
+                <option value="1665" >Isparta</option>
+                
+                <option value="1664" >Iğdır</option>
+                
+                <option value="1663" >Hatay</option>
+                
+                <option value="1662" >Hakkari</option>
+                
+                <option value="1661" >Gümüşhane</option>
+                
+                <option value="1660" >Giresun</option>
+                
+                <option value="1659" >Gaziantep</option>
+                
+                <option value="1658" >Eskişehir</option>
+                
+                <option value="1657" >Erzurum</option>
+                
+                <option value="1656" >Erzincan</option>
+                
+                <option value="1655" >Elazığ</option>
+                
+                <option value="1654" >Edirne</option>
+                
+                <option value="1653" >Düzce</option>
+                
+                <option value="1652" >Diyarbakır</option>
+                
+                <option value="1651" >Denizli</option>
+                
+                <option value="1650" >Çorum</option>
+                
+                <option value="1649" >Çankırı</option>
+                
+                <option value="1648" >Çanakkale</option>
+                
+                <option value="1647" >Bursa</option>
+                
+                <option value="1646" >Burdur</option>
+                
+                <option value="1645" >Bolu</option>
+                
+                <option value="1644" >Bitlis</option>
+                
+                <option value="1643" >Bingöl</option>
+                
+                <option value="1642" >Bilecik</option>
+                
+                <option value="1641" >Bayburt</option>
+                
+                <option value="1640" >Batman</option>
+                
+                <option value="1639" >Bartın</option>
+                
+                <option value="1638" >Balıkesir</option>
+                
+                <option value="1637" >Aydın</option>
+                
+                <option value="1636" >Artvin</option>
+                
+                <option value="1635" >Ardahan</option>
+                
+                <option value="1634" >Antalya</option>
+                
+                <option value="1633" >Ankara</option>
+                
+                <option value="1632" >Amasya</option>
+                
+                <option value="1631" >Aksaray</option>
+                
+                <option value="1630" >Ağrı</option>
+                
+                <option value="1629" >Afyonkarahisar</option>
+                
+                <option value="1628" >Adıyaman</option>
+                
+                <option value="1627" >Adana</option>
+                
+            </select>
+
+            <span id="states-loading-progress" style="display: none;" class="please-wait">Wait...</span>
+        </div>
+        <div class="form-group">
+            <label for="BillingNewAddress_City">District:</label>
+            <input required class="form-control" data-val="true" data-val-required="İlçe Gerekli" id="BillingNewAddress_Cityx" name="BillingNewAddress.City" type="text" value="">
+        </div>
+        <div class="form-group">
+            <label for="BillingNewAddress_Address1"> Address:</label>
+            <input required class="form-control" data-val="true" data-val-required="Adres alanını doldurmalısınız." id="BillingNewAddress_Address1x" name="BillingNewAddress.Address1" type="text" value="">
+        </div>
+
+
+
+
+
+        <script>
+            function myFunction() {
+                var x = document.getElementById("myDIV");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+                    x.style.display = "block";
+                }
+                var x = document.getElementById("myDIV2");
+                if (x.style.display === "none") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "none";
+                }
+
+
+            }
+
+            function myFunction2() {
+                var x = document.getElementById("myDIV2");
+                if (x.style.display === "none") {
+                    x.style.display = "block";
+                } else {
+
+                }
+
+                var x = document.getElementById("myDIV");
+                if (x.style.display === "none") {
+                    x.style.display = "none";
+                } else {
+                    x.style.display = "none";
+                }
+            }
+        </script>
+
+
+
+    </div>
+
+
+
+
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+<button type="submit" class="btn btn-primary">Add Address</button>
+
+    <input type="hidden" value="1" name="adresturu" />
+
+</form>
+
+      </div>
+     
+    </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="id01" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">My Delivery Addresses</h5>
+      
+     
+      </div>
+      <div class="modal-body">
+        <form action="/adres/index.html?adres=ok" method="get" id="form">
+
+    <input type="hidden" name="uid" value="8448">
+    <input type="hidden" value="ok" name="adres" />
+    <div class="edit-address">
+        <div class="form-group">
+            <label for="BillingNewAddress_FirstName">Quick Identification:</label>
+            <input class="form-control" data-val="true" data-val-required="Başlık:Ev,İş,Depo" name="address_attribute_5" type="text" value="" placeholder="Title: Home, Office, Warehouse" required>
+        </div>
+        <script type="text/javascript">
+<!--
+    function toggle_visibility(id) {
+        var e = document.getElementById(id);
+        if (e.style.display == 'block')
+            e.style.display = 'none';
+        else
+            e.style.display = 'block';
+    }
+//-->
+</script>
+
+        <!-- Inline Usage in HTML -->
+        <input type="checkbox" id="faturacopy" name="faturacopy" onclick="toggle_visibility('goster');" />
+        My delivery and invoice address are the same
+
+
+        <div id="goster" style="display: none;">
+
+            <div class="form-group">
+                <label>Account type:</label>
+
+                <input id="address_attribute_1_1" checked onclick="myFunction4()" type="radio" required name="address_attribute_1" value="1">
+                <label for="address_attribute_1_1">Individual</label>
+
+                <input id="address_attribute_1_2" onclick="myFunction5()" required type="radio" name="address_attribute_1" value="2">
+                <label for="address_attribute_1_2">Corporate</label>
+
+
+
+
+            </div>
+
+
+
+            <div id="myDIVx">
+                <div class="form-group">
+
+                    <label>Your Citizenship Number:</label>
+
+                    <input name="address_attribute_2" type="text" class="form-control" id="address_attribute_2">
+                </div>
+
+            </div>
+
+
+
+
+            <div id="myDIV2x" style="display: none;">
+                <div class="form-group">
+                    <label for="BillingNewAddress_Company">Company name:</label>
+                    <input class="form-control" id="BillingNewAddress_Company" name="BillingNewAddress.Company" type="text" value="">
+                </div>
+
+                <div class="form-group">
+                    <label>Tax Administration:</label>
+
+                    <input name="address_attribute_3" type="text" class="form-control" id="address_attribute_3">
+                </div>
+                <div class="form-group">
+                    <label> Your Tax Number:</label>
+
+                    <input name="address_attribute_4" type="text" class="form-control" id="address_attribute_4">
+                </div>
+            </div>
+
+        </div>
+
+        <div class="form-group">
+            <label for="BillingNewAddress_FirstName">Name:</label>
+            <input class="form-control" data-val="true" data-val-required="Adı gerekli." name="BillingNewAddress.FirstName" type="text" value="" required>
+        </div>
+        <div class="form-group">
+            <label for="BillingNewAddress_LastName"> Surname:</label>
+            <input class="form-control" data-val="true" data-val-required="Soy Adı gerekli." name="BillingNewAddress.LastName" type="text" value="" required>
+        </div>
+        <div class="form-group">
+            <label for="BillingNewAddress_Email">Email:</label>
+            <input class="form-control" data-val="true" data-val-email="Hatalı E-posta" data-val-required="Email gerekli." id="BillingNewAddress_Email" name="BillingNewAddress.Email" type="text" value="" required>
+        </div>
+        <div class="form-group">
+            <label for="BillingNewAddress_PhoneNumber">Phone:</label>
+            <input required class="form-control" data-val="true" data-val-required="Telefon girmelisiniz." id="BillingNewAddress_PhoneNumber" name="BillingNewAddress.PhoneNumber" type="text" value="">
+        </div>
+        <div class="form-group">
+            <label for="BillingNewAddress_CountryId">Country:</label>
+            
+            <select name="UlkeID" id="UlkeID2" class="il_ilce_bucak form-control">
+                <option value="0">Your Choice</option>
+                
+                <option value="1" title="AnaGrup_1" >United States</option>
+                
+                <option value="2" title="AnaGrup_2" >Canada</option>
+                
+                <option value="3" title="AnaGrup_3" >Argentina</option>
+                
+                <option value="4" title="AnaGrup_4" >Armenia</option>
+                
+                <option value="5" title="AnaGrup_5" >Aruba</option>
+                
+                <option value="6" title="AnaGrup_6" >Australia</option>
+                
+                <option value="7" title="AnaGrup_7" >Austria</option>
+                
+                <option value="8" title="AnaGrup_8" >Azerbaijan</option>
+                
+                <option value="9" title="AnaGrup_9" >Bahamas</option>
+                
+                <option value="10" title="AnaGrup_10" >Bangladesh</option>
+                
+                <option value="11" title="AnaGrup_11" >Belarus</option>
+                
+                <option value="12" title="AnaGrup_12" >Belgium</option>
+                
+                <option value="13" title="AnaGrup_13" >Belize</option>
+                
+                <option value="14" title="AnaGrup_14" >Bermuda</option>
+                
+                <option value="15" title="AnaGrup_15" >Bolivia</option>
+                
+                <option value="16" title="AnaGrup_16" >Bosnia and Herzegowina</option>
+                
+                <option value="17" title="AnaGrup_17" >Brazil</option>
+                
+                <option value="18" title="AnaGrup_18" >Bulgaria</option>
+                
+                <option value="19" title="AnaGrup_19" >Cayman Islands</option>
+                
+                <option value="20" title="AnaGrup_20" >Chile</option>
+                
+                <option value="21" title="AnaGrup_21" >China</option>
+                
+                <option value="22" title="AnaGrup_22" >Colombia</option>
+                
+                <option value="23" title="AnaGrup_23" >Costa Rica</option>
+                
+                <option value="24" title="AnaGrup_24" >Croatia</option>
+                
+                <option value="25" title="AnaGrup_25" >Cuba</option>
+                
+                <option value="26" title="AnaGrup_26" >Cyprus</option>
+                
+                <option value="27" title="AnaGrup_27" >Czech Republic</option>
+                
+                <option value="28" title="AnaGrup_28" >Denmark</option>
+                
+                <option value="29" title="AnaGrup_29" >Dominican Republic</option>
+                
+                <option value="30" title="AnaGrup_30" >East Timor</option>
+                
+                <option value="31" title="AnaGrup_31" >Ecuador</option>
+                
+                <option value="32" title="AnaGrup_32" >Egypt</option>
+                
+                <option value="33" title="AnaGrup_33" >Finland</option>
+                
+                <option value="34" title="AnaGrup_34" >France</option>
+                
+                <option value="35" title="AnaGrup_35" >Georgia</option>
+                
+                <option value="36" title="AnaGrup_36" >Germany</option>
+                
+                <option value="37" title="AnaGrup_37" >Gibraltar</option>
+                
+                <option value="38" title="AnaGrup_38" >Greece</option>
+                
+                <option value="39" title="AnaGrup_39" >Guatemala</option>
+                
+                <option value="40" title="AnaGrup_40" >Hong Kong</option>
+                
+                <option value="41" title="AnaGrup_41" >Hungary</option>
+                
+                <option value="42" title="AnaGrup_42" >India</option>
+                
+                <option value="43" title="AnaGrup_43" >Indonesia</option>
+                
+                <option value="44" title="AnaGrup_44" >Ireland</option>
+                
+                <option value="45" title="AnaGrup_45" >Israel</option>
+                
+                <option value="46" title="AnaGrup_46" >Italy</option>
+                
+                <option value="47" title="AnaGrup_47" >Jamaica</option>
+                
+                <option value="48" title="AnaGrup_48" >Japan</option>
+                
+                <option value="49" title="AnaGrup_49" >Jordan</option>
+                
+                <option value="50" title="AnaGrup_50" >Kazakhstan</option>
+                
+                <option value="51" title="AnaGrup_51" >Korea, Democratic People's Republic of</option>
+                
+                <option value="52" title="AnaGrup_52" >Kuwait</option>
+                
+                <option value="53" title="AnaGrup_53" >Malaysia</option>
+                
+                <option value="54" title="AnaGrup_54" >Mexico</option>
+                
+                <option value="55" title="AnaGrup_55" >Netherlands</option>
+                
+                <option value="56" title="AnaGrup_56" >New Zealand</option>
+                
+                <option value="57" title="AnaGrup_57" >Norway</option>
+                
+                <option value="58" title="AnaGrup_58" >Pakistan</option>
+                
+                <option value="59" title="AnaGrup_59" >Palestine</option>
+                
+                <option value="60" title="AnaGrup_60" >Paraguay</option>
+                
+                <option value="61" title="AnaGrup_61" >Peru</option>
+                
+                <option value="62" title="AnaGrup_62" >Philippines</option>
+                
+                <option value="63" title="AnaGrup_63" >Poland</option>
+                
+                <option value="64" title="AnaGrup_64" >Portugal</option>
+                
+                <option value="65" title="AnaGrup_65" >Puerto Rico</option>
+                
+                <option value="66" title="AnaGrup_66" >Qatar</option>
+                
+                <option value="67" title="AnaGrup_67" >Romania</option>
+                
+                <option value="68" title="AnaGrup_68" >Russian Federation</option>
+                
+                <option value="69" title="AnaGrup_69" >Saudi Arabia</option>
+                
+                <option value="70" title="AnaGrup_70" >Singapore</option>
+                
+                <option value="71" title="AnaGrup_71" >Slovakia (Slovak Republic)</option>
+                
+                <option value="72" title="AnaGrup_72" >Slovenia</option>
+                
+                <option value="73" title="AnaGrup_73" >South Africa</option>
+                
+                <option value="74" title="AnaGrup_74" >Spain</option>
+                
+                <option value="75" title="AnaGrup_75" >Sweden</option>
+                
+                <option value="76" title="AnaGrup_76" >Switzerland</option>
+                
+                <option value="77" title="AnaGrup_77" >Taiwan</option>
+                
+                <option value="78" title="AnaGrup_78" >Thailand</option>
+                
+                <option value="79" title="AnaGrup_79"  selected>Türkiye</option>
+                
+                <option value="80" title="AnaGrup_80" >Ukraine</option>
+                
+                <option value="81" title="AnaGrup_81" >United Arab Emirates</option>
+                
+                <option value="82" title="AnaGrup_82" >United Kingdom</option>
+                
+                <option value="83" title="AnaGrup_83" >United States minor outlying islands</option>
+                
+                <option value="84" title="AnaGrup_84" >Uruguay</option>
+                
+                <option value="85" title="AnaGrup_85" >Uzbekistan</option>
+                
+                <option value="86" title="AnaGrup_86" >Venezuela</option>
+                
+                <option value="87" title="AnaGrup_87" >Serbia</option>
+                
+                <option value="88" title="AnaGrup_88" >Afghanistan</option>
+                
+                <option value="89" title="AnaGrup_89" >Albania</option>
+                
+                <option value="90" title="AnaGrup_90" >Algeria</option>
+                
+                <option value="91" title="AnaGrup_91" >American Samoa</option>
+                
+                <option value="92" title="AnaGrup_92" >Andorra</option>
+                
+                <option value="93" title="AnaGrup_93" >Angola</option>
+                
+                <option value="94" title="AnaGrup_94" >Anguilla</option>
+                
+                <option value="95" title="AnaGrup_95" >Antarctica</option>
+                
+                <option value="96" title="AnaGrup_96" >Antigua and Barbuda</option>
+                
+                <option value="97" title="AnaGrup_97" >Bahrain</option>
+                
+                <option value="98" title="AnaGrup_98" >Barbados</option>
+                
+                <option value="99" title="AnaGrup_99" >Benin</option>
+                
+                <option value="100" title="AnaGrup_100" >Bhutan</option>
+                
+                <option value="101" title="AnaGrup_101" >Botswana</option>
+                
+                <option value="102" title="AnaGrup_102" >Bouvet Island</option>
+                
+                <option value="103" title="AnaGrup_103" >British Indian Ocean Territory</option>
+                
+                <option value="104" title="AnaGrup_104" >Brunei Darussalam</option>
+                
+                <option value="105" title="AnaGrup_105" >Burkina Faso</option>
+                
+                <option value="106" title="AnaGrup_106" >Burundi</option>
+                
+                <option value="107" title="AnaGrup_107" >Cambodia</option>
+                
+                <option value="108" title="AnaGrup_108" >Cameroon</option>
+                
+                <option value="109" title="AnaGrup_109" >Cape Verde</option>
+                
+                <option value="110" title="AnaGrup_110" >Central African Republic</option>
+                
+                <option value="111" title="AnaGrup_111" >Chad</option>
+                
+                <option value="112" title="AnaGrup_112" >Christmas Island</option>
+                
+                <option value="113" title="AnaGrup_113" >Cocos (Keeling) Islands</option>
+                
+                <option value="114" title="AnaGrup_114" >Comoros</option>
+                
+                <option value="115" title="AnaGrup_115" >Congo</option>
+                
+                <option value="116" title="AnaGrup_116" >Congo (Democratic Republic of the)</option>
+                
+                <option value="117" title="AnaGrup_117" >Cook Islands</option>
+                
+                <option value="118" title="AnaGrup_118" >Cote D'Ivoire</option>
+                
+                <option value="119" title="AnaGrup_119" >Djibouti</option>
+                
+                <option value="120" title="AnaGrup_120" >Dominica</option>
+                
+                <option value="121" title="AnaGrup_121" >El Salvador</option>
+                
+                <option value="122" title="AnaGrup_122" >Equatorial Guinea</option>
+                
+                <option value="123" title="AnaGrup_123" >Eritrea</option>
+                
+                <option value="124" title="AnaGrup_124" >Estonia</option>
+                
+                <option value="125" title="AnaGrup_125" >Ethiopia</option>
+                
+                <option value="126" title="AnaGrup_126" >Falkland Islands (Malvinas)</option>
+                
+                <option value="127" title="AnaGrup_127" >Faroe Islands</option>
+                
+                <option value="128" title="AnaGrup_128" >Fiji</option>
+                
+                <option value="129" title="AnaGrup_129" >French Guiana</option>
+                
+                <option value="130" title="AnaGrup_130" >French Polynesia</option>
+                
+                <option value="131" title="AnaGrup_131" >French Southern Territories</option>
+                
+                <option value="132" title="AnaGrup_132" >Gabon</option>
+                
+                <option value="133" title="AnaGrup_133" >Gambia</option>
+                
+                <option value="134" title="AnaGrup_134" >Ghana</option>
+                
+                <option value="135" title="AnaGrup_135" >Greenland</option>
+                
+                <option value="136" title="AnaGrup_136" >Grenada</option>
+                
+                <option value="137" title="AnaGrup_137" >Guadeloupe</option>
+                
+                <option value="138" title="AnaGrup_138" >Guam</option>
+                
+                <option value="139" title="AnaGrup_139" >Guinea</option>
+                
+                <option value="140" title="AnaGrup_140" >Guinea-bissau</option>
+                
+                <option value="141" title="AnaGrup_141" >Guyana</option>
+                
+                <option value="142" title="AnaGrup_142" >Haiti</option>
+                
+                <option value="143" title="AnaGrup_143" >Heard and Mc Donald Islands</option>
+                
+                <option value="144" title="AnaGrup_144" >Honduras</option>
+                
+                <option value="145" title="AnaGrup_145" >Iceland</option>
+                
+                <option value="146" title="AnaGrup_146" >Iran (Islamic Republic of)</option>
+                
+                <option value="147" title="AnaGrup_147" >Iraq</option>
+                
+                <option value="148" title="AnaGrup_148" >Kenya</option>
+                
+                <option value="149" title="AnaGrup_149" >Kiribati</option>
+                
+                <option value="150" title="AnaGrup_150" >Korea</option>
+                
+                <option value="151" title="AnaGrup_151" >Kyrgyzstan</option>
+                
+                <option value="152" title="AnaGrup_152" >Lao People's Democratic Republic</option>
+                
+                <option value="153" title="AnaGrup_153" >Latvia</option>
+                
+                <option value="154" title="AnaGrup_154" >Lebanon</option>
+                
+                <option value="155" title="AnaGrup_155" >Lesotho</option>
+                
+                <option value="156" title="AnaGrup_156" >Liberia</option>
+                
+                <option value="157" title="AnaGrup_157" >Libyan Arab Jamahiriya</option>
+                
+                <option value="158" title="AnaGrup_158" >Liechtenstein</option>
+                
+                <option value="159" title="AnaGrup_159" >Lithuania</option>
+                
+                <option value="160" title="AnaGrup_160" >Luxembourg</option>
+                
+                <option value="161" title="AnaGrup_161" >Macau</option>
+                
+                <option value="162" title="AnaGrup_162" >Macedonia</option>
+                
+                <option value="163" title="AnaGrup_163" >Madagascar</option>
+                
+                <option value="164" title="AnaGrup_164" >Malawi</option>
+                
+                <option value="165" title="AnaGrup_165" >Maldives</option>
+                
+                <option value="166" title="AnaGrup_166" >Mali</option>
+                
+                <option value="167" title="AnaGrup_167" >Malta</option>
+                
+                <option value="168" title="AnaGrup_168" >Marshall Islands</option>
+                
+                <option value="169" title="AnaGrup_169" >Martinique</option>
+                
+                <option value="170" title="AnaGrup_170" >Mauritania</option>
+                
+                <option value="171" title="AnaGrup_171" >Mauritius</option>
+                
+                <option value="172" title="AnaGrup_172" >Mayotte</option>
+                
+                <option value="173" title="AnaGrup_173" >Micronesia</option>
+                
+                <option value="174" title="AnaGrup_174" >Moldova</option>
+                
+                <option value="175" title="AnaGrup_175" >Monaco</option>
+                
+                <option value="176" title="AnaGrup_176" >Mongolia</option>
+                
+                <option value="177" title="AnaGrup_177" >Montenegro</option>
+                
+                <option value="178" title="AnaGrup_178" >Montserrat</option>
+                
+                <option value="179" title="AnaGrup_179" >Morocco</option>
+                
+                <option value="180" title="AnaGrup_180" >Mozambique</option>
+                
+                <option value="181" title="AnaGrup_181" >Myanmar</option>
+                
+                <option value="182" title="AnaGrup_182" >Namibia</option>
+                
+                <option value="183" title="AnaGrup_183" >Nauru</option>
+                
+                <option value="184" title="AnaGrup_184" >Nepal</option>
+                
+                <option value="185" title="AnaGrup_185" >Netherlands Antilles</option>
+                
+                <option value="186" title="AnaGrup_186" >New Caledonia</option>
+                
+                <option value="187" title="AnaGrup_187" >Nicaragua</option>
+                
+                <option value="188" title="AnaGrup_188" >Niger</option>
+                
+                <option value="189" title="AnaGrup_189" >Nigeria</option>
+                
+                <option value="190" title="AnaGrup_190" >Niue</option>
+                
+                <option value="191" title="AnaGrup_191" >Norfolk Island</option>
+                
+                <option value="192" title="AnaGrup_192" >Northern Mariana Islands</option>
+                
+                <option value="193" title="AnaGrup_193" >Oman</option>
+                
+                <option value="194" title="AnaGrup_194" >Palau</option>
+                
+                <option value="195" title="AnaGrup_195" >Panama</option>
+                
+                <option value="196" title="AnaGrup_196" >Papua New Guinea</option>
+                
+                <option value="197" title="AnaGrup_197" >Pitcairn</option>
+                
+                <option value="198" title="AnaGrup_198" >Reunion</option>
+                
+                <option value="199" title="AnaGrup_199" >Rwanda</option>
+                
+                <option value="200" title="AnaGrup_200" >Saint Kitts and Nevis</option>
+                
+                <option value="201" title="AnaGrup_201" >Saint Lucia</option>
+                
+                <option value="202" title="AnaGrup_202" >Saint Vincent and the Grenadines</option>
+                
+                <option value="203" title="AnaGrup_203" >Samoa</option>
+                
+                <option value="204" title="AnaGrup_204" >San Marino</option>
+                
+                <option value="205" title="AnaGrup_205" >Sao Tome and Principe</option>
+                
+                <option value="206" title="AnaGrup_206" >Senegal</option>
+                
+                <option value="207" title="AnaGrup_207" >Seychelles</option>
+                
+                <option value="208" title="AnaGrup_208" >Sierra Leone</option>
+                
+                <option value="209" title="AnaGrup_209" >Solomon Islands</option>
+                
+                <option value="210" title="AnaGrup_210" >Somalia</option>
+                
+                <option value="211" title="AnaGrup_211" >South Georgia & South Sandwich Islands</option>
+                
+                <option value="212" title="AnaGrup_212" >South Sudan</option>
+                
+                <option value="213" title="AnaGrup_213" >Sri Lanka</option>
+                
+                <option value="214" title="AnaGrup_214" >St. Helena</option>
+                
+                <option value="215" title="AnaGrup_215" >St. Pierre and Miquelon</option>
+                
+                <option value="216" title="AnaGrup_216" >Sudan</option>
+                
+                <option value="217" title="AnaGrup_217" >Suriname</option>
+                
+                <option value="218" title="AnaGrup_218" >Svalbard and Jan Mayen Islands</option>
+                
+                <option value="219" title="AnaGrup_219" >Swaziland</option>
+                
+                <option value="220" title="AnaGrup_220" >Syrian Arab Republic</option>
+                
+                <option value="221" title="AnaGrup_221" >Tajikistan</option>
+                
+                <option value="222" title="AnaGrup_222" >Tanzania</option>
+                
+                <option value="223" title="AnaGrup_223" >Togo</option>
+                
+                <option value="224" title="AnaGrup_224" >Tokelau</option>
+                
+                <option value="225" title="AnaGrup_225" >Tonga</option>
+                
+                <option value="226" title="AnaGrup_226" >Trinidad and Tobago</option>
+                
+                <option value="227" title="AnaGrup_227" >Tunisia</option>
+                
+                <option value="228" title="AnaGrup_228" >Turkmenistan</option>
+                
+                <option value="229" title="AnaGrup_229" >Turks and Caicos Islands</option>
+                
+                <option value="230" title="AnaGrup_230" >Tuvalu</option>
+                
+                <option value="231" title="AnaGrup_231" >Uganda</option>
+                
+                <option value="232" title="AnaGrup_232" >Vanuatu</option>
+                
+                <option value="233" title="AnaGrup_233" >Vatican City State (Holy See)</option>
+                
+                <option value="234" title="AnaGrup_234" >Viet Nam</option>
+                
+                <option value="235" title="AnaGrup_235" >Virgin Islands (British)</option>
+                
+                <option value="236" title="AnaGrup_236" >Virgin Islands (U.S.)</option>
+                
+                <option value="237" title="AnaGrup_237" >Wallis and Futuna Islands</option>
+                
+                <option value="238" title="AnaGrup_238" >Western Sahara</option>
+                
+                <option value="239" title="AnaGrup_239" >Yemen</option>
+                
+                <option value="240" title="AnaGrup_240" >Zambia</option>
+                
+                <option value="241" title="AnaGrup_241" >Zimbabwe</option>
+                
+            </select>
+            
+        </div>
+
+        <div class="form-group">
+            <label for="BillingNewAddress_StateProvinceId">City:</label>
+            <select name="SehirID" id="SehirID2" class="il_ilce_bucak form-control">
+                <option value=""></option>
+
+                
+                <option value="1707" >Zonguldak</option>
+                
+                <option value="1706" >Yozgat</option>
+                
+                <option value="1705" >Yalova</option>
+                
+                <option value="1704" >Van</option>
+                
+                <option value="1703" >Uşak</option>
+                
+                <option value="1702" >Tunceli</option>
+                
+                <option value="1701" >Trabzon</option>
+                
+                <option value="1700" >Tokat</option>
+                
+                <option value="1699" >Tekirdağ</option>
+                
+                <option value="1698" >Şırnak</option>
+                
+                <option value="1697" >Şanlıurfa</option>
+                
+                <option value="1696" >Sivas</option>
+                
+                <option value="1695" >Sinop</option>
+                
+                <option value="1694" >Siirt</option>
+                
+                <option value="1693" >Samsun</option>
+                
+                <option value="1692" >Sakarya</option>
+                
+                <option value="1691" >Rize</option>
+                
+                <option value="1690" >Osmaniye</option>
+                
+                <option value="1689" >Ordu</option>
+                
+                <option value="1688" >Niğde</option>
+                
+                <option value="1687" >Nevşehir</option>
+                
+                <option value="1686" >Muş</option>
+                
+                <option value="1685" >Muğla</option>
+                
+                <option value="1684" >Mersin</option>
+                
+                <option value="1683" >Mardin</option>
+                
+                <option value="1682" >Manisa</option>
+                
+                <option value="1681" >Malatya</option>
+                
+                <option value="1680" >Kütahya</option>
+                
+                <option value="1679" >Konya</option>
+                
+                <option value="1678" >Kocaeli</option>
+                
+                <option value="1677" >Kilis</option>
+                
+                <option value="1676" >Kırşehir</option>
+                
+                <option value="1675" >Kırklareli</option>
+                
+                <option value="1674" >Kırıkkale</option>
+                
+                <option value="1673" >Kayseri</option>
+                
+                <option value="1672" >Kastamonu</option>
+                
+                <option value="1671" >Kars</option>
+                
+                <option value="1670" >Karaman</option>
+                
+                <option value="1669" >Karabük</option>
+                
+                <option value="1668" >Kahramanmaraş</option>
+                
+                <option value="1667" >İzmir</option>
+                
+                <option value="1666" selected >İstanbul</option>
+                
+                <option value="1665" >Isparta</option>
+                
+                <option value="1664" >Iğdır</option>
+                
+                <option value="1663" >Hatay</option>
+                
+                <option value="1662" >Hakkari</option>
+                
+                <option value="1661" >Gümüşhane</option>
+                
+                <option value="1660" >Giresun</option>
+                
+                <option value="1659" >Gaziantep</option>
+                
+                <option value="1658" >Eskişehir</option>
+                
+                <option value="1657" >Erzurum</option>
+                
+                <option value="1656" >Erzincan</option>
+                
+                <option value="1655" >Elazığ</option>
+                
+                <option value="1654" >Edirne</option>
+                
+                <option value="1653" >Düzce</option>
+                
+                <option value="1652" >Diyarbakır</option>
+                
+                <option value="1651" >Denizli</option>
+                
+                <option value="1650" >Çorum</option>
+                
+                <option value="1649" >Çankırı</option>
+                
+                <option value="1648" >Çanakkale</option>
+                
+                <option value="1647" >Bursa</option>
+                
+                <option value="1646" >Burdur</option>
+                
+                <option value="1645" >Bolu</option>
+                
+                <option value="1644" >Bitlis</option>
+                
+                <option value="1643" >Bingöl</option>
+                
+                <option value="1642" >Bilecik</option>
+                
+                <option value="1641" >Bayburt</option>
+                
+                <option value="1640" >Batman</option>
+                
+                <option value="1639" >Bartın</option>
+                
+                <option value="1638" >Balıkesir</option>
+                
+                <option value="1637" >Aydın</option>
+                
+                <option value="1636" >Artvin</option>
+                
+                <option value="1635" >Ardahan</option>
+                
+                <option value="1634" >Antalya</option>
+                
+                <option value="1633" >Ankara</option>
+                
+                <option value="1632" >Amasya</option>
+                
+                <option value="1631" >Aksaray</option>
+                
+                <option value="1630" >Ağrı</option>
+                
+                <option value="1629" >Afyonkarahisar</option>
+                
+                <option value="1628" >Adıyaman</option>
+                
+                <option value="1627" >Adana</option>
+                
+            </select>
+
+            <span id="states-loading-progress" style="display: none;" class="please-wait">Wait...</span>
+        </div>
+        <div class="form-group">
+            <label for="BillingNewAddress_City">District:</label>
+            <input required class="form-control" data-val="true" data-val-required="İlçe Gerekli" id="BillingNewAddress_City" name="BillingNewAddress.City" type="text" value="">
+        </div>
+        <div class="form-group">
+            <label for="BillingNewAddress_Address1"> Address:</label>
+            <input required class="form-control" data-val="true" data-val-required="Adres alanını doldurmalısınız." id="BillingNewAddress_Address1" name="BillingNewAddress.Address1" type="text" value="">
+        </div>
+
+
+
+
+
+
+        <script>
+function myFunction4() {
+  var x = document.getElementById("myDIVx");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+    x.style.display = "block";
+  }
+    var x = document.getElementById("myDIV2x");
+  if (x.style.display === "none") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "none";
+  }
+  
+ 
+}
+
+function myFunction5() {
+  var x = document.getElementById("myDIV2x");
+  if (x.style.display === "none") {
+    x.style.display = "block";
+  } else {
+   
+  }
+   
+     var x = document.getElementById("myDIVx");
+  if (x.style.display === "none") {
+    x.style.display = "none";
+  } else {
+    x.style.display = "none";
+  }
+}
+</script>
+
+
+
+    </div>
+
+
+
+
+
+
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+<button type="submit" class="btn btn-primary">Add Address</button>
+
+    
+    <input type="hidden" value="0" name="adresturu" />
+
+</form>
+
+      </div>
+   
+    </div>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+                </div>     <!-- h100 end -->
+            </div>
+        </div>
+    </div>
+        <!-- page main ends -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!-- Cookie jquery file -->
+    <script src="vendor/cookie/jquery.cookie.js"></script>
+    <!-- Swiper carousel jquery file -->
+    <script src="vendor/swiper/js/swiper.min.js"></script>
+    <!-- Application main common jquery file -->
+
+</body>
+</html>

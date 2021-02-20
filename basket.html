@@ -1,0 +1,514 @@
+
+<!doctype html>
+
+<html lang="en" class="md">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icon/favicon-16x16.png">
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="img/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap-4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Material design icons CSS -->
+    <link rel="stylesheet" href="vendor/materializeicon/material-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- app CSS -->
+    <link id="theme" rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/add.css" type="text/css">
+    <link rel="stylesheet" href="css/tab.css" type="text/css">
+    <link rel="stylesheet" href="css/search.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap-side-modals.css">
+    <!-- tAG -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="slide/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="slide/slick/slick-theme.css">
+    <script>
+  $( function() {
+   // function log( message ) {
+     // $( "<div/>" ).text( message ).prependTo( "#log" );
+     // $( "#log" ).attr( "scrollTop", 0 );
+   // }
+ 
+    $.ajax({
+       url: "/xml/app-arama-EN.xml",
+      dataType: "xml",
+      success: function( xmlResponse ) {
+        var data = $( "urunler", xmlResponse ).map(function() {
+          return {
+            value: $( "name", this ).text() + ", " +
+              ( $.trim( $( "countryName", this ).text() ) || "(unknown country)" ),
+            id2: $( "countryCode", this ).text(),  id: $( "geonameId", this ).text(),
+          };
+        }).get();
+      //  $( "#birds" ).autocomplete({
+         // source: data,
+          //minLength: 0,
+          //select: function( event, ui ) {
+            //log( ui.item ?
+             // "Selected: " + ui.item.value + ", geonameId: " + ui.item.id :
+             // "Nothing selected, input was " + this.value );
+			  // $("#searchField").val(ui.item.id);
+        //$("#searchForm").submit(); 
+         // }
+		  
+        //});
+		$("#birds").autocomplete({
+      source: data,
+          minLength: 3,
+    select: function(event, ui) { 
+        $("#searchField").val(ui.item.id);
+	 $("#searchField2").val(ui.item.id2);
+	 
+        $("#searchForm").submit(); }
+});
+      }
+    });
+  } );
+    </script>
+
+    <title>My Cart</title>
+</head>
+<body class="cpush-content-right theme-light color-theme-green">
+    <div class="wrapper">
+        <!-- sidebar left start -->
+        <div class="sidebar sidebar-left">
+        </div>
+        <!-- sidebar left ends -->
+        <!-- sidebar right start -->
+        <div class="sidebar sidebar-right">
+        </div>
+        <!-- sidebar right ends -->
+        <!-- fullscreen menu start -->
+        <!-- fullscreen menu ends -->
+
+        <!-- page main start -->
+        <div class="page">
+            <header class="row m-0 fixed-header no-shadow" style="background: white; box-shadow: 1px 1px #E5E5E5; -webkit-box-shadow: 0 10px 5px #E5E5E5; -moz-box-shadow: 0 1px 5px #888888; box-shadow: 0 1px 5px #E5E5E5;">
+                  <style>
+  .nav-link {
+            display: block;
+            padding: 0px;
+            padding-top: 10px;
+        }     	
+    </style>
+
+		<div class="col left" style="font-size: 14px; font-weight: 600; top: 10px;">
+         Welcome &nbsp;  <span style="color: #F3780E; font-weight: 600;">Dear Visitor</span>
+    
+</div>
+<div class="right">
+    <a href="javascript:void(0)" onclick="openNav()"><i class="material-icons" style="color: #F3780E;">search</i></a>
+	 <a href="#" style="color: orange; margin: 0px 0px 0px 0px;"  data-toggle="modal"  data-target="#top_modal">
+<i class="icon material-icons">settings<span class="badge color-red" id="topmsg2"></span>
+</i>
+</a>
+</div>
+
+            </header>
+               <style>
+       .ui-selectmenu-menu {
+           z-index: 99999;
+           position: absolute;
+       }
+
+       .ui-menu {
+           z-index: 99999;
+           position: absolute;
+       }
+
+       . ui-widget {
+           z-index: 99999;
+           position: absolute;
+       }
+   </style>
+   
+   <div id="myNav" class="overlay">
+       <div class="overlay-content">
+
+           <form name="Form" id="searchForm" method="get" action="/murun-detay/index.html">
+               <input name="seo" type="hidden" id="searchField2" value="" />
+               <input name="sid" type="hidden" id="searchField" value="" />
+
+           </form>
+
+           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+          
+           <div class="has-search" style="float:left;width: 100%;">
+               <input type="text" id="birds" class="" style="width: 100%;color:red;" placeholder=" Search Brand or Category">
+           </div>
+           <hr>
+           <button type="button" class="btn btn-outline-dark btn-sm">Recently Searched</button>
+           <button type="button" class="btn btn-outline-dark btn-sm">Test</button>
+           <button type="button" class="btn btn-outline-dark btn-sm">Popular Products</button>
+
+       </div>
+   </div>
+
+
+
+
+   <script>
+       function openNav() {
+           document.getElementById("myNav").style.width = "100%";
+       }
+
+       function closeNav() {
+           document.getElementById("myNav").style.width = "0%";
+       }
+   </script>
+            <div class="page-content">
+
+                <!--footer start -->
+                   <nav class="tabber tabber-bottom">
+<div class="nav nav-tabs " id="nav-tab" role="tablist">
+<a class="nav-item nav-link  " id="nav-find-tab" data-toggle="tab2" href="/manasayfa/index.html" role="tab" aria-controls="nav-find" aria-selected="true"><i class="icon material-icons">home</i><span class="tabbar-label">Home</span></a>
+<a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="all-menu.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">search<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Categories</span> </a>
+<a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="favorites.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">favorite<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Favorites</span> </a>
+<a class="nav-item nav-link  active" id="nav-cart-tab" data-toggle="tab2" href="basket.html" role="tab" aria-controls="nav-cart" aria-selected="false"> <i class="icon material-icons">shopping_cart<span class="badge color-red" id="topmsg"></span></i> <span class="tabbar-label"> My Cart</span> </a>
+<a class="nav-item nav-link  " id="nav-profile-tab" data-toggle="tab2" href="login.html" role="tab" aria-controls="nav-profile" aria-selected="false"> <i class="icon material-icons">account_circle</i> <span class="tabbar-label">My Acc</span> </a>
+                    </div>
+                </nav> 
+                <!--footer ends -->
+                <!-- h100 start -->
+                <div class="" style="background: #F5F5F5; width: 99%;">
+                    	 <script type="text/javascript">
+function MM_jumpMenu(targ,selObj,restore){ //v3.0
+  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+</script>
+	<script type="text/javascript">
+$(document).bind("mobileinit", function(){ $.mobile.hashListeningEnabled = false; }); 
+
+// boolean that stores if a swipe has been performed.
+var bScrolled = false;
+// countdown in ms before resetting the boolean.
+var iTime = 1000;
+var oTimeout;
+window.addEventListener('mousewheel', function(e) {
+  if (e.wheelDeltaY === 0) {
+  // there is an horizontal scroll
+    if (!bScrolled) {
+    // no need to set bScrolled to true if it has been done within the iTime time. 
+      bScrolled = true;
+      oTimeout = setTimeout(function(){
+        bScrolled = false;
+      }, iTime);
+    }
+  }
+});
+
+window.onpopstate = function() {
+  // clear the timeout to be sure we keep the correct value for bScrolled
+  clearTimeout(oTimeout);
+  // check if there has been a swipe prior to the change of history state
+  if (bScrolled) {
+    // check which browser & OS the user is using, then
+    // trigger your awesome custom transition.
+  }
+}
+</script> 
+	<div class="modal top fade" id="top_modal" tabindex="-1" role="dialog" aria-labelledby="top_modal">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+		Change Language and Currency
+      </div>
+      <div class="modal-body">
+     <select name="se" id="se" class="" onchange="MM_jumpMenu('parent',this,0)">
+          			          
+        
+          <option value="/lang-change.asp?lang=1"  selected> English</option>
+                    
+
+        
+          <option value="/lang-change.asp?lang=2" > Türkçe</option>
+                    
+
+        
+          <option value="/lang-change.asp?lang=3" > Uzbek</option>
+                    
+
+        
+          <option value="/lang-change.asp?lang=4" > Russian</option>
+                    
+
+</Select>
+<hr>
+		<select name="searchalpha" id="searchalpha" class="" onchange="MM_jumpMenu('parent',this,0)">
+          			          
+        
+          <option value="/currency-change.asp?cur=1"  selected> US Dollar</option>
+                    
+        
+          <option value="/currency-change.asp?cur=6" > Euro</option>
+                    
+        
+          <option value="/currency-change.asp?cur=13" > TL</option>
+                    
+        
+          <option value="/currency-change.asp?cur=14" > SOM</option>
+                    
+	</Select>
+	 </div>
+      <div class="modal-footer modal-footer-fixed d-none">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+     
+      </div>
+    </div>
+  </div>
+</div>
+
+
+                    <div class="container">
+
+
+                        <div class="row">
+                            <div class="col-12 px-0">
+                                <ul class="list-group list-group-flush mb-4">
+                                    
+                            
+ <script>
+function MM_jumpMenu1058(targ,selObj,restore){ //v3.0
+  eval(targ+".location='/tema/mobil-sepetim-add.asp?edit=ok&uid=1058&mis=1058&stoktakibi=2&stok=0&varyantkontrol=1&varyantstok=0&quant1058="+selObj.options[selObj.selectedIndex].value+"'");
+  if (restore) selObj.selectedIndex=0;
+}
+                </script>
+									
+				
+                                    <li class="list-group-item">
+                                        <div class="row">
+                                            <div class="col px-0">
+                                                <span style="color: #49ca49; margin-right: 10px; font-size: 11px;"><a href="#"> Seller Information : <b>Uztrenbol Standart    ></b> </a></span>
+
+                                            </div>
+                                            <div class="pull-right">
+                                                <span style="color: #49ca49; font-weight: bold; margin-right: 10px; font-size: 11px;"><i class="fa fa-check" aria-hidden="true"></i>%5  </span>
+                                            </div>
+                                            <a href="#" data-toggle="modal" data-target="#bottom_modal1058"><i class="fa fa-trash"></i></a>
+                                        </div>
+
+                                    </li>
+
+                                    <li class="list-group-item">
+                                        <div class="row" style="color: #319f84; border-bottom: 1px solid lightgrey;">
+                                            <div class="card-text" style="float: left; width: 30%;">
+                                                <a href="/murun-detay/index.html?sid=1095">
+                                                    <figure class="product-image h-auto">
+                                                        <img src="https://www.uztrendbol.com/content/images/thumbs/0001232_963-tarz-kadin-pembe-ncili-elbise-3022.jpeg" title="1058-" alt="1058-963 Tarz Kadın Pembe İncili Elbise 3022" style="width: 100px;">
+                                                    </figure>
+                                                </a>
+
+                                            </div>
+                                            <div class="card-text" style="width: 60%; margin-left: 15px;">
+                                                <a href="/murun-detay/index.html?sid=1095" class="text-dark mb-1 h6 d-block" title="1058-963 Tarz Kadın Pembe İncili Elbise 3022"><span style="font-size: 12px; color: grey;">Kurumsal Ticaret-963 Tarz Kadın Pembe İncili Elbise 3022</span></a>
+
+
+                                                
+                                                <p style="font-size: 12px; color: grey;">Beden:M<br></p>
+
+                                                
+                                                <p style="font-size: 12px; color: grey;">Estimated Delivery: </p>
+                                                <p style="font-size: 12px; color: grey;">Weight: 9 |: 0.04&#36; </p>
+
+
+
+
+                                            </div>
+
+
+
+                                        </div>
+                                        <div class="row" style="color: #319f84; border-bottom: 1px solid lightgrey;">
+										<div class="card-text" style="float: left; width: 80%;">
+										   <div class="custom-select" style="width: 140px;">
+                                     <select onchange="MM_jumpMenu1058('self',this,0)" name="quant1058" required>
+
+                                        <option value="" selected="">Your Choice</option>
+                                        
+                                        <option value="1"  selected >1 </option>
+                                        
+                                        <option value="2" >2 </option>
+                                        
+                                        <option value="3" >3 </option>
+                                        
+                                        <option value="4" >4 </option>
+                                        
+                                        <option value="5" >5 </option>
+                                        
+                                        <option value="6" >6 </option>
+                                        
+                                        <option value="7" >7 </option>
+                                        
+                                        <option value="8" >8 </option>
+                                        
+                                        <option value="9" >9 </option>
+                                        
+                                        <option value="10" >10 </option>
+                                        
+                                    </select>
+                                </div>
+										</div>
+										
+                                            <div class="card-text" style="float: left; width: 20%;">
+                                                <h6 class="text-success font-weight-normal mb-0">
+                                                    <span style="color: #a2a2a2; font-weight: 600;"><del>13&nbsp;&#36; </del></span>
+                                                    <span style="color: #F3780E; font-weight: 500;">&nbsp;  <del>7.93 &nbsp; &#36;</del>	</span>
+                                                    <br>
+
+                                                    <span style="color: #F3780E; font-weight: 500;">
+
+                                                        7.54 &nbsp; &#36; </span>
+
+                                                </h6>
+                                            </div>
+
+
+                                        </div>
+
+                                    </li>
+                                    <div class="modal bottom fade" id="bottom_modal1058" tabindex="-1" role="dialog" aria-labelledby="bottom_modal">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h6 class="modal-title"></h6>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+
+
+                                                    <ul class="list-group">
+
+                                                        <li class="list-group-item"><i class="fa fa-trash  mx-2"></i><a href="#" onclick="location.href='basket.html?xbasket=del&xid=1058'">Delete</a></li>
+                                                        <li class="list-group-item"><i class="fa fa-heart mx-2"></i><a href="#" onclick="location.href='basket.html?xbasket=edit&xid=1058'"> Delete and Add to Favorites</a></li>
+
+                                                    </ul>
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                                                </div>
+
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <br>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <form method="get" action="basket.html" />
+                        
+                        <input type="hidden" name="teslimatyontemi" value="1" />
+
+                        
+                        <div class="card border-0 shadow-sm">
+                            <div class="card-body2 basket-heading ">
+                                <div class="row">
+
+                                    <div class="col">
+                                        <div class="form-group mb-0 float-label active">
+                                            <input type="text" class="form-control" name="indirim" required="" placeholder="ADU00548DOU" value="">
+                                            <label class="form-control-label">Discount code </label>
+                                        </div>
+                                    </div>
+                                    <div class="col-auto align-self-center">
+                                        <button class="btn btn-default button-rounded-36 shadow"><i class="material-icons">arrow_forward</i></button>
+                                    </div>
+                                </div>
+                            </div>
+                            </form>
+                <div class="card-body2 border-top-dashed">
+                    <div class="row ">
+                        <div class="col-3">
+                            <p class="text-secondary mb-1 small">Amount without VAT</p>
+                            <h6>7.54&nbsp; &#36;</h6>
+                        </div>
+                        <div class="col-3 text-center">
+                            <p class="text-secondary mb-1 small">Nakliye</p>
+                            <h6 class="mb-0">0.04 &nbsp;&#36;</h6>
+                        </div>
+                        <div class="col-3 text-center">
+                            <p class="text-secondary mb-1 small">Vat</p>
+                            <h6 class="mb-0">0.00 &nbsp;&#36;</h6>
+                        </div>
+
+                        <div class="col-3 text-right">
+                            <p class="text-secondary mb-1 small">Amount</p>
+                            <h6 class="mb-0">7.54 &nbsp;&#36;</h6>
+                        </div>
+                    </div>
+
+                </div>
+                        </div>
+
+                        <div class="card mb-4 border-0 shadow-sm border-top-dashed">
+                            <div class="card-body2 text-center">
+                                <form action="/modemeyap/index.html?teslimatyontemi=1" method="get" />
+                                <div class="terms-of-service">
+                                    <div>
+                                        <input id="termsofservice" type="checkbox" name="termsofservice" required>
+                                        <label for="termsofservice">I Read the Distance Sales Contract.</label>
+                                        <a class="read" id="read-terms" data-toggle="modal" data-target="#left_modal"><b>(Read)</b></a>
+
+                                    </div>
+                                </div>
+                                
+
+                                <p class="text-secondary ">The Overall Total</p>
+                                <h4 class="mb-0">7.58 &nbsp; &#36;</h4>
+                                
+
+                                <button type="submit" style="background: #F3780E!important;" class="btn btn-lg btn-default text-white btn-block btn-rounded shadow"><span> Go to Payment Page</span><i class="material-icons">arrow_forward</i></button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <div style="height: 50px;"></div>
+
+                    </div>
+
+
+
+                </div>
+                <!-- h100 end -->
+            </div>
+        </div>
+    </div>
+    <!-- page main ends -->
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!-- Cookie jquery file -->
+    <script src="vendor/cookie/jquery.cookie.js"></script>
+    <!-- Swiper carousel jquery file -->
+    <script src="vendor/swiper/js/swiper.min.js"></script>
+    <!-- Application main common jquery file -->
+
+</body>
+</html>

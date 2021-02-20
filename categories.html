@@ -1,0 +1,755 @@
+<!doctype html>
+
+
+<html lang="en" class="md">
+
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, shrink-to-fit=no, viewport-fit=cover">
+    <link rel="apple-touch-icon" sizes="57x57" href="img/icon/apple-icon-57x57.png">
+    <link rel="apple-touch-icon" sizes="60x60" href="img/icon/apple-icon-60x60.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="img/icon/apple-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="img/icon/apple-icon-76x76.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="img/icon/apple-icon-114x114.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="img/icon/apple-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="144x144" href="img/icon/apple-icon-144x144.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="img/icon/apple-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="img/icon/apple-icon-180x180.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="img/icon/android-icon-192x192.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="img/icon/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="96x96" href="img/icon/favicon-96x96.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="img/icon/favicon-16x16.png">
+
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="img/icon/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="vendor/bootstrap-4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Material design icons CSS -->
+    <link rel="stylesheet" href="vendor/materializeicon/material-icons.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <!-- app CSS -->
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="css/add.css" type="text/css">
+    <link rel="stylesheet" href="css/tab.css" type="text/css">
+    <link rel="stylesheet" href="css/search.css" type="text/css">
+    <link rel="stylesheet" href="css/filter.css" type="text/css">
+    <link rel="stylesheet" href="css/bootstrap-side-modals.css">
+    <!-- tAG -->
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="slide/slick/slick.css">
+    <link rel="stylesheet" type="text/css" href="slide/slick/slick-theme.css">
+    <script>
+        $(function() {
+            // function log( message ) {
+            // $( "<div/>" ).text( message ).prependTo( "#log" );
+            // $( "#log" ).attr( "scrollTop", 0 );
+            // }
+
+            $.ajax({
+                url: "urunlistesi.xml",
+                dataType: "xml",
+                success: function(xmlResponse) {
+                    var data = $("urunler", xmlResponse).map(function() {
+                        return {
+                            value: $("name", this).text() + ", " +
+                                ($.trim($("countryName", this).text()) || "(unknown country)"),
+                            id2: $("countryCode", this).text(),
+                            id: $("geonameId", this).text(),
+                        };
+                    }).get();
+                    //  $( "#birds" ).autocomplete({
+                    // source: data,
+                    //minLength: 0,
+                    //select: function( event, ui ) {
+                    //log( ui.item ?
+                    // "Selected: " + ui.item.value + ", geonameId: " + ui.item.id :
+                    // "Nothing selected, input was " + this.value );
+                    // $("#searchField").val(ui.item.id);
+                    //$("#searchForm").submit(); 
+                    // }
+
+                    //});
+                    $("#birds").autocomplete({
+                        source: data,
+                        minLength: 3,
+                        select: function(event, ui) {
+                            $("#searchField").val(ui.item.id);
+                            $("#searchField2").val(ui.item.id2);
+
+                            $("#searchForm").submit();
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+    <title>Katalog 84281f3e-3e3e-4521-9d8f-2ee703046991</title>
+</head>
+
+<body class="cpush-content-right theme-light color-theme-green">
+    <div class="wrapper">
+        <!-- sidebar left start -->
+        <div class="sidebar sidebar-left">
+        </div>
+        <!-- sidebar left ends -->
+        <!-- sidebar right start -->
+        <div class="sidebar sidebar-right">
+        </div>
+        <!-- sidebar right ends -->
+
+        <!-- fullscreen menu start -->
+        <!-- fullscreen menu ends -->
+
+        <!-- page main start -->
+        <div class="page">
+
+            <!--header start -->
+            <header class="row m-0 fixed-header " style="background: #FFF; box-shadow: 1px 1px #E5E5E5; -webkit-box-shadow: 0 10px 5px #E5E5E5; -moz-box-shadow: 0 1px 5px #888888; box-shadow: 0 1px 5px #E5E5E5;">
+                <style>
+                    .nav-link {
+                        display: block;
+                        padding: 0px;
+                        padding-top: 10px;
+                    }
+                </style>
+
+                <div class="col left" style="font-size: 14px;font-weight:600;   top: 10px;">
+
+                    <i class="icon material-icons" onclick="history.back();">keyboard_backspace<span class="badge color-red" id="topmsg2"></span></i>
+                    &nbsp; &nbsp; Product
+                </div>
+                <div class="right">
+                    <a href="javascript:void(0)" onclick="openNav()"><i class="material-icons" style="color:#F3780E;">search</i></a>
+                    <a href="#" style="color:orange;" data-toggle="modal" data-target="#top_modal">
+                        <i class="icon material-icons">settings<span class="badge color-red" id="topmsg2"></span>
+                        </i>
+                    </a>
+                </div>
+
+            </header>
+            <!--header ends -->
+            <style>
+                .ui-selectmenu-menu {
+                    z-index: 99999;
+                    position: absolute;
+                }
+
+                .ui-menu {
+                    z-index: 99999;
+                    position: absolute;
+                }
+
+                . ui-widget {
+                    z-index: 99999;
+                    position: absolute;
+                }
+            </style>
+
+            <div id="myNav" class="overlay">
+                <div class="overlay-content">
+
+                    <form name="Form" id="searchForm" method="get" action="product-detail.html">
+                        <input name="seo" type="hidden" id="searchField2" value="" />
+                        <input name="sid" type="hidden" id="searchField" value="" />
+
+                    </form>
+
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+                    <div class="has-search" style="float:left;width: 100%;">
+                        <input type="text" id="birds" class="" style="width: 100%;color:red;" placeholder=" Search Brand or Category">
+                    </div>
+                    <hr>
+                    <button type="button" class="btn btn-outline-dark btn-sm">Recently Searched</button>
+                    <button type="button" class="btn btn-outline-dark btn-sm">Test</button>
+                    <button type="button" class="btn btn-outline-dark btn-sm">Popular Products</button>
+
+                </div>
+            </div>
+
+
+
+
+            <script>
+                function openNav() {
+                    document.getElementById("myNav").style.width = "100%";
+                }
+
+                function closeNav() {
+                    document.getElementById("myNav").style.width = "0%";
+                }
+            </script>
+
+            <div class="page-content">
+                <!--footer start -->
+                <nav class="tabber tabber-bottom">
+                    <div class="nav nav-tabs " id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active " id="nav-find-tab" data-toggle="tab2" href="index.html" role="tab" aria-controls="nav-find" aria-selected="true"><i class="icon material-icons">home</i><span class="tabbar-label">Home</span></a>
+                        <a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="all-menu.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">search<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Categories</span> </a>
+                        <a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="favorites.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">favorite<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Favorites</span> </a>
+                        <a class="nav-item nav-link  " id="nav-cart-tab" data-toggle="tab2" href="basket.html" role="tab" aria-controls="nav-cart" aria-selected="false"> <i class="icon material-icons">shopping_cart<span class="badge color-red" id="topmsg"></span></i> <span class="tabbar-label"> My Cart</span> </a>
+                        <a class="nav-item nav-link  " id="nav-profile-tab" data-toggle="tab2" href="login.html" role="tab" aria-controls="nav-profile" aria-selected="false"> <i class="icon material-icons">account_circle</i> <span class="tabbar-label">My Acc</span> </a>
+                    </div>
+                </nav>
+                <!--footer ends -->
+                <!-- h100 start -->
+                <div class="" style="background: #F5F5F5; width: 99%;">
+                    <script type="text/javascript">
+                        function MM_jumpMenu(targ, selObj, restore) { //v3.0
+                            eval(targ + ".location='" + selObj.options[selObj.selectedIndex].value + "'");
+                            if (restore) selObj.selectedIndex = 0;
+                        }
+                    </script>
+                    <script type="text/javascript">
+                        $(document).bind("mobileinit", function() {
+                            $.mobile.hashListeningEnabled = false;
+                        });
+
+                        // boolean that stores if a swipe has been performed.
+                        var bScrolled = false;
+                        // countdown in ms before resetting the boolean.
+                        var iTime = 1000;
+                        var oTimeout;
+                        window.addEventListener('mousewheel', function(e) {
+                            if (e.wheelDeltaY === 0) {
+                                // there is an horizontal scroll
+                                if (!bScrolled) {
+                                    // no need to set bScrolled to true if it has been done within the iTime time. 
+                                    bScrolled = true;
+                                    oTimeout = setTimeout(function() {
+                                        bScrolled = false;
+                                    }, iTime);
+                                }
+                            }
+                        });
+
+                        window.onpopstate = function() {
+                            // clear the timeout to be sure we keep the correct value for bScrolled
+                            clearTimeout(oTimeout);
+                            // check if there has been a swipe prior to the change of history state
+                            if (bScrolled) {
+                                // check which browser & OS the user is using, then
+                                // trigger your awesome custom transition.
+                            }
+                        }
+                    </script>
+                    <div class="modal top fade" id="top_modal" tabindex="-1" role="dialog" aria-labelledby="top_modal">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    Change Language and Currency
+                                </div>
+                                <div class="modal-body">
+                                    <select name="se" id="se" class="" onchange="MM_jumpMenu('parent',this,0)">
+
+
+                                        <option value="/lang-change.asp?lang=1" selected> English</option>
+
+
+
+                                        <option value="/lang-change.asp?lang=2"> Türkçe</option>
+
+
+
+                                        <option value="/lang-change.asp?lang=3"> Uzbek</option>
+
+
+
+                                        <option value="/lang-change.asp?lang=4"> Russian</option>
+
+
+                                    </Select>
+                                    <hr>
+                                    <select name="searchalpha" id="searchalpha" class="" onchange="MM_jumpMenu('parent',this,0)">
+
+
+                                        <option value="/currency-change.asp?cur=1" selected> US Dollar</option>
+
+
+                                        <option value="/currency-change.asp?cur=6"> Euro</option>
+
+
+                                        <option value="/currency-change.asp?cur=13"> TL</option>
+
+
+                                        <option value="/currency-change.asp?cur=14"> SOM</option>
+
+                                    </Select>
+                                </div>
+                                <div class="modal-footer modal-footer-fixed d-none">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="show-on-mobile" style="position: fixed;z-index: 999; width: 100%;top: 50px;">
+                        <div class="row top_filter">
+                            <div class="filter-box-wrapper"><span class="fa fa-exchange icon"></span>
+                                <form method="get" action="/mcat/index.html?catid=10">
+
+                                    <input type="hidden" name="catid" value="10">
+                                    <input type="hidden" name="minprice" value="">
+                                    <input type="hidden" name="maxprice" value="">
+
+
+                                    <select name="sort" class="sort select" onchange="this.form.submit()">
+                                        <option selected value="0" selected>Suggested Ranking</option>
+
+                                        <option value="5">Sort A to Z</option>
+                                        <option value="1">Sort Z to A</option>
+                                        <option value="2">Lowest price</option>
+                                        <option value="3">Highest Price</option>
+                                        <option value="4">Last Added</option>
+                                    </select>
+
+                                </form>
+                            </div>
+                            <div id="mob-product-filter-link" class="filter-box-wrapper"><span class="fa fa-filter icon"></span>
+                                <span class="default-text">Filtering</span>
+                            </div>
+                        </div>
+                        <div class="mob-modal mob-product-filter-modal" id="modkap">
+                            <div class="modal-container">
+                                <div class="modal-header">
+                                    <a id="modal-close-link" href="#" class="modal-close-link">
+                                        <i class="fa fa-close"></i>
+                                    </a>
+                                    Filtering
+                                </div>
+                                <div class="modal-body">
+                                    <div class="aggregations-container">
+                                        <div class="aggregations">
+
+
+
+                                            <style>
+                                                .form-check {
+                                                    position: relative;
+                                                    display: block;
+                                                    padding-left: 1.25rem;
+                                                    font-size: 12px;
+                                                }
+                                            </style>
+                                            <p class="heading"><a href="/mcat/index.htmll?catid=1">Woman</a> > clothing</p>
+                                            <p><a href="/category/index.html?catid=17">dress</a></p>
+                                            <p><a href="/category/index.html?catid=18">sweatshirt</a></p>
+                                            <p><a href="/category/index.html?catid=19">sweater/cardigan</a></p>
+                                            <p><a href="/category/index.html?catid=20">T-shirt</a></p>
+                                            <p><a href="/category/index.html?catid=21">trousers</a></p>
+                                            <p><a href="/category/index.html?catid=22">shirt</a></p>
+                                            <p><a href="/category/index.html?catid=23">coat</a></p>
+                                            <p><a href="/category/index.html?catid=24">track suit</a></p>
+                                            <p><a href="/category/index.html?catid=25">trench coat</a></p>
+                                            <p><a href="/category/index.html?catid=26">skirt</a></p>
+                                            <p><a href="/category/index.html?catid=27">tights</a></p>
+                                            <p><a href="/category/index.html?catid=28">hijab</a></p>
+                                            <p><a href="/category/index.html?catid=29">big size</a></p>
+
+                                            <h6> By Price </h6>
+                                            <form method="post" action="/mcat/index.html">
+                                                <input type="hidden" class="form-control" name="catid" value="10">
+                                                <input type="hidden" name="sort" value="0">
+                                                <input type="hidden" name="man" value="-1">
+
+
+
+                                                <div class="row">
+                                                    <div class="col" style="font-size:13px !important">
+                                                        min
+                                                        <input type="text" class="form-control form-control-sm" name="minprice" value="0">
+                                                    </div>
+                                                    <div class="col" style="font-size:13px !important">
+                                                        max
+                                                        <input type="text" class="form-control form-control-sm" name="maxprice" value="161.99">
+                                                    </div>
+
+                                                </div>
+                                                <br>
+                                                <input type="submit" class="form-control form-control-sm" value="SEARCH">
+                                            </form>
+
+                                            <form method="post" action="/mcat/index.html">
+                                                <input type="hidden" name="catid" value="10">
+                                                <input type="hidden" name="sort" value="0">
+                                                <input type="hidden" name="man" value="-1">
+                                                <input type="hidden" name="minprice" value="0">
+                                                <input type="hidden" name="maxprice" value="161.99">
+                                                <div class="check form-check">
+                                                    <p class="heading" style="font-size:13px !important">Body Size</p>
+                                                    <input type="checkbox" class="form-check-input" name="chk_5_0" value="L"> L<br>
+
+
+                                                    <input type="checkbox" class="form-check-input" name="chk_5_1" value="M"> M<br>
+
+
+                                                    <input type="checkbox" class="form-check-input" name="chk_5_2" value="S"> S<br>
+
+
+                                                    <input type="checkbox" class="form-check-input" name="chk_5_3" value="XL"> XL<br>
+
+
+                                                    <input type="checkbox" class="form-check-input" name="chk_5_4" value="XS"> XS<br>
+
+
+                                                    <input type="checkbox" class="form-check-input" name="chk_5_5" value="XXL"> XXL<br>
+
+                                                </div><br>
+                                                <input type="submit" class="form-control form-control-sm" value="SEARCH">
+
+                                            </form>
+
+                                            <hr>
+                                            <h6> Brands</h6>
+
+                                            <a href="/mcat/index.html?catid=10&man="></a>
+                                            <br>
+
+                                            <a href="/mcat/index.html?catid=10&man=2">Kurumsal Ticaret</a>
+                                            <br>
+
+
+
+
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="modal-footer">
+                                    <button class="btn btn-primary d-block" onclick="myFunction();">ARAMA YAP</button>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                    <script>
+                        function myFunction() {
+                            document.getElementById("myForm").submit();
+                        }
+                    </script>
+
+
+                    <hr>
+                    <style>
+                        .boxx {
+                            padding-bottom: 10px;
+                        }
+                    </style>
+                    <div class="row" style=" padding: 10px;">
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1095"><img src="https://www.uztrendbol.com/content/images/thumbs/0001235_963-tarz-kadin-pembe-ncili-elbise-3022.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">963 Tarz Kadın Pembe İncili Elbise 3022-1<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">7.54<sup>&#36;</sup> <del style="color:#80808075;">13 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1096"><img src="https://www.uztrendbol.com/content/images/thumbs/0001242_alacati-stili-kadin-ekru-kapusonlu-sweat-elbise.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Alaçatı Stili Kadın Ekru Kapüşonlu Sweat Elbise-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">3.9<sup>&#36;</sup> <del style="color:#80808075;">9.1 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1162"><img src="https://www.uztrendbol.com/content/images/thumbs/0001404_bershka-kadin-mor-buzgulu-sisme-mont.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Bershka Kadın Mor Büzgülü Şişme Mont-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">21.06<sup>&#36;</sup> <del style="color:#80808075;">35.1 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1103"><img src="https://www.uztrendbol.com/content/images/thumbs/0001277_cicek-desenli-kruvaze-elbise-9yxk6-41729-02.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Çiçek Desenli Kruvaze Elbise 9YXK6-41729-02-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">5.46<sup>&#36;</sup> <del style="color:#80808075;">6.5 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1294"><img src="https://www.uztrendbol.com/content/images/thumbs/0001652_cool-sexy-kadin-beyaz-onu-baskili-t-shirt.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Cool & Sexy Kadın Beyaz Önü Baskılı T Shirt-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">4.68<sup>&#36;</sup> <del style="color:#80808075;">7.8 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1114"><img src="https://www.uztrendbol.com/content/images/thumbs/0001309_ekru-balon-kol-detayli-triko-kazak.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">ekru Balon Kol Detaylı Triko Kazak-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">7.02<sup>&#36;</sup> <del style="color:#80808075;">7.8 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1160"><img src="https://www.uztrendbol.com/content/images/thumbs/0001401_femme-butik-kadin-mavi-kemerli-mom-jeans-pantolon-fm.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Femme Butik Kadın Mavi Kemerli Mom Jeans Pantolon Fm-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">15.6<sup>&#36;</sup> <del style="color:#80808075;">19.5 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1100"><img src="https://www.uztrendbol.com/content/images/thumbs/0001262_kadin-fume-yakasi-ve-alti-firfirli-desenli-elbise.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Kadın Füme Yakası Ve Altı Fırfırlı Desenli Elbise-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">6.37<sup>&#36;</sup> <del style="color:#80808075;">6.5 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1110"><img src="https://www.uztrendbol.com/content/images/thumbs/0001294_kadin-mavi-blok-renkli-oversize-polar.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Kadın Mavi Blok Renkli Oversize Polar-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">10.4<sup>&#36;</sup> <del style="color:#80808075;">13 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1107"><img src="https://www.uztrendbol.com/content/images/thumbs/0001285_kadin-siyah-baskili-polarli-sweatshirt.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Kadın Siyah Baskılı Polarlı Sweatshirt-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">7.8<sup>&#36;</sup> <del style="color:#80808075;">9.23 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1104"><img src="https://www.uztrendbol.com/content/images/thumbs/0001279_kadin-siyah-cift-cepli-kemerli-elbise-9yxk6-41806-.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Kadın Siyah Çift Cepli Kemerli Elbise 9yxk6-41806--0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">5.46<sup>&#36;</sup> <del style="color:#80808075;">6.5 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1098"><img src="https://www.uztrendbol.com/content/images/thumbs/0001250_kadin-siyah-kolu-renkli-balonlu-elbise-arm-.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Kadın Siyah Kolu Renkli Balonlu Elbise ARM--0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">6.5<sup>&#36;</sup> <del style="color:#80808075;">10.4 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1105"><img src="https://www.uztrendbol.com/content/images/thumbs/0001280_kadin-siyah-puantiyeli-marina-elbise-0yxk6-43469-.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Kadın Siyah Puantiyeli Marina Elbise 0YXK6-43469--0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">6.76<sup>&#36;</sup> <del style="color:#80808075;">13 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1108"><img src="https://www.uztrendbol.com/content/images/thumbs/0001288_kadin-siyah-sardonlu-renk-bloklu-oversize-kapsonlu-sweatsihrt-alc-x4977.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Kadın Siyah Şardonlu Renk Bloklu Oversıze Kapşonlu Sweatsıhrt ALC-X4977-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">0<sup>&#36;</sup> <del style="color:#80808075;">0 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1099"><img src="https://www.uztrendbol.com/content/images/thumbs/0001254_kahverengi-kemerli-elbise.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Kahverengi Kemerli Elbise-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">0<sup>&#36;</sup> <del style="color:#80808075;">0 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1283"><img src="https://www.uztrendbol.com/content/images/thumbs/0001632_lavienza-kusakli-tesettur-elbise.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Lavienza Kuşaklı Tesettür Elbise-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">20.67<sup>&#36;</sup> <del style="color:#80808075;">25.87 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1113"><img src="https://www.uztrendbol.com/content/images/thumbs/0001305_lila-tul-detayli-triko-kazak.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Lila Tül Detaylı Triko Kazak-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">9.1<sup>&#36;</sup> <del style="color:#80808075;">13 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1112"><img src="https://www.uztrendbol.com/content/images/thumbs/0001300_mavi-jakarli-triko-kazak.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Mavi Jakarlı Triko Kazak-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">7.15<sup>&#36;</sup> <del style="color:#80808075;">10.4 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1111"><img src="https://www.uztrendbol.com/content/images/thumbs/0001297_mint-dugme-detayli-triko-kazak.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Mint Düğme Detaylı Triko Kazak-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">7.67<sup>&#36;</sup> <del style="color:#80808075;">10.4 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1284"><img src="https://www.uztrendbol.com/content/images/thumbs/0001635_moda-cazibe-buyuk-beden-omuz-tullu-cicekli-bluz.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Moda Cazibe Büyük Beden Omuz Tüllü Çiçekli Bluz-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">9.1<sup>&#36;</sup> <del style="color:#80808075;">13 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1307"><img src="https://www.uztrendbol.com/content/images/thumbs/0001681_mrc-butk-kadin-siyah-pileli-etek.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">MRC BUTİK Kadın Siyah Pileli Etek-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">3.9<sup>&#36;</sup> <del style="color:#80808075;">14.3 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1109"><img src="https://www.uztrendbol.com/content/images/thumbs/0001291_murdum-kanguru-cepli-kapusonlu-boyfriend-orme-sweatshirt-twoaw20sw0525.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Mürdüm Kanguru Cepli Kapüşonlu Boyfriend Örme Sweatshirt TWOAW20SW0525-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">9.1<sup>&#36;</sup> <del style="color:#80808075;">13 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1282"><img src="https://www.uztrendbol.com/content/images/thumbs/0001630_pennar-kadin-mavi-kot-elbise.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">PİENNAR Kadın Mavi Kot Elbise-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">19.37<sup>&#36;</sup> <del style="color:#80808075;">24.57 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1285"><img src="https://www.uztrendbol.com/content/images/thumbs/0001637_sans-kadin-gri-yakasi-flok-tul-detayli-bluz.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Şans Kadın Gri Yakası Flok Tül Detaylı Bluz-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">5.2<sup>&#36;</sup> <del style="color:#80808075;">13 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1115"><img src="https://www.uztrendbol.com/content/images/thumbs/0001313_siyah-bol-paca-pantolon.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Siyah Bol Paça Pantolon-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">9.1<sup>&#36;</sup> <del style="color:#80808075;">15.6 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1097"><img src="https://www.uztrendbol.com/content/images/thumbs/0001258_siyah-dik-yaka-volanli-elbise.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Siyah Dik Yaka Volanlı Elbise-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">11.7<sup>&#36;</sup> <del style="color:#80808075;">13 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1101"><img src="https://www.uztrendbol.com/content/images/thumbs/0001270_siyah-fitilli-bodycon-midi-orme-elbise.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Siyah Fitilli Bodycon Midi Örme Elbise-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">7.28<sup>&#36;</sup> <del style="color:#80808075;">13 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1106"><img src="https://www.uztrendbol.com/content/images/thumbs/0001283_siyah-kusakli-elbise-twoaw21el0395.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">Siyah Kuşaklı Elbise TWOAW21EL0395-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">7.8<sup>&#36;</sup> <del style="color:#80808075;">10.4 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1006"><img src="https://www.uztrendbol.com/content/images/thumbs/0001124_trandbol-kadin-siyah-sweatshirt.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">TRANDBOL Kadın Siyah Sweatshirt-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">6.5<sup>&#36;</sup> <del style="color:#80808075;">6.5 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx ">
+                            <div class="card cardt clean-card h-100"><a href="product-detail.html?sid=1159"><img src="https://www.uztrendbol.com/content/images/thumbs/0001398_trendyolmlla-ekru-cizgili-triko-kazak-twoaw21.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">TRENDYOLMİLLA Ekru Çizgili Triko Kazak TWOAW21-0<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">5.2<sup>&#36;</sup> <del style="color:#80808075;">6.5 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-6 col-md-3 boxx">
+                            <div class="card cardt clean-card products h-100"><a href="product-detail.html?sid=1308"><img src="https://www.uztrendbol.com/content/images/thumbs/0001684_trendyolmlla-lila-omzu-acik-askili-triko-kazak.jpeg" class="img-thumbnail"></a>
+                                <div class="fvrt-btn-wrppr"><a href="#"><i class="fvrt-btn"></i></a></div>
+                                <div class="foot">
+                                    <p class="heading"><a href="product-detail.html?sid=">TRENDYOLMİLLA Lila Omzu Açık Askılı Triko Kazak<br><span class="fa fa-star"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span><span class="fa fa-star checked"></span>
+                                            <p style="font-weight: bold; color: #f28232;">6.2<sup>&#36;</sup> <del style="color:#80808075;">10.4 &#36;</del></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div style="height:100px;"> </div>
+
+
+
+                </div>
+                <!-- h100 ends -->
+            </div>
+            <!-- page-content ends -->
+        </div>
+        <!-- page ends -->
+    </div>
+    <!--wrapper ends -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <!-- Cookie jquery file -->
+    <script src="vendor/cookie/jquery.cookie.js"></script>
+    <!-- Swiper carousel jquery file -->
+    <script src="vendor/swiper/js/swiper.min.js"></script>
+    <!-- Application main common jquery file -->
+    <script src="js/main.js"></script>
+    <!-- page specific script -->
+</body>
+
+</html>
