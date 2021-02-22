@@ -1,5 +1,45 @@
 "use strict";
 $(document).ready(function () {
+
+
+	// $('a[data-toggle="tab"]').on('hide.bs.tab', function (e) {
+	// 	var $old_tab = $($(e.target).attr("href"));
+	// 	var $new_tab = $($(e.relatedTarget).attr("href"));
+
+	// 	if($new_tab.index() < $old_tab.index()){
+	// 		$old_tab.css('position', 'relative').css("right", "0").show();
+	// 		$old_tab.animate({"right":"-100%"}, 300, function () {
+	// 			$old_tab.css("right", 0).removeAttr("style");
+	// 		});
+	// 	}
+	// 	else {
+	// 		$old_tab.css('position', 'relative').css("left", "0").show();
+	// 		$old_tab.animate({"left":"-100%"}, 300, function () {
+	// 			$old_tab.css("left", 0).removeAttr("style");
+	// 		});
+	// 	}
+	// });
+
+	// $('a[data-toggle="tab"]').on('show.bs.tab', function (e) {
+	// 	var $new_tab = $($(e.target).attr("href"));
+	// 	var $old_tab = $($(e.relatedTarget).attr("href"));
+
+	// 	if($new_tab.index() > $old_tab.index()){
+	// 		$new_tab.css('position', 'relative').css("right", "-2500px");
+	// 		$new_tab.animate({"right":"0"}, 500);
+	// 	}
+	// 	else {
+	// 		$new_tab.css('position', 'relative').css("left", "-2500px");
+	// 		$new_tab.animate({"left":"0"}, 500);
+	// 	}
+	// });
+
+	// $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+	// 	// your code on active tab shown
+	// });
+
+
+
  
     /* sidebar left  expand collapase */
     $('.menu-left').on('click', function () {
@@ -33,35 +73,6 @@ $(document).ready(function () {
     $('.close-search').on('click', function () {
         $('.searchcontrol').removeClass('active');
     });
-
-    /* theme cookie usage */
-
-         // Owl Carousel Team
-        $('tab-pane').owlCarousel({
-            
-            items: 2,
-            loop: true,
-            smartSpeed: 1500,
-            autoplay: false,
-            dots: true,
-            nav: false,
-            responsive:{
-                0:{
-                    items:1,
-                    nav:false
-                },
-                600:{
-                    items:1,
-                    nav:false
-                },
-                1000:{
-                    items:2,
-                    nav:false,
-                    loop:false
-                }
-            }
-        });
-  
 
 
     /* page content height for sticky footer */

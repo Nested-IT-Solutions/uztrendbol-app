@@ -1,0 +1,112 @@
+
+
+
+  html,
+  body {
+    position: relative;
+    height: 100%;
+  }
+
+  body {
+    background: #FFFFFF;
+    font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+  }
+
+  .tab-slider {
+    background-color: #FFFFFF;
+  }
+
+  .wrapper .page .page-content .tab-menu {
+    position: sticky;
+    top: 0;
+    z-index: 999;
+    background: #FFFFFF;
+  }
+
+  .page-content .tab-menu .swiper-menu {
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+
+  }
+  .page-content .tab-menu .swiper-menu ul.nav-menu {
+    display: flex;
+    /* justify-content: space-around; */
+    flex-wrap: nowrap;
+    flex-direction: row;
+    /* padding-bottom: 10px; */
+    padding-top: 15px;
+  }
+
+  .page-content .tab-menu .swiper-menu ul.nav-menu li {
+    width: 20px;
+    padding: 0 !important;
+
+  }
+  .page-content .tab-menu ul.nav-menu li a {
+    font-size: 16px;
+    color: #000;
+    font-weight: 500;
+
+  }
+  .page-content .tab-menu .swiper-menu ul.nav-menu li:hover a {
+    color: #F3780E;
+    font-weight: 700;
+
+  }
+
+  .swiper-details {
+    width: 100%;
+    /* height: 100%; */
+    margin-left: auto;
+    margin-right: auto;
+    overflow: visible !important;
+    background: #FFFFFF !important;
+
+  }
+
+  
+  .page-content .swiper-details .swiper-button-next,
+  .page-content .swiper-details .swiper-button-prev {
+    display: none !important;
+
+  }
+
+  .container {
+    background-color: #FFFFFF !important;
+  }
+
+  .swiper-details .swiper-wrapper .swiper-slide {
+    display: flex;
+    background: #FFFFFF !important;
+    flex-wrap: wrap;
+    font-size: 16px;
+  }
+  
+  .swiper-details {
+    height: 100%;
+    width: 100%;
+  }
+
+  .gallery-thumbs {
+    box-sizing: border-box;
+    padding: 10px 0;
+  }
+
+  .gallery-thumbs .swiper-slide {
+    /* height: 100%; */
+    /* width: 100% !important; */
+    opacity: 1 !important;
+    padding: 5px 15px !important;
+    
+  }
+  .gallery-thumbs .swiper-slide img {
+     height: 100%; 
+     border-radius: 6px;
+  }
+
+  .gallery-thumbs .swiper-slide-thumb-active {
+    opacity: 1 !important;
+  }
