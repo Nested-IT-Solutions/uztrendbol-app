@@ -96,9 +96,9 @@ body {
     position: relative;
 	  overflow-x: hidden;
 }
-header.fixed-header~.page-content {
+/* header.fixed-header~.page-content {
     padding-top: 50px;
-}
+} */
 .content-sticky-footer {
     min-height: 100%;
     height: auto;
@@ -107,6 +107,13 @@ header.fixed-header~.page-content {
     clear: both;
     width: 100%;
 }
+
+.content-info {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 h1,
 h2,
 h3,
@@ -165,9 +172,9 @@ h6 {
 .ios .max-demo-frame .searchcontrol {
     padding-top: 30px;
 }
-.ios .max-demo-frame header.fixed-header~.page-content {
+/* .ios .max-demo-frame header.fixed-header~.page-content {
     padding-top: 80px;
-}
+} */
 .ios .max-demo-frame .login-logo {
     margin-top: 25%;
 }
@@ -561,9 +568,10 @@ header > .left a i {
     vertical-align: middle
 }
 header.fixed-header {
-    position: absolute;
+    position: relative;
     top: 0;
-    left: 0
+    left: 0;
+    z-index: 999;
 }
 .md header:after {
     content: '';
@@ -1513,7 +1521,7 @@ a:hover {
     bottom: 0;
 }
 .fixed-footer .page-content {
-    padding-bottom: 100px;
+    /* padding-bottom: 100px; */
 }
 .footer {
     line-height: 40px;
@@ -2262,9 +2270,9 @@ body .wrapper .page .footer {
     header > .left a {
         width: 44px;
     }
-    header.fixed-header~.page-content {
+    /* header.fixed-header.page-content {
         padding-top: 44px;
-    }
+    } */
     .logo {
         line-height: 44px;
         font-size: 15px;
@@ -2364,9 +2372,9 @@ header.fixed-header{
 }
 
 .top-right {
-    float: right;
     width: 15%;
     display: block;
+    text-align: center;
 }
 .nav-link {
     display: block;
