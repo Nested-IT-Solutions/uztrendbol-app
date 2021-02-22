@@ -107,6 +107,7 @@
      border-radius: 6px;
   }
 
-  .gallery-thumbs .swiper-slide-thumb-active {
-    opacity: 1 !important;
+  .gallery-thumbs .swiper-slide-thumb-active a {
+    border-bottom: 2px solid #F3780E;
+    color: #FF9262 !important;
   }

@@ -31,10 +31,10 @@ $(document).ready(function(){
     var galleryThumbs = new Swiper('.gallery-thumbs', {
         spaceBetween: 10,
         slidesPerView: 1,
-        autoplay: {
-            delay: 2500,
-            disableOnInteraction: false,
-          },
+        // autoplay: {
+        //     delay: 2500,
+        //     disableOnInteraction: false,
+        //   },
         loop: true,
         freeMode: true,
         loopedSlides: 5, //looped slides should be the same
@@ -42,19 +42,19 @@ $(document).ready(function(){
         watchSlidesProgress: true,
         breakpoints: {
             '@0.00': {
-              slidesPerView: 1,
+              slidesPerView: 4,
               spaceBetween: 10,
             },
             '@0.75': {
-              slidesPerView: 1,
+              slidesPerView: 4,
               spaceBetween: 10,
             },
             '@1.00': {
-              slidesPerView: 3,
+              slidesPerView: 4,
               spaceBetween: 10,
             },
             '@1.50': {
-              slidesPerView: 4,
+              slidesPerView: 7,
               spaceBetween: 10,
             },
         }
