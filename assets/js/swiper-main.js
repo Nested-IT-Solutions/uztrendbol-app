@@ -1,10 +1,8 @@
-
-
 $(document).ready(function(){
 
     var swiper = new Swiper('.swiper-menu', {
         slidesPerView: 1,
-        spaceBetween: 10,
+        // spaceBetween: 10,
         // loop: true,
         // init: false,
   

@@ -47,7 +47,7 @@
                 <div class="form-group has-search">
                     <!-- <span class="fa fa-search form-control-feedback"></span> -->
                     <i class='bx bx-search'></i>
-                    <input type="text" class="form-control" placeholder=" Search Brand or Category" onclick="openNav()">
+                    <input id="search1" type="text" class="form-control" placeholder=" Search Brand or Category" onclick="openNav()">
                 </div>
                 <div class="top-right">
                     <a class="notification-icon" href="#">
@@ -118,14 +118,11 @@
             <!--Search Modal-->
             <div id="myNav" class="overlay">
                 <div class="overlay-content">
-                    <form name="Form" id="searchForm" method="get" action="/murun-detay/index.html">
-                        <input name="seo" type="hidden" id="searchField2" value="" />
-                        <input name="sid" type="hidden" id="searchField" value="" />
-                    </form>
+                   
                     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> Cancel</a>
                     <div class="has-search" style="float:left;width: 100%;">
                         <i class='bx bx-search'></i>
-                        <input type="text" class="form-control" placeholder=" Search Brand or Category" onclick="openNav()">
+                        <input id="search2" type="text" class="form-control" placeholder=" Search Brand or Category" onclick="openNav()">
                     </div>
 
                     <div class="buttons">
@@ -178,7 +175,7 @@
 
                     <!-- Swiper -->
                     <div class="tab-menu">
-                        <div class="swiper-container swiper-menu gallery-thumbs">
+                        <div class="swiper-container swiper-menu gallery-thumbs" style="padding: 0 !important;">
                             <div class="nav-menu swiper-wrapper">
                                 <li class="swiper-slide"><a class="swipe-menu" href="#">Woman</a></li>
                                 <li class="swiper-slide"><a class="swipe-menu" href="#">Man</a></li>
@@ -248,6 +245,8 @@
                             </div>
                         </div>
                     </div>
+
+
 
                     <!--   Swiper Content  -->
                     <div class="swiper-details pb-100px">
@@ -772,6 +771,268 @@
                                 </div>
 
                             </div>
+                            <div class="swiper-slide" id="tab-4">
+
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-12.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p> <a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-13.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+
+
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-6.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-7.jpg" class="img-fluid" alt="img">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-1.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-7.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+
+                                
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-14.jpg" class="img-fluid" alt="img">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-5.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-6.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-7.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-8.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-9.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-10.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-11.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-1.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-5.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-4.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="swiper-slide" id="tab-4">
+
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-12.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p> <a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-13.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+
+
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-6.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-7.jpg" class="img-fluid" alt="img">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-1.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-7.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+
+                                
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-14.jpg" class="img-fluid" alt="img">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-5.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-6.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-7.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-8.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-9.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-10.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-11.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-1.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-5.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+                                <div class="item-box">
+                                    <img src="assets/img/content-img/product-4.jpg" class="img-fluid" alt="">
+                                    <div class="content-info d-flex">
+                                        <a href="#">Winter$summer collection </a>
+                                        <p><a href="product.html"> start-shopping<i class="fa fa-angle-right"></i></a></p>
+                                    </div>
+                                </div>
+
+                            </div>
 
                         </div>
                         <!-- Add Arrows -->
@@ -793,13 +1054,14 @@
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.touchswipe/1.6.18/jquery.touchSwipe.min.js"></script>
 <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
 <script src="js/owl.carousel.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
 
 <!--  Swiper js file   --> 
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script src="assets/js/swiper-bundle.esm.browser.js"></script>
 <script src="assets/js/swiper-bundle.esm.browser.min.js"></script>
 <script src="assets/js/swiper-main.js"></script>
-
+<script src="assets/js/main.js"></script>
 
 <script>
     $('.tab-slider').owlCarousel({

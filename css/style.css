@@ -505,7 +505,7 @@ h6 {
     padding: 10px 15px;
     font-size: 13px;
     color: #ffffff;
-    vertical-align: middle
+    vertical-align: middle;
 }
 .navbar .navbar-nav li .dropdown-menu a {
     padding-left: 48px;
@@ -985,47 +985,7 @@ body.theme-dark {
 		/*border-radius: 20px;*/
 }
 
-/* .ios .btn {
-   border-radius: 4px !important;
-} */
-/* .ios .btn-group .btn {
-     border-radius: 0px !important;
-}
-.ios .btn-group .btn:first-child {
-     border-top-left-radius: 4px !important;
-     border-bottom-left-radius: 4px !important;
-}
-.ios .btn-group .btn:last-child {
-      border-top-right-radius: 4px !important;
-     border-bottom-right-radius: 4px !important;
-}
-.ios .btn-group.btn-group-vertical .btn {
-     border-radius: 0 !important;
-}
-.ios .btn-group.btn-group-vertical .btn:first-child {
-     border-radius: 4px 4px 0 0px !important;
-}
-.ios .btn-group.btn-group-vertical .btn:last-child {
-     border-radius: 0 0px 4px 4px !important;
-} */
-.ios .btn-group > .btn-group .btn:first-child {
-     /* border-radius: 0 4px 4px 0 !important;*/
-}
-.ios .btn-group > .btn-group .btn:first-child {
-    /*  border-radius: 0 4px 4px 0 !important;*/
-}
-.ios .btn.dropdown-toggle,
-.ios .btn-group .btn.dropdown-toggle {
-    /*  border-radius: 4px !important;*/
-    /*  border-radius: 4px !important;*/
-}
-.ios .btn+.btn.dropdown-toggle,
-.ios .btn-group .btn+.btn.dropdown-toggle {
-    /*  border-top-right-radius: 4px !important;*/
-   /*   border-bottom-right-radius: 4px !important;*/
-   /*   border-top-left-radius: 0px !important;*/
-    /*  border-bottom-left-radius: 0px !important;*/
-}
+
 .btn-block {
     padding: .375rem 0.5rem;
 }
@@ -1177,7 +1137,6 @@ body.theme-dark {
     color: #999999;
     box-sizing: border-box;
     background: none;
-    padding: 15px;
     background-size: cover;
 }
 .swiper-content-block {
@@ -1285,16 +1244,14 @@ demo-swiper-gallery-top .swiper-slide {
 .gallery-thumbs {
     height: 20%;
     box-sizing: border-box;
-    padding: 10px 0;
+    padding: 0 !important;
 }
 .gallery-thumbs .swiper-slide {
     width: 25%;
     height: 100%;
     opacity: 0.4;
 }
-.gallery-thumbs .swiper-slide-thumb-active {
-    opacity: 1;
-}
+
 .parallax-bg {
     position: absolute;
     left: 0;
@@ -2077,7 +2034,6 @@ body .wrapper .page .footer {
     -ms-flex-direction: column;
     -moz-flex-direction: column;
     width: 85px;
-    padding: 0 5px;
 }
 .categories .swiper-wrapper .swiper-slide .swiper-content-block {
     padding: 0px;
