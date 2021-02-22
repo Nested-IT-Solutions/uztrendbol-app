@@ -26,6 +26,7 @@
     z-index: 999;
     background: #FFFFFF;
     padding: 0 !important;
+    box-shadow: 0px 3px 15px 0px rgba(0, 0, 0, 0.15) !important;
   }
 
   .page-content .tab-menu .swiper-menu {
@@ -38,7 +39,8 @@
     flex-wrap: nowrap;
     flex-direction: row;
     /* padding-bottom: 10px; */
-    padding-top: 15px;
+    padding-top: 5px;
+  
   }
 
   .page-content .tab-menu .swiper-menu .nav-menu li.swiper-slide {
@@ -47,10 +49,10 @@
     
   }
   .page-content .tab-menu .nav-menu li.swiper-slide a {
-    font-size: 16px;
-    color: #000;
-    font-weight: 500;
-    padding: 5px;
+    font-size: 15px;
+    color: gray;
+    font-weight: 600;
+    padding: 5px 15px;
   }
   .page-content .tab-menu .swiper-menu .nav-menu li:hover a {
     color: #F3780E;
@@ -67,6 +69,10 @@
     background: #FFFFFF !important;
 
   }
+  
+  .swiper-details .swiper-wrapper .swiper-slide {
+    font-size: 14px;
+}
 
   
   .page-content .swiper-details .swiper-button-next,
@@ -84,7 +90,7 @@
     background: #FFFFFF !important;
     flex-wrap: wrap;
     font-size: 16px;
-    
+
   }
   
   .swiper-details {

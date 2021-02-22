@@ -20,16 +20,16 @@
     background-color: transparent;
     border-color: transparent transparent #f3f3f3;
     border-bottom: 3px solid !important;
-    font-size: 13px;
-    font-weight: bold;
+    font-size: 12px;
+    font-weight: 600;
 }
 .project-tab .nav-link {
     border: 1px solid transparent;
     border-top-left-radius: .25rem;
     border-top-right-radius: .25rem;
     color: #0062cc;
-    font-size: 13px;
-    font-weight: 600;
+    font-size: 12px;
+    font-weight: 700;
 }
 .project-tab .nav-link:hover {
     border: none;

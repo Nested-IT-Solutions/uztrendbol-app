@@ -604,6 +604,9 @@ header.fixed-header {
     margin-top: -5px
 }
 
+.item-box {
+    padding: 0 15px;
+}
 /* color scheme css */
 
 header a {
