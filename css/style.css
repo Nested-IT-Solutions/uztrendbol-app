@@ -112,6 +112,18 @@ body {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    
+}
+.content-info p {
+    margin: 0 !important;
+
+}
+
+.item-box img {
+    margin-top: 15px;
+}
+.main-content .main-img img {
+    margin-top: 15px;
 }
 
 h1,
@@ -612,8 +624,8 @@ header.fixed-header {
     margin-top: -5px
 }
 
-.item-box {
-    padding: 0 15px;
+.side-bar img {
+    margin-top: 15px;
 }
 /* color scheme css */
 
