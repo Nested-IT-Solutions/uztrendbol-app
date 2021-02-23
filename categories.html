@@ -94,6 +94,8 @@
 </head>
 
 <body class="cpush-content-right theme-light color-theme-green">
+
+
     <div class="wrapper">
         <!-- sidebar left start -->
         <div class="sidebar sidebar-left">
@@ -146,35 +148,33 @@
                     position: absolute;
                 }
 
-                . ui-widget {
+                .ui-widget {
                     z-index: 99999;
                     position: absolute;
                 }
             </style>
 
+
+   
+            <!--Search Modal-->
             <div id="myNav" class="overlay">
                 <div class="overlay-content">
-
-                    <form name="Form" id="searchForm" method="get" action="product-detail.html">
-                        <input name="seo" type="hidden" id="searchField2" value="" />
-                        <input name="sid" type="hidden" id="searchField" value="" />
-
-                    </form>
-
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-
+                   
+                    
                     <div class="has-search" style="float:left;width: 100%;">
-                        <input type="text" id="birds" class="" style="width: 100%;color:red;" placeholder=" Search Brand or Category">
+                        <i class='bx bx-search'></i>
+                        <input id="search2" type="text" class="form-control" placeholder=" Search Brand or Category" onclick="openNav()">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> Cancel</a>
                     </div>
-                    <hr>
-                    <button type="button" class="btn btn-outline-dark btn-sm">Recently Searched</button>
-                    <button type="button" class="btn btn-outline-dark btn-sm">Test</button>
-                    <button type="button" class="btn btn-outline-dark btn-sm">Popular Products</button>
+
+                    <div class="buttons">
+                        <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Recently Searched</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm"> <i class='bx bx-search'></i> Test</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Popular Products</button>
+                    </div>
 
                 </div>
             </div>
-
-
 
 
             <script>
@@ -191,11 +191,25 @@
                 <!--footer start -->
                 <nav class="tabber tabber-bottom">
                     <div class="nav nav-tabs " id="nav-tab" role="tablist">
-                        <a class="nav-item nav-link active " id="nav-find-tab" data-toggle="tab2" href="index.html" role="tab" aria-controls="nav-find" aria-selected="true"><i class="icon material-icons">home</i><span class="tabbar-label">Home</span></a>
-                        <a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="all-menu.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">search<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Categories</span> </a>
-                        <a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="favorites.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">favorite<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Favorites</span> </a>
-                        <a class="nav-item nav-link  " id="nav-cart-tab" data-toggle="tab2" href="basket.html" role="tab" aria-controls="nav-cart" aria-selected="false"> <i class="icon material-icons">shopping_cart<span class="badge color-red" id="topmsg"></span></i> <span class="tabbar-label"> My Cart</span> </a>
-                        <a class="nav-item nav-link  " id="nav-profile-tab" data-toggle="tab2" href="login.html" role="tab" aria-controls="nav-profile" aria-selected="false"> <i class="icon material-icons">account_circle</i> <span class="tabbar-label">My Acc</span> </a>
+                        <a class="nav-item nav-link " id="nav-find-tab" data-toggle="tab2" href="index.html" role="tab"
+                            aria-controls="nav-find" aria-selected="true"><i class="icon material-icons">home</i><span
+                                class="tabbar-label">Home</span></a>
+
+                        <a class="nav-item nav-link active" id="nav-favorite-tab" data-toggle="tab2" href="categories.html" role="tab"
+                            aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">search<span
+                                    class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Categories</span> </a>
+
+                        <a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="favorites.html" role="tab"
+                            aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">favorite<span
+                                    class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Favorites</span> </a>
+
+                        <a class="nav-item nav-link  " id="nav-cart-tab" data-toggle="tab2" href="basket.html" role="tab"
+                            aria-controls="nav-cart" aria-selected="false"> <i class="icon material-icons">shopping_cart<span
+                                    class="badge color-red" id="topmsg"></span></i> <span class="tabbar-label"> My Cart</span> </a>
+
+                        <a class="nav-item nav-link  " id="nav-profile-tab" data-toggle="tab2" href="login.html" role="tab"
+                            aria-controls="nav-profile" aria-selected="false"> <i class="icon material-icons">account_circle</i> <span
+                                class="tabbar-label">My Acc</span> </a>
                     </div>
                 </nav>
                 <!--footer ends -->

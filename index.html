@@ -46,6 +46,7 @@
 <body class="cpush-content-right theme-light color-theme-green">
 	<div class="wrapper">
 		<div class="page">
+            
 			<!--header start -->
             <header class="row m-0 fixed-header no-shadow">
                 <div class="form-group has-search">
@@ -61,6 +62,26 @@
             </header>
             <!--header ends -->
             <!--Language Change Modal-->
+
+            <!--Search Modal-->
+            <div id="myNav" class="overlay">
+                <div class="overlay-content">
+                    
+                    <div class="has-search" style="float:left;width: 100%;">
+                        <i class='bx bx-search'></i>
+                        <input id="search2" type="text" class="form-control" placeholder=" Search Brand or Category" onclick="openNav()">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> Cancel</a>
+                    </div>
+
+                    <div class="buttons">
+                        <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Recently Searched</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm"> <i class='bx bx-search'></i> Test</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Popular Products</button>
+                    </div>
+
+                </div>
+            </div>
+
 
             <div class="modal-content">
                 <div class="modal-header">
@@ -123,10 +144,10 @@
             <div id="myNav" class="overlay">
                 <div class="overlay-content">
                    
-                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> Cancel</a>
                     <div class="has-search" style="float:left;width: 100%;">
                         <i class='bx bx-search'></i>
                         <input id="search2" type="text" class="form-control" placeholder=" Search Brand or Category" onclick="openNav()">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> Cancel</a>
                     </div>
 
                     <div class="buttons">
@@ -157,7 +178,7 @@
                             aria-controls="nav-find" aria-selected="true"><i class="icon material-icons">home</i><span
                                 class="tabbar-label">Home</span>
                         </a>
-                        <a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="all-menu.html" role="tab"
+                        <a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="categories.html" role="tab"
                             aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">search<span
                                     class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Categories</span>
                          </a>
@@ -191,12 +212,10 @@
                         </div>
                     </div>
 
-
                     <div class="container">
                         <div class="row mt-10">
                             <div class="col-12 text-center">
                                 <div class="scrollmenu2 tab-slider owl-carousel">
-
                                     <div class="item">
                                         <a href="#">
                                             <img src="https://www.uztrendbol.com//Content/Images/slides/L/Picture_18.1.2021_21.58.47_UlieJ.JPG" title=""

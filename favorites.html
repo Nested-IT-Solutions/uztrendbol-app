@@ -105,66 +105,92 @@
 
         <!-- page main start -->
         <div class="page">
-            <header class="row m-0 fixed-header no-shadow" style="background: white; box-shadow: 1px 1px #E5E5E5; -webkit-box-shadow: 0 10px 5px #E5E5E5; -moz-box-shadow: 0 1px 5px #888888; box-shadow: 0 1px 5px #E5E5E5;">
-                  <style>
-  .nav-link {
-            display: block;
-            padding: 0px;
-            padding-top: 10px;
-        }     	
-    </style>
-
-		<div class="col left" style="font-size: 14px; font-weight: 600; top: 10px;">
-         Welcome &nbsp;  <span style="color: #F3780E; font-weight: 600;">Dear Visitor</span>
-    
-</div>
-<div class="right">
-    <a href="javascript:void(0)" onclick="openNav()"><i class="material-icons" style="color: #F3780E;">search</i></a>
-	 <a href="#" style="color: orange; margin: 0px 0px 0px 0px;"  data-toggle="modal"  data-target="#top_modal">
-<i class="icon material-icons">settings<span class="badge color-red" id="topmsg2"></span>
-</i>
-</a>
-</div>
-
+            <header class="row m-0 fixed-header no-shadow"
+              style="background: white; box-shadow: 1px 1px #E5E5E5; -webkit-box-shadow: 0 10px 5px #E5E5E5; -moz-box-shadow: 0 1px 5px #888888; box-shadow: 0 1px 5px #E5E5E5;">
+              <style>
+                .nav-link {
+                  display: block;
+                  padding: 0px;
+                  padding-top: 10px;
+                }
+              </style>
+            
+              <div class="col left" style="font-size: 14px; font-weight: 600; top: 10px;">
+                Welcome &nbsp; <span style="color: #F3780E; font-weight: 600;">Dear Visitor</span>
+            
+              </div>
+              <div class="right">
+                <a href="javascript:void(0)" onclick="openNav()"><i class="material-icons" style="color: #F3780E;">search</i></a>
+                <a href="#" style="color: orange; margin: 0px 0px 0px 0px;" data-toggle="modal" data-target="#top_modal">
+                  <i class="icon material-icons">settings<span class="badge color-red" id="topmsg2"></span>
+                  </i>
+                </a>
+              </div>
+            
             </header>
-               <style>
-       .ui-selectmenu-menu {
-           z-index: 99999;
-           position: absolute;
-       }
 
-       .ui-menu {
-           z-index: 99999;
-           position: absolute;
-       }
 
-       . ui-widget {
-           z-index: 99999;
-           position: absolute;
-       }
-   </style>
+              
+            <!--Search Modal-->
+            <div id="myNav" class="overlay">
+              <div class="overlay-content">
+                  
+                  <div class="has-search" style="float:left;width: 100%;">
+                      <i class='bx bx-search'></i>
+                      <input id="search2" type="text" class="form-control" placeholder=" Search Brand or Category" onclick="openNav()">
+                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> Cancel</a>
+                  </div>
+
+                  <div class="buttons">
+                      <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Recently Searched</button>
+                      <button type="button" class="btn btn-outline-dark btn-sm"> <i class='bx bx-search'></i> Test</button>
+                      <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Popular Products</button>
+                  </div>
+
+              </div>
+            </div>
+
+
+
+
+              <style>
+                .ui-selectmenu-menu {
+                  z-index: 99999;
+                  position: absolute;
+                }
+              
+                .ui-menu {
+                  z-index: 99999;
+                  position: absolute;
+                }
+              
+                .ui-widget {
+                  z-index: 99999;
+                  position: absolute;
+                }
+              </style>
    
-   <div id="myNav" class="overlay">
-       <div class="overlay-content">
+              <div id="myNav" class="overlay">
+                  <div class="overlay-content">
 
-           <form name="Form" id="searchForm" method="get" action="/murun-detay/index.html">
-               <input name="seo" type="hidden" id="searchField2" value="" />
-               <input name="sid" type="hidden" id="searchField" value="" />
+                      <form name="Form" id="searchForm" method="get" action="/murun-detay/index.html">
+                          <input name="seo" type="hidden" id="searchField2" value="" />
+                          <input name="sid" type="hidden" id="searchField" value="" />
 
-           </form>
+                      </form>
 
-           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          
-           <div class="has-search" style="float:left;width: 100%;">
-               <input type="text" id="birds" class="" style="width: 100%;color:red;" placeholder=" Search Brand or Category">
-           </div>
-           <hr>
-           <button type="button" class="btn btn-outline-dark btn-sm">Recently Searched</button>
-           <button type="button" class="btn btn-outline-dark btn-sm">Test</button>
-           <button type="button" class="btn btn-outline-dark btn-sm">Popular Products</button>
+                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+                      
+                      <div class="has-search" style="float:left;width: 100%;">
+                          <input type="text" id="birds" class="" style="width: 100%;color:red;" placeholder=" Search Brand or Category">
+                      </div>
+                      <hr>
+                      <button type="button" class="btn btn-outline-dark btn-sm">Recently Searched</button>
+                      <button type="button" class="btn btn-outline-dark btn-sm">Test</button>
+                      <button type="button" class="btn btn-outline-dark btn-sm">Popular Products</button>
 
-       </div>
-   </div>
+                  </div>
+              </div>
 
 
 
@@ -181,44 +207,48 @@
             <div class="page-content">
 
                 <!--footer start -->
-                   <nav class="tabber tabber-bottom">
-<div class="nav nav-tabs " id="nav-tab" role="tablist">
-<a class="nav-item nav-link  " id="nav-find-tab" data-toggle="tab2" href="index.html" role="tab" aria-controls="nav-find" aria-selected="true"><i class="icon material-icons">home</i><span class="tabbar-label">Home</span></a>
-<a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="all-menu.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">search<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Categories</span> </a>
-<a class="nav-item nav-link  active" id="nav-favorite-tab" data-toggle="tab2" href="favorites.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">favorite<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Favorites</span> </a>
-<a class="nav-item nav-link  " id="nav-cart-tab" data-toggle="tab2" href="basket.html" role="tab" aria-controls="nav-cart" aria-selected="false"> <i class="icon material-icons">shopping_cart<span class="badge color-red" id="topmsg"></span></i> <span class="tabbar-label"> My Cart</span> </a>
-<a class="nav-item nav-link  " id="nav-profile-tab" data-toggle="tab2" href="login.html" role="tab" aria-controls="nav-profile" aria-selected="false"> <i class="icon material-icons">account_circle</i> <span class="tabbar-label">My Acc</span> </a>
-                    </div>
+                <nav class="tabber tabber-bottom">
+                  <div class="nav nav-tabs " id="nav-tab" role="tablist">
+                    <a class="nav-item nav-link" id="nav-find-tab" data-toggle="tab2" href="index.html" role="tab" aria-controls="nav-find" aria-selected="true"><i class="icon material-icons">home</i><span class="tabbar-label">Home</span></a>
+
+                    <a class="nav-item nav-link" id="nav-favorite-tab" data-toggle="tab2" href="categories.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">search<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Categories</span> </a>
+
+                    <a class="nav-item nav-link active" id="nav-favorite-tab" data-toggle="tab2" href="favorites.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">favorite<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Favorites</span> </a>
+
+                    <a class="nav-item nav-link  " id="nav-cart-tab" data-toggle="tab2" href="basket.html" role="tab" aria-controls="nav-cart" aria-selected="false"> <i class="icon material-icons">shopping_cart<span class="badge color-red" id="topmsg"></span></i> <span class="tabbar-label"> My Cart</span> </a>
+
+                    <a class="nav-item nav-link  " id="nav-profile-tab" data-toggle="tab2" href="login.html" role="tab" aria-controls="nav-profile" aria-selected="false"> <i class="icon material-icons">account_circle</i> <span class="tabbar-label">My Acc</span> </a>
+                  </div>
                 </nav> 
                 <!--footer ends -->
                 <!-- h100 start -->
                 <div class="" style="background: #F5F5F5; width: 99%;">
-                    	 <script type="text/javascript">
-function MM_jumpMenu(targ,selObj,restore){ //v3.0
-  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
-  if (restore) selObj.selectedIndex=0;
-}
-</script>
-	<script type="text/javascript">
-$(document).bind("mobileinit", function(){ $.mobile.hashListeningEnabled = false; }); 
+                      <script type="text/javascript">
+                        function MM_jumpMenu(targ, selObj, restore) { //v3.0
+                          eval(targ + ".location='" + selObj.options[selObj.selectedIndex].value + "'");
+                          if (restore) selObj.selectedIndex = 0;
+                        }
+                      </script>
+                      <script type="text/javascript">
+                        $(document).bind("mobileinit", function () { $.mobile.hashListeningEnabled = false; });
 
-// boolean that stores if a swipe has been performed.
-var bScrolled = false;
-// countdown in ms before resetting the boolean.
-var iTime = 1000;
-var oTimeout;
-window.addEventListener('mousewheel', function(e) {
-  if (e.wheelDeltaY === 0) {
-  // there is an horizontal scroll
-    if (!bScrolled) {
-    // no need to set bScrolled to true if it has been done within the iTime time. 
-      bScrolled = true;
-      oTimeout = setTimeout(function(){
-        bScrolled = false;
-      }, iTime);
-    }
-  }
-});
+                        // boolean that stores if a swipe has been performed.
+                        var bScrolled = false;
+                        // countdown in ms before resetting the boolean.
+                        var iTime = 1000;
+                        var oTimeout;
+                        window.addEventListener('mousewheel', function (e) {
+                          if (e.wheelDeltaY === 0) {
+                            // there is an horizontal scroll
+                            if (!bScrolled) {
+                              // no need to set bScrolled to true if it has been done within the iTime time. 
+                              bScrolled = true;
+                              oTimeout = setTimeout(function () {
+                                bScrolled = false;
+                              }, iTime);
+                            }
+                          }
+                        });
 
 window.onpopstate = function() {
   // clear the timeout to be sure we keep the correct value for bScrolled
@@ -237,25 +267,25 @@ window.onpopstate = function() {
        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
-		Change Language and Currency
+		      Change Language and Currency
       </div>
       <div class="modal-body">
      <select name="se" id="se" class="" onchange="MM_jumpMenu('parent',this,0)">
           			          
-        
-          <option value="/lang-change.asp?lang=1"  selected> English</option>
-                    
+    
+      <option value="/lang-change.asp?lang=1"  selected> English</option>
+                
 
-        
-          <option value="/lang-change.asp?lang=2" > Türkçe</option>
-                    
+    
+      <option value="/lang-change.asp?lang=2" > Türkçe</option>
+                
 
-        
-          <option value="/lang-change.asp?lang=3" > Uzbek</option>
-                    
+    
+      <option value="/lang-change.asp?lang=3" > Uzbek</option>
+                
 
-        
-          <option value="/lang-change.asp?lang=4" > Russian</option>
+    
+      <option value="/lang-change.asp?lang=4" > Russian</option>
                     
 
 </Select>

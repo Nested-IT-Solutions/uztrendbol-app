@@ -270,7 +270,7 @@
     opacity: .6 !important;
   }
   /*=== Search Area ===*/
-  .header-section .search-area {
+  /* .header-section .search-area {
     margin-top: 1rem;
     width: 100% !important;
   }
@@ -337,7 +337,7 @@
 .bx-search {
   color: #F3780E;
   /* font-size: 14px; */
-}
+} */
 
 .overlay .overlay-content .buttons button {
   margin-top: 15px;

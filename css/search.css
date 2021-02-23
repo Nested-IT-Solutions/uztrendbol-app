@@ -12,8 +12,10 @@
 }
 .overlay-content {
     position: relative;
-    ;
     width: 100%;
+}
+.overlay-content .buttons button {
+    margin-top: 10px;
 }
 .overlay a {
     /* padding: 8px;*/
@@ -23,14 +25,92 @@
     display: block;
     transition: 0.3s;
 }
+
 .overlay a:hover, .overlay a:focus {
     color: #f1f1f1;
 }
-.overlay .closebtn {
-    position: absolute;
-    top: 20px;
-    right: 45px;
-    font-size: 40px;
+
+  /*=== Search Area ===*/
+  .header-section .search-area {
+    margin-top: 1rem;
+    width: 100% !important;
+  }
+  .header-section .search-area .auto-search {
+    width: 100% !important;
+  }
+  .header-section .search-area .auto-search .search-box input {
+    width: 80%;
+    padding: 5px 15px;
+    font-size: 14px;
+    border-radius: 10px !important;
+    background: #fff;
+    color: gray !important;
+  }
+  .overlay .closebtn {
+    top: 14px !important;
+    right: 12px !important;
+    font-size: 15px !important;
+    z-index: 1;
+    width: 20%;
+    text-align: center;
+    font-weight: 600;
+    padding: 15px 0;
+  }
+  .header-section .search-area .auto-search .search-box i {
+    width: 14px;
+    height: 14px;
+    font-size: 14px;
+    top: 15px;
+  }
+
+  .has-search{
+    margin: 5px 5px 5px 5px;
+    background: white;
+    position: relative;
+    float: left;
+    width: 80%;
+    margin-top: 0;
+    display: block;
+  }
+
+
+  .has-search input.form-control {
+    height: 25px;
+    border-radius: 10px;
+    padding-left: 25px;
+    border: none;
+
+    background: #eee;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 10px;
+  }
+  .has-search {
+    margin: 5px 5px 5px 5px;
+    background: white;
+    position: relative;
+    margin-top: 0;
+    display: flex;
+    justify-content: space-around;
+}
+
+
+.has-search i {
+position: absolute;
+top: 18px;
+left: 8px;
+font-weight: 600;
+font-size: 14px !important;
+color: gray;
+}
+
+.has-search input {
+    color: gray !important;
+}
+
+
+.bx-search {
+  color: #F3780E;
 }
 
 @media screen and (max-height: 450px) {
@@ -38,8 +118,8 @@
         font-size: 20px
     }
     .overlay .closebtn {
-    font-size: 40px;
+    font-size:  16px;
     top: 15px;
     right: 35px;
-    
+    }
 }
