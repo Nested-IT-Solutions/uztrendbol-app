@@ -1,31 +1,6 @@
 "use strict";
 $(document).ready(function () {
 
-    // /* sidebar left  expand collapase */
-    // $('.menu-left').on('click', function () {
-    //     $('body').addClass('menu-left-open');
-    //     $('body .wrapper').append('<div class="backdrop"></div>');
-    //     $('.backdrop').on('click', function () {
-    //         $('body').removeClass('menu-left-open');
-    //         $('.backdrop').fadeOut().remove();
-    //     });
-    // });
-
-    // $('.sidebar-close').on('click', function () {
-    //     $('body').removeClass('menu-left-open');
-    //     $('.backdrop').fadeOut().remove();
-    // });
-
-    /* sideabr right expand collapase */
-    // $('.menu-right').on('click', function () {
-    //     $('body').addClass('menu-right-open')
-    //     $('body .wrapper').append('<div class="backdrop-right"></div>');
-    //     $('.backdrop-right, .menu-left-close').on('click', function () {
-    //         $('body').removeClass('menu-right-open');
-    //         $('.backdrop-right').fadeOut().remove();
-    //     });
-    // });
-
     /* search control visible slide hide slide */
     $('.searchbtn').on('click', function () {
         $('.searchcontrol').addClass('active');
