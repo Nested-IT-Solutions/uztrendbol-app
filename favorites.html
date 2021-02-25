@@ -32,463 +32,497 @@
 
 <body class="cpush-content-right theme-light color-theme-green">
     <div class="wrapper">
-        <!-- sidebar left start -->
-        <div class="sidebar sidebar-left">
-        </div>
-        <!-- sidebar left ends -->
-        <!-- sidebar right start -->
-        <div class="sidebar sidebar-right">
-        </div>
-        <!-- sidebar right ends -->
-        <!-- fullscreen menu start -->
-        <!-- fullscreen menu ends -->
-
-        <!-- page main start -->
-        <div class="page">
-            <header class="row m-0 fixed-header no-shadow"
-              style="background: white; box-shadow: 1px 1px #E5E5E5; -webkit-box-shadow: 0 10px 5px #E5E5E5; -moz-box-shadow: 0 1px 5px #888888; box-shadow: 0 1px 5px #E5E5E5;">
-              <style>
-                .nav-link {
-                  display: block;
-                  padding: 0px;
-                  padding-top: 10px;
-                }
-              </style>
-            
-              <div class="col left" style="font-size: 14px; font-weight: 600; top: 10px;">
-                Welcome &nbsp; <span style="color: #F3780E; font-weight: 600;">Dear Visitor</span>
-            
-              </div>
-              <div class="right">
-                <a href="javascript:void(0)" onclick="openNav()"><i class="material-icons" style="color: #F3780E;">search</i></a>
-                <a href="#" style="color: orange; margin: 0px 0px 0px 0px;" data-toggle="modal" data-target="#top_modal">
-                  <i class="icon material-icons">settings<span class="badge color-red" id="topmsg2"></span>
-                  </i>
-                </a>
-              </div>
-            
-            </header>
-
-
-              
-            <!--Search Modal-->
-            <div id="myNav" class="overlay">
-              <div class="overlay-content">
-                  
-                  <div class="has-search" style="float:left;width: 100%;">
-                      <i class='bx bx-search'></i>
-                      <input id="search2" type="text" class="form-control" placeholder=" Search Brand or Category" onclick="openNav()">
-                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> Cancel</a>
-                  </div>
-
-                  <div class="buttons">
-                      <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Recently Searched</button>
-                      <button type="button" class="btn btn-outline-dark btn-sm"> <i class='bx bx-search'></i> Test</button>
-                      <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Popular Products</button>
-                  </div>
-
-              </div>
-            </div>
-
-
-
-
-              <style>
-                .ui-selectmenu-menu {
-                  z-index: 99999;
-                  position: absolute;
-                }
-              
-                .ui-menu {
-                  z-index: 99999;
-                  position: absolute;
-                }
-              
-                .ui-widget {
-                  z-index: 99999;
-                  position: absolute;
-                }
-              </style>
-   
-              <div id="myNav" class="overlay">
-                  <div class="overlay-content">
-
-                      <form name="Form" id="searchForm" method="get" action="/murun-detay/index.html">
-                          <input name="seo" type="hidden" id="searchField2" value="" />
-                          <input name="sid" type="hidden" id="searchField" value="" />
-
-                      </form>
-
-                      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-                      
-                      <div class="has-search" style="float:left;width: 100%;">
-                          <input type="text" id="birds" class="" style="width: 100%;color:red;" placeholder=" Search Brand or Category">
-                      </div>
-                      <hr>
-                      <button type="button" class="btn btn-outline-dark btn-sm">Recently Searched</button>
-                      <button type="button" class="btn btn-outline-dark btn-sm">Test</button>
-                      <button type="button" class="btn btn-outline-dark btn-sm">Popular Products</button>
-
-                  </div>
-              </div>
-
-
-
-
-   <script>
-       function openNav() {
-           document.getElementById("myNav").style.width = "100%";
-       }
-
-       function closeNav() {
-           document.getElementById("myNav").style.width = "0%";
-       }
-   </script>
-            <div class="page-content">
-
-                <!--footer start -->
-                <nav class="tabber tabber-bottom">
-                  <div class="nav nav-tabs " id="nav-tab" role="tablist">
-                    <a class="nav-item nav-link" id="nav-find-tab" data-toggle="tab2" href="index.html" role="tab" aria-controls="nav-find" aria-selected="true"><i class="icon material-icons">home</i><span class="tabbar-label">Home</span></a>
-
-                    <a class="nav-item nav-link" id="nav-favorite-tab" data-toggle="tab2" href="categories.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">search<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Categories</span> </a>
-
-                    <a class="nav-item nav-link active" id="nav-favorite-tab" data-toggle="tab2" href="favorites.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">favorite<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Favorites</span> </a>
-
-                    <a class="nav-item nav-link  " id="nav-cart-tab" data-toggle="tab2" href="basket.html" role="tab" aria-controls="nav-cart" aria-selected="false"> <i class="icon material-icons">shopping_cart<span class="badge color-red" id="topmsg"></span></i> <span class="tabbar-label"> My Cart</span> </a>
-
-                    <a class="nav-item nav-link  " id="nav-profile-tab" data-toggle="tab2" href="login.html" role="tab" aria-controls="nav-profile" aria-selected="false"> <i class="icon material-icons">account_circle</i> <span class="tabbar-label">My Acc</span> </a>
-                  </div>
-                </nav> 
-                <!--footer ends -->
-                <!-- h100 start -->
-                <div class="" style="background: #FFFFFF; width: 99%;">
-                      <script type="text/javascript">
-                        function MM_jumpMenu(targ, selObj, restore) { //v3.0
-                          eval(targ + ".location='" + selObj.options[selObj.selectedIndex].value + "'");
-                          if (restore) selObj.selectedIndex = 0;
-                        }
-                      </script>
-                      <script type="text/javascript">
-                        $(document).bind("mobileinit", function () { $.mobile.hashListeningEnabled = false; });
-
-                        // boolean that stores if a swipe has been performed.
-                        var bScrolled = false;
-                        // countdown in ms before resetting the boolean.
-                        var iTime = 1000;
-                        var oTimeout;
-                        window.addEventListener('mousewheel', function (e) {
-                          if (e.wheelDeltaY === 0) {
-                            // there is an horizontal scroll
-                            if (!bScrolled) {
-                              // no need to set bScrolled to true if it has been done within the iTime time. 
-                              bScrolled = true;
-                              oTimeout = setTimeout(function () {
-                                bScrolled = false;
-                              }, iTime);
-                            }
-                          }
-                        });
-
-window.onpopstate = function() {
-  // clear the timeout to be sure we keep the correct value for bScrolled
-  clearTimeout(oTimeout);
-  // check if there has been a swipe prior to the change of history state
-  if (bScrolled) {
-    // check which browser & OS the user is using, then
-    // trigger your awesome custom transition.
-  }
-}
-</script> 
-	<div class="modal top fade" id="top_modal" tabindex="-1" role="dialog" aria-labelledby="top_modal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-		      Change Language and Currency
+      <!-- sidebar left start -->
+      <div class="sidebar sidebar-left">
       </div>
-      <div class="modal-body">
-     <select name="se" id="se" class="" onchange="MM_jumpMenu('parent',this,0)">
-          			          
-    
-      <option value="/lang-change.asp?lang=1"  selected> English</option>
-                
-
-    
-      <option value="/lang-change.asp?lang=2" > Türkçe</option>
-                
-
-    
-      <option value="/lang-change.asp?lang=3" > Uzbek</option>
-                
-
-    
-      <option value="/lang-change.asp?lang=4" > Russian</option>
-                    
-
-</Select>
-<hr>
-		<select name="searchalpha" id="searchalpha" class="" onchange="MM_jumpMenu('parent',this,0)">
-          			          
-        
-          <option value="/currency-change.asp?cur=1"  selected> US Dollar</option>
-                    
-        
-          <option value="/currency-change.asp?cur=6" > Euro</option>
-                    
-        
-          <option value="/currency-change.asp?cur=13" > TL</option>
-                    
-        
-          <option value="/currency-change.asp?cur=14" > SOM</option>
-                    
-	</Select>
-	 </div>
-      <div class="modal-footer modal-footer-fixed d-none">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-     
+      <!-- sidebar left ends -->
+      <!-- sidebar right start -->
+      <div class="sidebar sidebar-right">
       </div>
-    </div>
-  </div>
-</div>
-     
-	 
-	 
-         <nav>
-    <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
-        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" style="background:white;color:#F3780E;" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">My Favorites</a>
-        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" style="background:white;color:#F3780E;" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">My Collections</a>
-    </div>
-</nav>
-<div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
-    <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
-
-
-
-
-
-   
-<div class="card">
-    <div class="card-body">
-
-        <div class="row px-3">
-            <div class="col px-0">
-                <span style="color: #49ca49; margin-right: 10px; font-size: 11px;"><a href="#"> Seller Information : <b>Uztrenbol Standart    ></b> </a></span>
-
-            </div>
-            <div class="pull-right">
-                <span style="color: #49ca49; font-weight: bold; margin-right: 10px; font-size: 11px;"><i class="fa fa-check" aria-hidden="true"></i>%5  </span>
-            </div>
-
-            <button onclick="document.getElementById('id1058').style.display='block'" class="w3-button"><i class="bx bx-trash"></i></button>
-        </div>
-
-
-
-
-        <div class="row" style="color: #319f84; border-bottom: 1px solid lightgrey;">
-            <div class="card-text" style="float: left; width: 30%;">
-                <a href="/product-detail/index.html?sid=1095">
-                  
-                        <img src="https://www.uztrendbol.com/content/images/thumbs/0001232_963-tarz-kadin-pembe-ncili-elbise-3022.jpeg" title="1058-" alt="1058-963 Tarz Kadın Pembe İncili Elbise 3022" style="width: 100px;">
-                 
-                </a>
-            </div>
-            <div class="card-text" style="width: 60%; margin-left: 15px;">
-                <a href="/product-detail/index.html?sid=1095" class="text-dark mb-1 h6 d-block" title="1058-963 Tarz Kadın Pembe İncili Elbise 3022"><span style="font-size: 12px; color: grey;">Kurumsal Ticaret-963 Tarz Kadın Pembe İncili Elbise 3022</span></a>
-
-
-                
-                <p style="font-size: 12px; color: grey;">Beden:M<br></p>
-
-                
-                <p style="font-size: 12px; color: grey;">Estimated Delivery: </p>
-                <p style="font-size: 12px; color: grey;">Weight: 9 |: 0.04&#36; </p>
-
-
-
-                <h6 class="text-success font-weight-normal mb-0">
-                    <span style="color: #a2a2a2; font-weight: 600;"><del>13&nbsp;&#36; </del></span>
-                    <span style="color: #F3780E; font-weight: 500;">&nbsp;  <del>7.93 &nbsp; &#36;</del>	</span>
-
-
-                    <span style="color: #F3780E; font-weight: 500;">
-
-                        7.54 &nbsp; &#36; </span>
-
-                </h6>
-            </div>
-        </div>
-
-
-        <div class="row" >
-            <div class="card-text">
-                
-               				       <button type="button" class="btn btn-outline-success btn-sm " onclick="document.getElementById('id1058').style.display='block'" >Choose</button>
-					        <button type="button" class="btn btn-outline-warning btn-sm " onclick="document.getElementById('id1058').style.display='block'" >Add to Favorite cart</button>
- 
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-<div class="w3-container">
-
-  <div id="id1058" class="w3-modal">
-    <div class="w3-modal-content">
-      <div class="w3-container">
-                         
-						 
-				
-
-
-  <div class="modal-body">
-    <form action="mobil-sepetim-duzenle.asp" method="get" id="my_form">
-      <div class="row">
-
-        <div class="card-text" style="float:left;width:20%;">
-          <a href="/murun-detay/"><img
-              src="https://www.uztrendbol.com/content/images/thumbs/0001232_963-tarz-kadin-pembe-ncili-elbise-3022.jpeg"
-              style="width:120px;" class=""></a>
-        </div>
-        <div class="card-text" style="float:left;width:60%;">
-
-          <a href="/murun-detay/index.html?sid=1095" class="text-dark mb-1 h6 d-block" title="" alt="" <span
-            style="font-size: 12px; color: grey;"> 963 Tarz Kadın Pembe İncili Elbise 3022</span></a>
-
-          <h6 class="text-success font-weight-normal mb-0">
-            <span style="color:#e7e6e5;font-weight:600;"> <del>13&nbsp;&#36;</del> </span><br>
-            <span style="color:#F3780E;font-weight:500;"> 7.54 &nbsp; &#36; </span>
-            </sup>
-          </h6>
-
-
-        </div>
-
-      </div>
-      <hr>
-      <div class="row">
-        <div class="card-text" style="margin-left: 50px;">
-          <input name="v5" id="v5" type="hidden" value="5">
-          <input name="PA5" id="PA5" type="hidden" value="1032">
-          <b>Beden</b><bR>
-          <div class="btn-group" data-toggle="buttons">
-
-
-            <label class="btn btn-outline-dark" style="background:#fefefe;color:#000; margin-left:5px;">
-              <input type="radio" name="PValue5" id="PValue1032" value="1064" onchange="CheckItemRent('Beden');" required
-                autocomplete="off">
-              XS<span class="glyphicon glyphicon-ok"></span>
-            </label>
-
-            <label class="btn btn-outline-dark" style="background:#fefefe;color:#000; margin-left:5px;">
-              <input type="radio" name="PValue5" id="PValue1032" value="1065" onchange="CheckItemRent('Beden');" required
-                autocomplete="off">
-              S<span class="glyphicon glyphicon-ok"></span>
-            </label>
-
-            <label class="btn btn-outline-dark" style="background:#fefefe;color:#000; margin-left:5px;">
-              <input type="radio" name="PValue5" id="PValue1032" value="1066" onchange="CheckItemRent('Beden');" required
-                autocomplete="off">
-              M<span class="glyphicon glyphicon-ok"></span>
-            </label>
-
-            <label class="btn btn-outline-dark" style="background:#fefefe;color:#000; margin-left:5px;">
-              <input type="radio" name="PValue5" id="PValue1032" value="1067" onchange="CheckItemRent('Beden');" required
-                autocomplete="off">
-              L<span class="glyphicon glyphicon-ok"></span>
-            </label>
-
-            <label class="btn btn-outline-dark" style="background:#fefefe;color:#000; margin-left:5px;">
-              <input type="radio" name="PValue5" id="PValue1032" value="1068" onchange="CheckItemRent('Beden');" required
-                autocomplete="off">
-              XL<span class="glyphicon glyphicon-ok"></span>
-            </label>
-
+      <!-- sidebar right ends -->
+      <!-- fullscreen menu start -->
+      <!-- fullscreen menu ends -->
+    
+      <!-- page main start -->
+      <div class="page">
+        <header class="row m-0 fixed-header no-shadow"
+          style="background: white; box-shadow: 1px 1px #E5E5E5; -webkit-box-shadow: 0 10px 5px #E5E5E5; -moz-box-shadow: 0 1px 5px #888888; box-shadow: 0 1px 5px #E5E5E5;">
+          <style>
+            .nav-link {
+              display: block;
+              padding: 0px;
+              padding-top: 10px;
+            }
+          </style>
+    
+          <div class="col left" style="font-size: 14px; font-weight: 600; top: 10px;">
+            Welcome &nbsp; <span style="color: #F3780E; font-weight: 600;">Dear Visitor</span>
+    
           </div>
+          <div class="right">
+            <a href="javascript:void(0)" onclick="openNav()"><i class="material-icons"
+                style="color: #F3780E;">search</i></a>
+            <a href="#" style="color: orange; margin: 0px 0px 0px 0px;" data-toggle="modal" data-target="#top_modal">
+              <i class="icon material-icons">settings<span class="badge color-red" id="topmsg2"></span>
+              </i>
+            </a>
+          </div>
+    
+        </header>
+    
+    
+    
+        <!--Search Modal-->
+        <div id="myNav" class="overlay">
+          <div class="overlay-content">
+    
+            <div class="has-search" style="float:left;width: 100%;">
+              <i class='bx bx-search'></i>
+              <input id="search2" type="text" class="form-control" placeholder=" Search Brand or Category"
+                onclick="openNav()">
+              <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> Cancel</a>
+            </div>
+    
+            <div class="buttons">
+              <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Recently
+                Searched</button>
+              <button type="button" class="btn btn-outline-dark btn-sm"> <i class='bx bx-search'></i> Test</button>
+              <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Popular
+                Products</button>
+            </div>
+    
+          </div>
+        </div>
+    
+    
+    
+    
+        <style>
+          .ui-selectmenu-menu {
+            z-index: 99999;
+            position: absolute;
+          }
+    
+          .ui-menu {
+            z-index: 99999;
+            position: absolute;
+          }
+    
+          .ui-widget {
+            z-index: 99999;
+            position: absolute;
+          }
+        </style>
+    
+        <div id="myNav" class="overlay">
+          <div class="overlay-content">
+    
+            <form name="Form" id="searchForm" method="get" action="/murun-detay/index.html">
+              <input name="seo" type="hidden" id="searchField2" value="" />
+              <input name="sid" type="hidden" id="searchField" value="" />
+    
+            </form>
+    
+            <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    
+            <div class="has-search" style="float:left;width: 100%;">
+              <input type="text" id="birds" class="" style="width: 100%;color:red;" placeholder=" Search Brand or Category">
+            </div>
+            <hr>
+            <button type="button" class="btn btn-outline-dark btn-sm">Recently Searched</button>
+            <button type="button" class="btn btn-outline-dark btn-sm">Test</button>
+            <button type="button" class="btn btn-outline-dark btn-sm">Popular Products</button>
+    
+          </div>
+        </div>
+    
+    
+    
+    
+        <script>
+          function openNav() {
+            document.getElementById("myNav").style.width = "100%";
+          }
 
-          <br>
+          function closeNav() {
+            document.getElementById("myNav").style.width = "0%";
+          }
+        </script>
+        <div class="page-content">
+    
+          <!--footer start -->
+          <nav class="tabber tabber-bottom">
+            <div class="nav nav-tabs " id="nav-tab" role="tablist">
+              <a class="nav-item nav-link" id="nav-find-tab" data-toggle="tab2" href="index.html" role="tab"
+                aria-controls="nav-find" aria-selected="true"><i class="icon material-icons">home</i><span
+                  class="tabbar-label">Home</span></a>
+    
+              <a class="nav-item nav-link" id="nav-favorite-tab" data-toggle="tab2" href="categories.html" role="tab"
+                aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">search<span
+                    class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Categories</span> </a>
+    
+              <a class="nav-item nav-link active" id="nav-favorite-tab" data-toggle="tab2" href="favorites.html" role="tab"
+                aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">favorite<span
+                    class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Favorites</span> </a>
+    
+              <a class="nav-item nav-link  " id="nav-cart-tab" data-toggle="tab2" href="basket.html" role="tab"
+                aria-controls="nav-cart" aria-selected="false"> <i class="icon material-icons">shopping_cart<span
+                    class="badge color-red" id="topmsg"></span></i> <span class="tabbar-label"> My Cart</span> </a>
+    
+              <a class="nav-item nav-link  " id="nav-profile-tab" data-toggle="tab2" href="login.html" role="tab"
+                aria-controls="nav-profile" aria-selected="false"> <i class="icon material-icons">account_circle</i> <span
+                  class="tabbar-label">My Acc</span> </a>
+            </div>
+          </nav>
+          <!--footer ends -->
+          <!-- h100 start -->
+          <div class="" style="background: #FFFFFF; width: 99%;">
+            <script type="text/javascript">
+              function MM_jumpMenu(targ, selObj, restore) { //v3.0
+                eval(targ + ".location='" + selObj.options[selObj.selectedIndex].value + "'");
+                if (restore) selObj.selectedIndex = 0;
+              }
+            </script>
+            <script type="text/javascript">
+              $(document).bind("mobileinit", function () { $.mobile.hashListeningEnabled = false; });
 
+              // boolean that stores if a swipe has been performed.
+              var bScrolled = false;
+              // countdown in ms before resetting the boolean.
+              var iTime = 1000;
+              var oTimeout;
+              window.addEventListener('mousewheel', function (e) {
+                if (e.wheelDeltaY === 0) {
+                  // there is an horizontal scroll
+                  if (!bScrolled) {
+                    // no need to set bScrolled to true if it has been done within the iTime time. 
+                    bScrolled = true;
+                    oTimeout = setTimeout(function () {
+                      bScrolled = false;
+                    }, iTime);
+                  }
+                }
+              });
 
+              window.onpopstate = function () {
+                // clear the timeout to be sure we keep the correct value for bScrolled
+                clearTimeout(oTimeout);
+                // check if there has been a swipe prior to the change of history state
+                if (bScrolled) {
+                  // check which browser & OS the user is using, then
+                  // trigger your awesome custom transition.
+                }
+              }
+            </script>
+            <div class="modal top fade" id="top_modal" tabindex="-1" role="dialog" aria-labelledby="top_modal">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                    Change Language and Currency
+                  </div>
+                  <div class="modal-body">
+                    <select name="se" id="se" class="" onchange="MM_jumpMenu('parent',this,0)">
+    
+    
+                      <option value="/lang-change.asp?lang=1" selected> English</option>
+    
+    
+    
+                      <option value="/lang-change.asp?lang=2"> Türkçe</option>
+    
+    
+    
+                      <option value="/lang-change.asp?lang=3"> Uzbek</option>
+    
+    
+    
+                      <option value="/lang-change.asp?lang=4"> Russian</option>
+    
+    
+                    </Select>
+                    <hr>
+                    <select name="searchalpha" id="searchalpha" class="" onchange="MM_jumpMenu('parent',this,0)">
+    
+    
+                      <option value="/currency-change.asp?cur=1" selected> US Dollar</option>
+    
+    
+                      <option value="/currency-change.asp?cur=6"> Euro</option>
+    
+    
+                      <option value="/currency-change.asp?cur=13"> TL</option>
+    
+    
+                      <option value="/currency-change.asp?cur=14"> SOM</option>
+    
+                    </Select>
+                  </div>
+                  <div class="modal-footer modal-footer-fixed d-none">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+    
+    
+            <nav>
+              <div class="nav nav-tabs nav-fill" id="nav-tab" role="tablist">
+                <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab"
+                  style="background:white;color:#F3780E;" href="#nav-home" role="tab" aria-controls="nav-home"
+                  aria-selected="true">My Favorites</a>
+                <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" style="background:white;color:#F3780E;"
+                  href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">My Collections</a>
+              </div>
+            </nav>
+            <div class="tab-content py-3 px-3 px-sm-0" id="nav-tabContent">
+              <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+    
+    
+    
+    
+    
+    
+                <div class="card">
+                  <div class="card-body" data-toggle="modal" data-target="#myModal">
+    
+                    <div class="row px-3">
+                      <div class="col px-0">
+                        <span style="color: #49ca49; margin-right: 10px; font-size: 11px;"><a href="#"> Seller Information :
+                            <b>Uztrenbol Standart ></b> </a></span>
+    
+                      </div>
+                      <div class="pull-right">
+                        <span style="color: #49ca49; font-weight: bold; margin-right: 10px; font-size: 11px;"><i
+                            class="fa fa-check" aria-hidden="true"></i>%5 </span>
+                      </div>
+    
+                      <button onclick="document.getElementById('id1058').style.display='block'" class="w3-button"><i
+                          class="bx bx-trash"></i></button>
+                    </div>
+    
+    
+    
+    
+                    <div class="row" style="color: #319f84; border-bottom: 1px solid lightgrey;">
+                      <div class="card-text" style="float: left; width: 30%;">
+                        <a href="/product-detail/index.html?sid=1095">
+    
+                          <img
+                            src="https://www.uztrendbol.com/content/images/thumbs/0001232_963-tarz-kadin-pembe-ncili-elbise-3022.jpeg"
+                            title="1058-" alt="1058-963 Tarz Kadın Pembe İncili Elbise 3022" style="width: 100px;">
+    
+                        </a>
+                      </div>
+                      <div class="card-text" style="width: 60%; margin-left: 15px;">
+                        <a href="/product-detail/index.html?sid=1095" class="text-dark mb-1 h6 d-block"
+                          title="1058-963 Tarz Kadın Pembe İncili Elbise 3022"><span
+                            style="font-size: 12px; color: grey;">Kurumsal Ticaret-963 Tarz Kadın Pembe İncili Elbise
+                            3022</span></a>
+    
+    
+    
+                        <p style="font-size: 12px; color: grey;">Beden:M<br></p>
+    
+    
+                        <p style="font-size: 12px; color: grey;">Estimated Delivery: </p>
+                        <p style="font-size: 12px; color: grey;">Weight: 9 |: 0.04&#36; </p>
+    
+    
+    
+                        <h6 class="text-success font-weight-normal mb-0">
+                          <span style="color: #a2a2a2; font-weight: 600;"><del>13&nbsp;&#36; </del></span>
+                          <span style="color: #F3780E; font-weight: 500;">&nbsp; <del>7.93 &nbsp; &#36;</del> </span>
+    
+    
+                          <span style="color: #F3780E; font-weight: 500;">
+    
+                            7.54 &nbsp; &#36; </span>
+    
+                        </h6>
+                      </div>
+                    </div>
+    
+    
+                    <div class="row">
+                      <div class="card-text">
+    
+                        <button type="button" class="btn btn-outline-success btn-sm "
+                          onclick="document.getElementById('id1058').style.display='block'">Choose</button>
+                        <button type="button" class="btn btn-outline-warning btn-sm "
+                          onclick="document.getElementById('id1058').style.display='block'">Add to Favorite cart</button>
+    
+                      </div>
+    
+                    </div>
+    
+                  </div>
+    
+                </div>
 
+                <div class="w3-container">
+    
+                  <div class="modal left fade bg-light mt-100" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="w3-modal-content">
+                      <div class="w3-container">
+    
+    
+                        <div class="modal-body">
+                          <form action="mobil-sepetim-duzenle.asp" method="get" id="my_form">
+                            <div class="row">
+    
+                              <div class="d-flex justify-content-between">
+                                <div class="card-text" style="float:left;width:20%;">
+                                  <a href="/murun-detay/"><img
+                                      src="https://www.uztrendbol.com/content/images/thumbs/0001232_963-tarz-kadin-pembe-ncili-elbise-3022.jpeg"
+                                      style="width:120px;" class=""></a>
+                                </div>
+                                <div class="card-text" style="float:left;width:60%;">
+      
+                                  <a href="/murun-detay/index.html?sid=1095" class="text-dark mb-1 h6 d-block" title="" alt=""
+                                    <span style="font-size: 12px; color: grey;"> 963 Tarz Kadın Pembe İncili Elbise
+                                    3022</span></a>
+      
+                                  <h6 class="text-success font-weight-normal mb-0">
+                                    <span style="color:#e7e6e5;font-weight:600;"> <del>13&nbsp;&#36;</del> </span><br>
+                                    <span style="color:#F3780E;font-weight:500;"> 7.54 &nbsp; &#36; </span>
+                                    </sup>
+                                  </h6>
+                                </div>
+                              </div>
+    
+                            </div>
+                            <hr>
+                            <div class="row">
+                              <div class="card-text" style="margin-left: 50px;">
+                                <input name="v5" id="v5" type="hidden" value="5">
+                                <input name="PA5" id="PA5" type="hidden" value="1032">
+                                <b>Beden</b><bR>
+                                <div class="btn-group" data-toggle="buttons">
+    
+    
+                                  <label class="btn btn-outline-dark"
+                                    style="background:#fefefe;color:#000; margin-left:5px;">
+                                    <input type="radio" name="PValue5" id="PValue1032" value="1064"
+                                      onchange="CheckItemRent('Beden');" required autocomplete="off">
+                                    XS<span class="glyphicon glyphicon-ok"></span>
+                                  </label>
+    
+                                  <label class="btn btn-outline-dark"
+                                    style="background:#fefefe;color:#000; margin-left:5px;">
+                                    <input type="radio" name="PValue5" id="PValue1032" value="1065"
+                                      onchange="CheckItemRent('Beden');" required autocomplete="off">
+                                    S<span class="glyphicon glyphicon-ok"></span>
+                                  </label>
+    
+                                  <label class="btn btn-outline-dark"
+                                    style="background:#fefefe;color:#000; margin-left:5px;">
+                                    <input type="radio" name="PValue5" id="PValue1032" value="1066"
+                                      onchange="CheckItemRent('Beden');" required autocomplete="off">
+                                    M<span class="glyphicon glyphicon-ok"></span>
+                                  </label>
+    
+                                  <label class="btn btn-outline-dark"
+                                    style="background:#fefefe;color:#000; margin-left:5px;">
+                                    <input type="radio" name="PValue5" id="PValue1032" value="1067"
+                                      onchange="CheckItemRent('Beden');" required autocomplete="off">
+                                    L<span class="glyphicon glyphicon-ok"></span>
+                                  </label>
+    
+                                  <label class="btn btn-outline-dark"
+                                    style="background:#fefefe;color:#000; margin-left:5px;">
+                                    <input type="radio" name="PValue5" id="PValue1032" value="1068"
+                                      onchange="CheckItemRent('Beden');" required autocomplete="off">
+                                    XL<span class="glyphicon glyphicon-ok"></span>
+                                  </label>
+    
+                                </div>
+    
+                                <br>
+    
+    
+    
+                              </div>
+                            </div>
+                            <input name="sepet" id="sepet" type="hidden" value="1058">
+                            <input name="adet" id="adet" type="hidden" value="1">
+                            <input name="pcard" id="pcard" type="hidden" value="add">
+                            <input name="buytype" id="buytype" type="hidden" value="1">
+    
+                            <input name="variant" id="variant" type="hidden" value="1">
+                            <input name="pid" id="pid" type="hidden" value="1058">
+                            <input name="Uid" id="Uid" type="hidden" value="8448">
+                            <input name="birimfiyat" id="birimfiyat" type="hidden" value="7.54">
+                            <button type="submit" style="background:#F3780E;" class="btn btn-primary btn-sm btn-block">Add
+                              to Favorite
+                              cart</button>
+                          </form>
+                          <ul class="list-group mt-3">
+    
+                            <li class="list-group-item"><i class="bx bx-trash  mx-2"></i><a href="#"
+                                onclick="location.href='favorites.html?xbasket=del&amp;scid=1058'">Remove From My
+                                Favorites</a></li>
+    
+                          </ul>
+    
+    
+                          <br><br>
+    
+                        </div>
+    
+    
+    
+                      </div>
+                    </div>
+                  </div>
+                </div>
+    
+    
+    
+                <style>
+                  #contentofsite {
+                    height: 100px;
+                    overflow: hidden;
+                  }
+    
+                  #showmemore:focus+#contentofsite {
+                    height: auto;
+                    overflow: visible;
+                  }
+                </Style>
+              </div><!-- tab2 ends -->
+              <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+                <div class="center" align="center" style="padding-left: 80px;padding-right: 80px;padding-top: 150px;">
+                  <img src="">
+                  <h6>My Collections</h6>
+                  <p>Group the products you like.</p>
+                  <button style="background:#F3780E" class="btn btn-primary btn-modal btn-block">
+                    Create a Collection</button>
+                </div>
+              </div><!-- tab2 ends -->
+    
+            </div> <!-- navtab ends -->
+            
+          </div> <!-- h100 end -->
         </div>
       </div>
-      <input name="sepet" id="sepet" type="hidden" value="1058">
-      <input name="adet" id="adet" type="hidden" value="1">
-      <input name="pcard" id="pcard" type="hidden" value="add">
-      <input name="buytype" id="buytype" type="hidden" value="1">
-
-      <input name="variant" id="variant" type="hidden" value="1">
-      <input name="pid" id="pid" type="hidden" value="1058">
-      <input name="Uid" id="Uid" type="hidden" value="8448">
-      <input name="birimfiyat" id="birimfiyat" type="hidden" value="7.54">
-      <button type="submit" style="background:#F3780E;" class="btn btn-primary btn-sm btn-block">Add to Favorite
-        cart</button>
-    </form>
-    <ul class="list-group">
-
-      <li class="list-group-item"><i class="fa fa-trash  mx-2"></i><a href="#"
-          onclick="location.href='favorites.html?xbasket=del&amp;scid=1058'">Remove From My Favorites</a></li>
-
-    </ul>
-
-
-    <br><br>
-
-  </div>
-
-						 
-						 
-      </div>
     </div>
-  </div>
-</div>
-         
+    <!-- page main ends -->
+
+
+
+
 
     
-           
-	<style>
-	
-			#contentofsite { 
-    height: 100px; 
-    overflow: hidden; 
-}
-#showmemore:focus + #contentofsite { 
-    height: auto;
-    overflow: visible;
-}
-	</Style>
-    </div><!-- tab2 ends -->
-    <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
-<div class="center" align="center" style="padding-left: 80px;padding-right: 80px;padding-top: 150px;">
-<img src="">
-<h6>My Collections</h6>
-<p>Group the products you like.</p>
-<button style="background:#F3780E" class="btn btn-primary btn-modal btn-block"  >
-Create a Collection</button>
-</div>
-    </div><!-- tab2 ends -->
-
-</div> <!-- navtab ends -->
-                
-            
-        
-        
 
 
-      
 
 
-                </div>     <!-- h100 end -->
-            </div>
-        </div>
-    </div>
-        <!-- page main ends -->
- 
+
  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>

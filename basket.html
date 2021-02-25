@@ -174,90 +174,60 @@
                             if (restore) selObj.selectedIndex = 0;
                         }
                     </script>
-                    <!-- <script type="text/javascript">
-                        $(document).bind("mobileinit", function () { $.mobile.hashListeningEnabled = false; });
 
-                        // boolean that stores if a swipe has been performed.
-                        var bScrolled = false;
-                        // countdown in ms before resetting the boolean.
-                        var iTime = 1000;
-                        var oTimeout;
-                        window.addEventListener('mousewheel', function (e) {
-                            if (e.wheelDeltaY === 0) {
-                                // there is an horizontal scroll
-                                if (!bScrolled) {
-                                    // no need to set bScrolled to true if it has been done within the iTime time. 
-                                    bScrolled = true;
-                                    oTimeout = setTimeout(function () {
-                                        bScrolled = false;
-                                    }, iTime);
-                                }
-                            }
-                        });
-
-                        window.onpopstate = function () {
-                            // clear the timeout to be sure we keep the correct value for bScrolled
-                            clearTimeout(oTimeout);
-                            // check if there has been a swipe prior to the change of history state
-                            if (bScrolled) {
-                                // check which browser & OS the user is using, then
-                                // trigger your awesome custom transition.
-                            }
-                        }
-                    </script> -->
-    <div class="modal top fade" id="top_modal" tabindex="-1" role="dialog" aria-labelledby="top_modal">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                    Change Language and Currency
-                </div>
-                <div class="modal-body">
-                    <select name="se" id="se" class="" onchange="MM_jumpMenu('parent',this,0)">
-    
-    
-                        <option value="/lang-change.asp?lang=1" selected> English</option>
-    
-    
-    
-                        <option value="/lang-change.asp?lang=2"> Türkçe</option>
-    
-    
-    
-                        <option value="/lang-change.asp?lang=3"> Uzbek</option>
-    
-    
-    
-                        <option value="/lang-change.asp?lang=4"> Russian</option>
-    
-    
-    
-                        <hr>
-                        <select name="searchalpha" id="searchalpha" class="" onchange="MM_jumpMenu('parent',this,0)">
-    
-    
-                            <option value="/currency-change.asp?cur=1" selected> US Dollar</option>
-    
-    
-                            <option value="/currency-change.asp?cur=6"> Euro</option>
-    
-    
-                            <option value="/currency-change.asp?cur=13"> TL</option>
-    
-    
-                            <option value="/currency-change.asp?cur=14"> SOM</option>
-    
-                        </Select>
-                </div>
-                <div class="modal-footer modal-footer-fixed d-none">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-    
-                </div>
-            </div>
-        </div>
-    </div>
+                    <div class="modal top fade" id="top_modal" tabindex="-1" role="dialog" aria-labelledby="top_modal">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    Change Language and Currency
+                                </div>
+                                <div class="modal-body">
+                                    <select name="se" id="se" class="" onchange="MM_jumpMenu('parent',this,0)">
+                    
+                    
+                                        <option value="/lang-change.asp?lang=1" selected> English</option>
+                    
+                    
+                    
+                                        <option value="/lang-change.asp?lang=2"> Türkçe</option>
+                    
+                    
+                    
+                                        <option value="/lang-change.asp?lang=3"> Uzbek</option>
+                    
+                    
+                    
+                                        <option value="/lang-change.asp?lang=4"> Russian</option>
+                    
+                    
+                    
+                                        <hr>
+                                        <select name="searchalpha" id="searchalpha" class="" onchange="MM_jumpMenu('parent',this,0)">
+                    
+                    
+                                            <option value="/currency-change.asp?cur=1" selected> US Dollar</option>
+                    
+                    
+                                            <option value="/currency-change.asp?cur=6"> Euro</option>
+                    
+                    
+                                            <option value="/currency-change.asp?cur=13"> TL</option>
+                    
+                    
+                                            <option value="/currency-change.asp?cur=14"> SOM</option>
+                    
+                                        </Select>
+                                </div>
+                                <div class="modal-footer modal-footer-fixed d-none">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 
 
                     <div class="container">
@@ -460,7 +430,7 @@
                                 <h4 class="mb-0">7.58 &nbsp; &#36;</h4>
                                 
 
-                                <button type="submit" style="background: #F3780E!important;" class="btn btn-lg btn-default text-white btn-block btn-rounded shadow"><span> Go to Payment Page</span><i class="material-icons">arrow_forward</i></button>
+                                <button type="submit" style="background: #F3780E!important; margin-bottom: 80px;" class="btn btn-lg btn-default text-white btn-block btn-rounded shadow"><span> Go to Payment Page</span><i class="material-icons">arrow_forward</i></button>
                                 </form>
                             </div>
                         </div>
