@@ -28,7 +28,7 @@
 </head>
     
 
-<body class="cpush-content-right theme-light color-theme-green">
+<body class="cpush-content-right color-theme-green" style="background-color: #FFFFFF !important;">
     <div class="wrapper">
         <!-- sidebar left start -->
         <div class="sidebar sidebar-left">
@@ -43,7 +43,7 @@
         <!-- fullscreen menu ends -->
 
         <!-- page main start -->
-        <div class="page">
+        <div class="page" style="background-color: #FFFFFF !important;">
 
             <!--header start -->
             <header class="row m-0 fixed-header " style="background: #FFF; box-shadow: 1px 1px #E5E5E5; -webkit-box-shadow: 0 10px 5px #E5E5E5; -moz-box-shadow: 0 1px 5px #888888; box-shadow: 0 1px 5px #E5E5E5;">
@@ -70,6 +70,26 @@
 
             </header>
             <!--header ends -->
+
+            <!--Search Modal-->
+            <div id="myNav" class="overlay">
+            <div class="overlay-content">
+                
+                <div class="has-search" style="float:left;width: 100%;">
+                    <i class='bx bx-search'></i>
+                    <input id="search2" type="text" class="form-control" placeholder=" Search Brand or Category" onclick="openNav()">
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> Cancel</a>
+                </div>
+
+                <div class="buttons">
+                    <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Recently Searched</button>
+                    <button type="button" class="btn btn-outline-dark btn-sm"> <i class='bx bx-search'></i> Test</button>
+                    <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Popular Products</button>
+                </div>
+
+            </div>
+        </div>
+
             <style>
                 .ui-selectmenu-menu {
                     z-index: 99999;
@@ -81,13 +101,13 @@
                     position: absolute;
                 }
 
-                . ui-widget {
+                .ui-widget {
                     z-index: 99999;
                     position: absolute;
                 }
             </style>
 
-            <div id="myNav" class="overlay">
+            <!-- <div id="myNav" class="overlay">
                 <div class="overlay-content">
 
                     <form name="Form" id="searchForm" method="get" action="product-detail.html">
@@ -107,7 +127,7 @@
                     <button type="button" class="btn btn-outline-dark btn-sm">Popular Products</button>
 
                 </div>
-            </div>
+            </div> -->
 
 
 
@@ -122,7 +142,7 @@
                 }
             </script>
 
-            <div class="page-content">
+            <div class="page-content" style="background-color: #FFFFFF !important;">
                 <!--footer start -->
                 <nav class="tabber tabber-bottom">
                     <div class="nav nav-tabs " id="nav-tab" role="tablist">
@@ -149,7 +169,7 @@
                 </nav>
                 <!--footer ends -->
                 <!-- h100 start -->
-                <div class="" style="background: #F5F5F5; width: 99%;">
+                <div class="" style="width: 99%;">
                     <script type="text/javascript">
                         function MM_jumpMenu(targ, selObj, restore) { //v3.0
                             eval(targ + ".location='" + selObj.options[selObj.selectedIndex].value + "'");
@@ -157,9 +177,11 @@
                         }
                     </script>
                     <script type="text/javascript">
-                        $(document).bind("mobileinit", function() {
-                            $.mobile.hashListeningEnabled = false;
-                        });
+                    //  $(document).bind('mobileinit', function () {
+                    //     $.mobile.hashListeningEnabled = false;
+                    //     $.mobile.linkBindingEnabled = false;
+
+                    // });
 
                         // boolean that stores if a swipe has been performed.
                         var bScrolled = false;
@@ -691,6 +713,7 @@
 
  
  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+ <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
  <script src="js/owl.carousel.min.js"></script>

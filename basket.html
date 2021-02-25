@@ -42,27 +42,29 @@
 
         <!-- page main start -->
         <div class="page">
-            <header class="row m-0 fixed-header no-shadow" style="background: white; box-shadow: 1px 1px #E5E5E5; -webkit-box-shadow: 0 10px 5px #E5E5E5; -moz-box-shadow: 0 1px 5px #888888; box-shadow: 0 1px 5px #E5E5E5;">
-                  <style>
-  .nav-link {
-            display: block;
-            padding: 0px;
-            padding-top: 10px;
-        }     	
-    </style>
-
-		<div class="col left" style="font-size: 14px; font-weight: 600; top: 10px;">
-         Welcome &nbsp;  <span style="color: #F3780E; font-weight: 600;">Dear Visitor</span>
-    
-</div>
-<div class="right">
-    <a href="javascript:void(0)" onclick="openNav()"><i class="material-icons" style="color: #F3780E;">search</i></a>
-	 <a href="#" style="color: orange; margin: 0px 0px 0px 0px;"  data-toggle="modal"  data-target="#top_modal">
-<i class="icon material-icons">settings<span class="badge color-red" id="topmsg2"></span>
-</i>
-</a>
-</div>
-
+            <header class="row m-0 fixed-header no-shadow"
+                style="background: white; box-shadow: 1px 1px #E5E5E5; -webkit-box-shadow: 0 10px 5px #E5E5E5; -moz-box-shadow: 0 1px 5px #888888; box-shadow: 0 1px 5px #E5E5E5;">
+                <style>
+                    .nav-link {
+                        display: block;
+                        padding: 0px;
+                        padding-top: 10px;
+                    }
+                </style>
+            
+                <div class="col left" style="font-size: 14px; font-weight: 600; top: 10px;">
+                    Welcome &nbsp; <span style="color: #F3780E; font-weight: 600;">Dear Visitor</span>
+            
+                </div>
+                <div class="right">
+                    <a href="javascript:void(0)" onclick="openNav()"><i class="material-icons"
+                            style="color: #F3780E;">search</i></a>
+                    <a href="#" style="color: orange; margin: 0px 0px 0px 0px;" data-toggle="modal" data-target="#top_modal">
+                        <i class="icon material-icons">settings<span class="badge color-red" id="topmsg2"></span>
+                        </i>
+                    </a>
+                </div>
+            
             </header>
 
             
@@ -166,96 +168,96 @@
                 <!--footer ends -->
                 <!-- h100 start -->
                 <div class="" style="background: #F5F5F5; width: 99%;">
-                    	 <script type="text/javascript">
-function MM_jumpMenu(targ,selObj,restore){ //v3.0
-  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
-  if (restore) selObj.selectedIndex=0;
-}
-</script>
-	<script type="text/javascript">
-$(document).bind("mobileinit", function(){ $.mobile.hashListeningEnabled = false; }); 
+                    <script type="text/javascript">
+                        function MM_jumpMenu(targ, selObj, restore) { //v3.0
+                            eval(targ + ".location='" + selObj.options[selObj.selectedIndex].value + "'");
+                            if (restore) selObj.selectedIndex = 0;
+                        }
+                    </script>
+                    <!-- <script type="text/javascript">
+                        $(document).bind("mobileinit", function () { $.mobile.hashListeningEnabled = false; });
 
-// boolean that stores if a swipe has been performed.
-var bScrolled = false;
-// countdown in ms before resetting the boolean.
-var iTime = 1000;
-var oTimeout;
-window.addEventListener('mousewheel', function(e) {
-  if (e.wheelDeltaY === 0) {
-  // there is an horizontal scroll
-    if (!bScrolled) {
-    // no need to set bScrolled to true if it has been done within the iTime time. 
-      bScrolled = true;
-      oTimeout = setTimeout(function(){
-        bScrolled = false;
-      }, iTime);
-    }
-  }
-});
+                        // boolean that stores if a swipe has been performed.
+                        var bScrolled = false;
+                        // countdown in ms before resetting the boolean.
+                        var iTime = 1000;
+                        var oTimeout;
+                        window.addEventListener('mousewheel', function (e) {
+                            if (e.wheelDeltaY === 0) {
+                                // there is an horizontal scroll
+                                if (!bScrolled) {
+                                    // no need to set bScrolled to true if it has been done within the iTime time. 
+                                    bScrolled = true;
+                                    oTimeout = setTimeout(function () {
+                                        bScrolled = false;
+                                    }, iTime);
+                                }
+                            }
+                        });
 
-window.onpopstate = function() {
-  // clear the timeout to be sure we keep the correct value for bScrolled
-  clearTimeout(oTimeout);
-  // check if there has been a swipe prior to the change of history state
-  if (bScrolled) {
-    // check which browser & OS the user is using, then
-    // trigger your awesome custom transition.
-  }
-}
-</script> 
-	<div class="modal top fade" id="top_modal" tabindex="-1" role="dialog" aria-labelledby="top_modal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-		Change Language and Currency
-      </div>
-      <div class="modal-body">
-     <select name="se" id="se" class="" onchange="MM_jumpMenu('parent',this,0)">
-          			          
-        
-          <option value="/lang-change.asp?lang=1"  selected> English</option>
-                    
-
-        
-          <option value="/lang-change.asp?lang=2" > Türkçe</option>
-                    
-
-        
-          <option value="/lang-change.asp?lang=3" > Uzbek</option>
-                    
-
-        
-          <option value="/lang-change.asp?lang=4" > Russian</option>
-                    
-
-</Select>
-<hr>
-		<select name="searchalpha" id="searchalpha" class="" onchange="MM_jumpMenu('parent',this,0)">
-          			          
-        
-          <option value="/currency-change.asp?cur=1"  selected> US Dollar</option>
-                    
-        
-          <option value="/currency-change.asp?cur=6" > Euro</option>
-                    
-        
-          <option value="/currency-change.asp?cur=13" > TL</option>
-                    
-        
-          <option value="/currency-change.asp?cur=14" > SOM</option>
-                    
-	</Select>
-	 </div>
-      <div class="modal-footer modal-footer-fixed d-none">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-     
-      </div>
+                        window.onpopstate = function () {
+                            // clear the timeout to be sure we keep the correct value for bScrolled
+                            clearTimeout(oTimeout);
+                            // check if there has been a swipe prior to the change of history state
+                            if (bScrolled) {
+                                // check which browser & OS the user is using, then
+                                // trigger your awesome custom transition.
+                            }
+                        }
+                    </script> -->
+    <div class="modal top fade" id="top_modal" tabindex="-1" role="dialog" aria-labelledby="top_modal">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    Change Language and Currency
+                </div>
+                <div class="modal-body">
+                    <select name="se" id="se" class="" onchange="MM_jumpMenu('parent',this,0)">
+    
+    
+                        <option value="/lang-change.asp?lang=1" selected> English</option>
+    
+    
+    
+                        <option value="/lang-change.asp?lang=2"> Türkçe</option>
+    
+    
+    
+                        <option value="/lang-change.asp?lang=3"> Uzbek</option>
+    
+    
+    
+                        <option value="/lang-change.asp?lang=4"> Russian</option>
+    
+    
+    
+                        <hr>
+                        <select name="searchalpha" id="searchalpha" class="" onchange="MM_jumpMenu('parent',this,0)">
+    
+    
+                            <option value="/currency-change.asp?cur=1" selected> US Dollar</option>
+    
+    
+                            <option value="/currency-change.asp?cur=6"> Euro</option>
+    
+    
+                            <option value="/currency-change.asp?cur=13"> TL</option>
+    
+    
+                            <option value="/currency-change.asp?cur=14"> SOM</option>
+    
+                        </Select>
+                </div>
+                <div class="modal-footer modal-footer-fixed d-none">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+    
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
-</div>
 
 
                     <div class="container">
@@ -266,12 +268,12 @@ window.onpopstate = function() {
                                 <ul class="list-group list-group-flush mb-4">
                                     
                             
- <script>
-function MM_jumpMenu1058(targ,selObj,restore){ //v3.0
-  eval(targ+".location='/tema/mobil-sepetim-add.asp?edit=ok&uid=1058&mis=1058&stoktakibi=2&stok=0&varyantkontrol=1&varyantstok=0&quant1058="+selObj.options[selObj.selectedIndex].value+"'");
-  if (restore) selObj.selectedIndex=0;
-}
-                </script>
+                                    <script>
+                                        function MM_jumpMenu1058(targ, selObj, restore) { //v3.0
+                                            eval(targ + ".location='/tema/mobil-sepetim-add.asp?edit=ok&uid=1058&mis=1058&stoktakibi=2&stok=0&varyantkontrol=1&varyantstok=0&quant1058=" + selObj.options[selObj.selectedIndex].value + "'");
+                                            if (restore) selObj.selectedIndex = 0;
+                                        }
+                                    </script>
 									
 				
                                     <li class="list-group-item">

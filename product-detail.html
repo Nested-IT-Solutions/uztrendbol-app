@@ -1,6 +1,4 @@
-
 <!doctype html>
-
 <html lang="en" class="ios">
 
 <head>
@@ -26,19 +24,15 @@
     <meta name="theme-color" content="#ffffff">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="vendor/bootstrap-4.1.3/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    
     <!-- Material design icons CSS -->
     <link rel="stylesheet" href="vendor/materializeicon/material-icons.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   
     <!-- app CSS -->
     <link rel="stylesheet" href="css/style.css" type="text/css">
-    <link rel="stylesheet" href="css/add.css" type="text/css">
-    <link rel="stylesheet" href="css/tab.css" type="text/css">
-    <link rel="stylesheet" href="css/search.css" type="text/css">
-    <link rel="stylesheet" href="css/filter.css" type="text/css">
-	  <link rel="stylesheet" href="css/bootstrap-side-modals.css">
-	
+
 	  <link rel="stylesheet" href="assets/css/default.css">
 	  <link rel="stylesheet" href="assets/css/responsive.css">
 	  <link rel="stylesheet" href="assets/css/swiper.css">
@@ -60,7 +54,7 @@
     <script>
         $(function() {
             $.ajax({
-             url: "https://app.uztrendbol.com/xml/app-arama-EN.xml",
+             url: "",
                 dataType: "xml",
                 success: function(xmlResponse) {
                     var data = $("urunler", xmlResponse).map(function() {
@@ -150,10 +144,10 @@
               </style>
             
             
-              <div class="col left" style="font-size: 14px;font-weight:600;   top: 0px;">
+              <div class="col left" style="font-size: 14px;font-weight:600; top: 0px; cursor: pointer;">
 
-                <i class="icon material-icons" onclick="history.back();">keyboard_backspace<span class="badge color-red" id="topmsg2"></span></i>
-                &nbsp; &nbsp; Back
+                <i class="icon material-icons" herf="categories.html" onclick="history.back();">keyboard_backspace<span class="badge color-red" id="topmsg2"></span></i>
+                &nbsp;&nbsp;Back
               </div>
             
      
@@ -395,50 +389,6 @@ window.onpopstate = function() {
 		<span class="sr-only">Next</span>
 	</a>
 </div>
-<script>
-function openModal() {
-	document.getElementById("myModal")
-		.style.display = "block";
-}
-
-function closeModal() {
-	document.getElementById("myModal")
-		.style.display = "none";
-}
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-	showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-	showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-	var i;
-	var slides = document.getElementsByClassName("mySlides");
-	var dots = document.getElementsByClassName("demo");
-	var captionText = document.getElementById("caption");
-	if (n > slides.length) {
-		slideIndex = 1
-	}
-	if (n < 1) {
-		slideIndex = slides.length
-	}
-	for (i = 0; i < slides.length; i++) {
-		slides[i].style.display = "none";
-	}
-	for (i = 0; i < dots.length; i++) {
-		dots[i].className = dots[i].className.replace(" active", "");
-	}
-	slides[slideIndex - 1].style.display = "block";
-	dots[slideIndex - 1].className += " active";
-	captionText.innerHTML = dots[slideIndex - 1].alt;
-}
-
-</script>
 
 <div class="modal bottom fade" id="bottom_modal" tabindex="-1" role="dialog" aria-labelledby="bottom_modal">
   <div class="modal-dialog" role="document">
