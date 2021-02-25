@@ -25,52 +25,6 @@
     <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
     <link rel="stylesheet" type="text/css" href="slide/slick/slick.css">
     <link rel="stylesheet" type="text/css" href="/slide/slick/slick-theme.css">
-    <script>
-    
-      $(document).ready(function() {
-
-        function log( message ) {
-          $( "#log" ).html( $( "<div/>" ).text( message ) ).attr( "scrollTop", 0 );
-        }
-        $.ajax({
-          // url:"/xml/app-arama-EN.xml",
-          url: "http://127.0.0.1:5500/xml/app-arama-EN.xml",
-          dataType: "xml",
-          success: function (xmlResponse) {
-            var data = $("urunler", xmlResponse).map(function () {
-              return {
-                value: $("name", this).text() + ", " +
-                  ($.trim($("countryName", this).text()) || "(unknown country)"),
-                id2: $("countryCode", this).text(), id: $("geonameId", this).text(),
-              };
-            }).get();
-
-            $("#birds").autocomplete({
-              source: data,
-              minLength: 0,
-              select: function (event, ui) {
-                log(ui.item ?
-                  "Selected: " + ui.item.value + ", geonameId: " + ui.item.id :
-                  "Nothing selected, input was " + this.value);
-                $("#searchField").val(ui.item.id);
-                $("#searchForm").submit();
-              }
-            });
-
-            $("#birds").autocomplete({
-              source: data,
-              minLength: 3,
-              select: function (event, ui) {
-                $("#searchField").val(ui.item.id);
-                $("#searchField2").val(ui.item.id2);
-
-                $("#searchForm").submit();
-              }
-            });
-          }
-        });
-      });
-    </script>
 
     <title>Kategoriler</title>
 </head>
@@ -3196,6 +3150,54 @@
     <!-- Swiper carousel jquery file -->
     <script src="vendor/swiper/js/swiper.min.js"></script>
     <!-- Application main common jquery file -->
+
+
+
+    <script>
+    
+      $(document).ready(function() {
+
+        function log( message ) {
+          $( "#log" ).html( $( "<div/>" ).text( message ) ).attr( "scrollTop", 0 );
+        }
+        $.ajax({
+          dataType: "xml",
+          success: function (xmlResponse) {
+            var data = $("urunler", xmlResponse).map(function () {
+              return {
+                value: $("name", this).text() + ", " +
+                  ($.trim($("countryName", this).text()) || "(unknown country)"),
+                id2: $("countryCode", this).text(), id: $("geonameId", this).text(),
+              };
+            }).get();
+
+            $("#birds").autocomplete({
+              source: data,
+              minLength: 0,
+              select: function (event, ui) {
+                log(ui.item ?
+                  "Selected: " + ui.item.value + ", geonameId: " + ui.item.id :
+                  "Nothing selected, input was " + this.value);
+                $("#searchField").val(ui.item.id);
+                $("#searchForm").submit();
+              }
+            });
+
+            $("#birds").autocomplete({
+              source: data,
+              minLength: 3,
+              select: function (event, ui) {
+                $("#searchField").val(ui.item.id);
+                $("#searchField2").val(ui.item.id2);
+
+                $("#searchForm").submit();
+              }
+            });
+          }
+        });
+      });
+    </script>
+
 
 </body>
 </html>

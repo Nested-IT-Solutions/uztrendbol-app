@@ -29,6 +29,9 @@
 </head>
 
 <body class="cpush-content-right theme-light color-theme-green">
+
+
+
     <div class="wrapper">
         <!-- sidebar left start -->
         <div class="sidebar sidebar-left">
@@ -43,189 +46,199 @@
 
         <!-- page main start -->
         <div class="page">
-            <header class="row m-0 fixed-header no-shadow" style="background: white; box-shadow: 1px 1px #E5E5E5; -webkit-box-shadow: 0 10px 5px #E5E5E5; -moz-box-shadow: 0 1px 5px #888888; box-shadow: 0 1px 5px #E5E5E5;">
-                  <style>
-  .nav-link {
-            display: block;
-            padding: 0px;
-            padding-top: 10px;
-        }     	
-    </style>
+            <header class="row m-0 fixed-header no-shadow"
+                style="background: white; box-shadow: 1px 1px #E5E5E5; -webkit-box-shadow: 0 10px 5px #E5E5E5; -moz-box-shadow: 0 1px 5px #888888; box-shadow: 0 1px 5px #E5E5E5;">
+                <style>
+                    .nav-link {
+                        display: block;
+                        padding: 0px;
+                        padding-top: 10px;
+                    }
+                </style>
 
-		<div class="col left" style="font-size: 14px; font-weight: 600; top: 10px;">
-         Welcome  &nbsp;  <span style="color: #F3780E; font-weight: 600;">serdar&nbsp;çakıroğlu</span>
-    
-</div>
-<div class="right">
-    <a href="javascript:void(0)" onclick="openNav()"><i class="material-icons" style="color: #F3780E;">search</i></a>
-	 <a href="#" style="color: orange; margin: 0px 0px 0px 0px;"  data-toggle="modal"  data-target="#top_modal">
-<i class="icon material-icons">settings<span class="badge color-red" id="topmsg2"></span>
-</i>
-</a>
-</div>
+                <div class="col left" style="font-size: 14px; font-weight: 600; top: 10px;">
+                    Welcome &nbsp; <span style="color: #F3780E; font-weight: 600;">serdar&nbsp;çakıroğlu</span>
+
+                </div>
+                <div class="right">
+                    <a href="javascript:void(0)" onclick="openNav()"><i class="material-icons"
+                            style="color: #F3780E;">search</i></a>
+                    <a href="#" style="color: orange; margin: 0px 0px 0px 0px;" data-toggle="modal"
+                        data-target="#top_modal">
+                        <i class="icon material-icons">settings<span class="badge color-red" id="topmsg2"></span>
+                        </i>
+                    </a>
+                </div>
 
             </header>
-               <style>
-       .ui-selectmenu-menu {
-           z-index: 99999;
-           position: absolute;
-       }
 
-       .ui-menu {
-           z-index: 99999;
-           position: absolute;
-       }
+            <!--Search Modal-->
+            <div id="myNav" class="overlay">
+                <div class="overlay-content">
+                    
+                    <div class="has-search" style="float:left;width: 100%;">
+                        <i class='bx bx-search'></i>
+                        <input id="search2" type="text" class="form-control" placeholder=" Search Brand or Category" onclick="openNav()">
+                        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"> Cancel</a>
+                    </div>
 
-       . ui-widget {
-           z-index: 99999;
-           position: absolute;
-       }
-   </style>
-   
-   <div id="myNav" class="overlay">
-       <div class="overlay-content">
+                    <div class="buttons">
+                        <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Recently Searched</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm"> <i class='bx bx-search'></i> Test</button>
+                        <button type="button" class="btn btn-outline-dark btn-sm"><i class='bx bx-search'></i> Popular Products</button>
+                    </div>
 
-           <form name="Form" id="searchForm" method="get" action="/murun-detay/index.html">
-               <input name="seo" type="hidden" id="searchField2" value="" />
-               <input name="sid" type="hidden" id="searchField" value="" />
-
-           </form>
-
-           <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-          
-           <div class="has-search" style="float:left;width: 100%;">
-               <input type="text" id="birds" class="" style="width: 100%;color:red;" placeholder=" Search Brand or Category">
-           </div>
-           <hr>
-           <button type="button" class="btn btn-outline-dark btn-sm">Recently Searched</button>
-           <button type="button" class="btn btn-outline-dark btn-sm">Test</button>
-           <button type="button" class="btn btn-outline-dark btn-sm">Popular Products</button>
-
-       </div>
-   </div>
+                </div>
+            </div>
 
 
+            <style>
+                .ui-selectmenu-menu {
+                    z-index: 99999;
+                    position: absolute;
+                }
+
+                .ui-menu {
+                    z-index: 99999;
+                    position: absolute;
+                }
+
+                .ui-widget {
+                    z-index: 99999;
+                    position: absolute;
+                }
+            </style>
+
+            <div id="myNav" class="overlay">
+                <div class="overlay-content">
+
+                    <form name="Form" id="searchForm" method="get" action="/murun-detay/index.html">
+                        <input name="seo" type="hidden" id="searchField2" value="" />
+                        <input name="sid" type="hidden" id="searchField" value="" />
+
+                    </form>
+
+                    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+
+                    <div class="has-search" style="float:left;width: 100%;">
+                        <input type="text" id="birds" class="" style="width: 100%;color:red;"
+                            placeholder=" Search Brand or Category">
+                    </div>
+                    <hr>
+                    <button type="button" class="btn btn-outline-dark btn-sm">Recently Searched</button>
+                    <button type="button" class="btn btn-outline-dark btn-sm">Test</button>
+                    <button type="button" class="btn btn-outline-dark btn-sm">Popular Products</button>
+
+                </div>
+            </div>
 
 
-   <script>
-       function openNav() {
-           document.getElementById("myNav").style.width = "100%";
-       }
 
-       function closeNav() {
-           document.getElementById("myNav").style.width = "0%";
-       }
-   </script>
+
+            <script>
+                function openNav() {
+                    document.getElementById("myNav").style.width = "100%";
+                }
+
+                function closeNav() {
+                    document.getElementById("myNav").style.width = "0%";
+                }
+            </script>
             <div class="page-content">
 
                 <!--footer start -->
-                   <nav class="tabber tabber-bottom">
-<div class="nav nav-tabs " id="nav-tab" role="tablist">
-<a class="nav-item nav-link  " id="nav-find-tab" data-toggle="tab2" href="index.html" role="tab" aria-controls="nav-find" aria-selected="true"><i class="icon material-icons">home</i><span class="tabbar-label">Home</span></a>
-<a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="all-menu.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">search<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Categories</span> </a>
-<a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="favorites.html" role="tab" aria-controls="nav-favorite" aria-selected="false"> <i class="icon material-icons">favorite<span class="badge color-red" id="topmsg2"></span></i> <span class="tabbar-label">Favorites</span> </a>
-<a class="nav-item nav-link  " id="nav-cart-tab" data-toggle="tab2" href="basket.html" role="tab" aria-controls="nav-cart" aria-selected="false"> <i class="icon material-icons">shopping_cart<span class="badge color-red" id="topmsg"></span></i> <span class="tabbar-label"> My Cart</span> </a>
-<a class="nav-item nav-link active " id="nav-profile-tab" data-toggle="tab2" href="login.html" role="tab" aria-controls="nav-profile" aria-selected="false"> <i class="icon material-icons">account_circle</i> <span class="tabbar-label">My Acc</span> </a>
+                <nav class="tabber tabber-bottom">
+                    <div class="nav nav-tabs " id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link  " id="nav-find-tab" data-toggle="tab2" href="index.html" role="tab"
+                            aria-controls="nav-find" aria-selected="true"><i class="icon material-icons">home</i><span
+                                class="tabbar-label">Home</span></a>
+                        <a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="all-menu.html"
+                            role="tab" aria-controls="nav-favorite" aria-selected="false"> <i
+                                class="icon material-icons">search<span class="badge color-red" id="topmsg2"></span></i>
+                            <span class="tabbar-label">Categories</span> </a>
+                        <a class="nav-item nav-link  " id="nav-favorite-tab" data-toggle="tab2" href="favorites.html"
+                            role="tab" aria-controls="nav-favorite" aria-selected="false"> <i
+                                class="icon material-icons">favorite<span class="badge color-red"
+                                    id="topmsg2"></span></i> <span class="tabbar-label">Favorites</span> </a>
+                        <a class="nav-item nav-link  " id="nav-cart-tab" data-toggle="tab2" href="basket.html"
+                            role="tab" aria-controls="nav-cart" aria-selected="false"> <i
+                                class="icon material-icons">shopping_cart<span class="badge color-red"
+                                    id="topmsg"></span></i> <span class="tabbar-label"> My Cart</span> </a>
+                        <a class="nav-item nav-link active " id="nav-profile-tab" data-toggle="tab2" href="login.html"
+                            role="tab" aria-controls="nav-profile" aria-selected="false"> <i
+                                class="icon material-icons">account_circle</i> <span class="tabbar-label">My Acc</span>
+                        </a>
                     </div>
-                </nav> 
+                </nav>
                 <!--footer ends -->
                 <!-- h100 start -->
                 <div class="" style="background: #F5F5F5; width: 99%;">
-                    	 <script type="text/javascript">
-function MM_jumpMenu(targ,selObj,restore){ //v3.0
-  eval(targ+".location='"+selObj.options[selObj.selectedIndex].value+"'");
-  if (restore) selObj.selectedIndex=0;
-}
-</script>
-	<script type="text/javascript">
-$(document).bind("mobileinit", function(){ $.mobile.hashListeningEnabled = false; }); 
+                    <script type="text/javascript">
+                        function MM_jumpMenu(targ, selObj, restore) { //v3.0
+                            eval(targ + ".location='" + selObj.options[selObj.selectedIndex].value + "'");
+                            if (restore) selObj.selectedIndex = 0;
+                        }
+                    </script>
+ 
+                    <div class="modal top fade" id="top_modal" tabindex="-1" role="dialog" aria-labelledby="top_modal">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                    Change Language and Currency
+                                </div>
+                                <div class="modal-body">
+                                    <select name="se" id="se" class="" onchange="MM_jumpMenu('parent',this,0)">
 
-// boolean that stores if a swipe has been performed.
-var bScrolled = false;
-// countdown in ms before resetting the boolean.
-var iTime = 1000;
-var oTimeout;
-window.addEventListener('mousewheel', function(e) {
-  if (e.wheelDeltaY === 0) {
-  // there is an horizontal scroll
-    if (!bScrolled) {
-    // no need to set bScrolled to true if it has been done within the iTime time. 
-      bScrolled = true;
-      oTimeout = setTimeout(function(){
-        bScrolled = false;
-      }, iTime);
-    }
-  }
-});
 
-window.onpopstate = function() {
-  // clear the timeout to be sure we keep the correct value for bScrolled
-  clearTimeout(oTimeout);
-  // check if there has been a swipe prior to the change of history state
-  if (bScrolled) {
-    // check which browser & OS the user is using, then
-    // trigger your awesome custom transition.
-  }
-}
-</script> 
-	<div class="modal top fade" id="top_modal" tabindex="-1" role="dialog" aria-labelledby="top_modal">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-       <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-		Change Language and Currency
-      </div>
-      <div class="modal-body">
-     <select name="se" id="se" class="" onchange="MM_jumpMenu('parent',this,0)">
-          			          
-        
-          <option value="/lang-change.asp?lang=1"  selected> English</option>
-                    
+                                        <option value="/lang-change.asp?lang=1" selected> English</option>
 
-        
-          <option value="/lang-change.asp?lang=2" > Türkçe</option>
-                    
 
-        
-          <option value="/lang-change.asp?lang=3" > Uzbek</option>
-                    
 
-        
-          <option value="/lang-change.asp?lang=4" > Russian</option>
-                    
+                                        <option value="/lang-change.asp?lang=2"> Türkçe</option>
 
-</Select>
-<hr>
-		<select name="searchalpha" id="searchalpha" class="" onchange="MM_jumpMenu('parent',this,0)">
-          			          
-        
-          <option value="/currency-change.asp?cur=1"  selected> US Dollar</option>
-                    
-        
-          <option value="/currency-change.asp?cur=6" > Euro</option>
-                    
-        
-          <option value="/currency-change.asp?cur=13" > TL</option>
-                    
-        
-          <option value="/currency-change.asp?cur=14" > SOM</option>
-                    
-	</Select>
-	 </div>
-      <div class="modal-footer modal-footer-fixed d-none">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-     
-      </div>
-    </div>
-  </div>
-</div>
+
+
+                                        <option value="/lang-change.asp?lang=3"> Uzbek</option>
+
+
+
+                                        <option value="/lang-change.asp?lang=4"> Russian</option>
+
+
+                                    </Select>
+                                    <hr>
+                                    <select name="searchalpha" id="searchalpha" class=""
+                                        onchange="MM_jumpMenu('parent',this,0)">
+
+
+                                        <option value="/currency-change.asp?cur=1" selected> US Dollar</option>
+
+
+                                        <option value="/currency-change.asp?cur=6"> Euro</option>
+
+
+                                        <option value="/currency-change.asp?cur=13"> TL</option>
+
+
+                                        <option value="/currency-change.asp?cur=14"> SOM</option>
+
+                                    </Select>
+                                </div>
+                                <div class="modal-footer modal-footer-fixed d-none">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <br>
                     <b>Siparişlerim</b>
                     <br>
                     <br>
-                    
+
                     <div class="card">
                         <div class="row  container">
                             <div class="col-12"><a data-toggle="modal" href="#myModal">Sipariş Detayı</a> </div>
@@ -254,12 +267,12 @@ window.onpopstate = function() {
                             </div>
                             <div class="col-4 text-right">
                                 <p class="text-secondary mb-1 small">Sipariş Durumu</p>
-                                <h6 class="mb-0">Bekliyor  </h6>
+                                <h6 class="mb-0">Bekliyor </h6>
                             </div>
                         </div>
                     </div>
 
-                    
+
                     <div class="card">
                         <div class="row  container">
                             <div class="col-12"><a data-toggle="modal" href="#myModal">Sipariş Detayı</a> </div>
@@ -288,28 +301,28 @@ window.onpopstate = function() {
                             </div>
                             <div class="col-4 text-right">
                                 <p class="text-secondary mb-1 small">Sipariş Durumu</p>
-                                <h6 class="mb-0">Bekliyor  </h6>
+                                <h6 class="mb-0">Bekliyor </h6>
                             </div>
                         </div>
                     </div>
 
-                    
+
                 </div>
             </div>
         </div>
     </div>
-        <!-- page main ends -->
-        
- <!-- jQuery first, then Popper.js, then Bootstrap JS -->
- <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
- <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
- <script src="js/owl.carousel.min.js"></script>
- <script src="assets/js/bootstrap.min.js"></script>
- 
- <!--  Swiper js file   --> 
- <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
- <script src="assets/js/swiper-main.js"></script>
- <script src="assets/js/main.js"></script>
+    <!-- page main ends -->
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
+    <script src="js/owl.carousel.min.js"></script>
+    <script src="assets/js/bootstrap.min.js"></script>
+
+    <!--  Swiper js file   -->
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script src="assets/js/swiper-main.js"></script>
+    <script src="assets/js/main.js"></script>
 
 </body>
 </html>

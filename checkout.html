@@ -28,134 +28,7 @@
     
 
 <body class="cpush-content-right theme-light color-theme-green">
-<script type="text/javascript">
-    /*
-    jQuery(function($){				
-        $('#SehirID').dependent({ parent:'UlkeID', group: 'il_ilce_bucak' });
-        $('#SemtID').dependent({ parent:'SehirID', group: 'il_ilce_bucak' });
-        $('#BucakID').dependent({ parent:'SemtID', group: 'il_ilce_bucak' });   
-    });
-    */
 
-    $(document).ready(function () {
-        $("#UlkeID").change(function () {
-            $.ajax({
-                type: 'POST',
-                url: '/post.asp?islem=ilx',
-                data: 'id=' + $(this).val(),
-                beforeSend: function () {
-                    //$('#SehirID').html('Yükleniyor....');
-                },
-                error: function () {
-                    //$('#SehirID').html('Bir hata algilandi.');
-                },
-                success: function (veri) {
-                    $('#SehirID').html(veri);
-                }
-            });
-        });
-        $("#SehirID").change(function () {
-            $.ajax({
-                type: 'POST',
-                url: '/post.asp?islem=ilce',
-                data: 'id=' + $(this).val(),
-                beforeSend: function () {
-                    //$('#ilceID').html('Yükleniyor....');
-                },
-                error: function () {
-                    //$('#ilceID').html('Bir hata algilandi.');
-                },
-                success: function (veri) {
-                    $('#ilceID').html(veri);
-                }
-            });
-        });
-        $("#ilceID").change(function () {
-            $.ajax({
-                type: 'POST',
-                url: '/post.asp?islem=semt',
-                data: 'id=' + $(this).val(),
-                beforeSend: function () {
-                    //$('#semt').html('Yükleniyor....');
-                },
-                error: function () {
-                    //$('#semt').html('Bir hata algilandi.');
-                },
-                success: function (veri) {
-                    $('#semt').html(veri);
-                }
-            });
-        });
-    });
-    $(document).ready(function () {
-        $("#UlkeID2").change(function () {
-            $.ajax({
-                type: 'POST',
-                url: '/post2.asp?islem=ilx2',
-                data: 'id=' + $(this).val(),
-                beforeSend: function () {
-                    //$('#SehirID').html('Yükleniyor....');
-                },
-                error: function () {
-                    //$('#SehirID').html('Bir hata algilandi.');
-                },
-                success: function (veri) {
-                    $('#SehirID2').html(veri);
-                }
-            });
-        });
-        $("#SehirID2").change(function () {
-            $.ajax({
-                type: 'POST',
-                url: '/post2.asp?islem=ilce2',
-                data: 'id=' + $(this).val(),
-                beforeSend: function () {
-                    //$('#ilceID').html('Yükleniyor....');
-                },
-                error: function () {
-                    //$('#ilceID').html('Bir hata algilandi.');
-                },
-                success: function (veri) {
-                    $('#ilceID2').html(veri);
-                }
-            });
-        });
-        $("#ilceID2").change(function () {
-            $.ajax({
-                type: 'POST',
-                url: '/post2.asp?islem=semt2',
-                data: 'id=' + $(this).val(),
-                beforeSend: function () {
-                    //$('#semt').html('Yükleniyor....');
-                },
-                error: function () {
-                    //$('#semt').html('Bir hata algilandi.');
-                },
-                success: function (veri) {
-                    $('#semt2').html(veri);
-                }
-            });
-        });
-    });
-// Without JQuery
-//var slider = new Slider('#ex2', {});
-</script>
-<script>
-    $("#form").submit(function (event) {
-        event.preventDefault(); //prevent default action 
-        var post_url = $(this).attr("action"); //get form action url
-        var request_method = $(this).attr("method"); //get form GET/POST method
-        var form_data = $(this).serialize(); //Encode form elements for submission
-
-        $.ajax({
-            url: post_url,
-            type: request_method,
-            data: form_data
-        }).done(function (response) { //
-            $("#server-results2").html(response);
-        });
-    });
-</script>
 <div class="wrapper">
     <!-- sidebar left start -->
     <div class="sidebar sidebar-left">
@@ -270,43 +143,7 @@
             <!--footer ends -->
             <!-- h100 start -->
             <div class="" style="background: #F5F5F5; width: 99%;">
-                <script type="text/javascript">
-                    function MM_jumpMenu(targ, selObj, restore) { //v3.0
-                        eval(targ + ".location='" + selObj.options[selObj.selectedIndex].value + "'");
-                        if (restore) selObj.selectedIndex = 0;
-                    }
-                </script>
-                <script type="text/javascript">
-                    $(document).bind("mobileinit", function () { $.mobile.hashListeningEnabled = false; });
 
-                    // boolean that stores if a swipe has been performed.
-                    var bScrolled = false;
-                    // countdown in ms before resetting the boolean.
-                    var iTime = 1000;
-                    var oTimeout;
-                    window.addEventListener('mousewheel', function (e) {
-                        if (e.wheelDeltaY === 0) {
-                            // there is an horizontal scroll
-                            if (!bScrolled) {
-                                // no need to set bScrolled to true if it has been done within the iTime time. 
-                                bScrolled = true;
-                                oTimeout = setTimeout(function () {
-                                    bScrolled = false;
-                                }, iTime);
-                            }
-                        }
-                    });
-
-                    window.onpopstate = function () {
-                        // clear the timeout to be sure we keep the correct value for bScrolled
-                        clearTimeout(oTimeout);
-                        // check if there has been a swipe prior to the change of history state
-                        if (bScrolled) {
-                            // check which browser & OS the user is using, then
-                            // trigger your awesome custom transition.
-                        }
-                    }
-                </script>
                 <div class="modal top fade" id="top_modal" tabindex="-1" role="dialog" aria-labelledby="top_modal">
                     <div class="modal-dialog" role="document">
                         <div class="modal-content">
@@ -556,76 +393,6 @@
                     </div>
 
 
-                    <script>
-
-                        function MM_findObj(n, d) { //v3.0
-                            var p, i, x; if (!d) d = document; if ((p = n.indexOf("?")) > 0 && parent.frames.length) {
-                                d = parent.frames[n.substring(p + 1)].document; n = n.substring(0, p);
-                            }
-                            if (!(x = d[n]) && d.all) x = d.all[n]; for (i = 0; !x && i < d.forms.length; i++) x = d.forms[i][n];
-                            for (i = 0; !x && d.layers && i < d.layers.length; i++) x = MM_findObj(n, d.layers[i].document); return x;
-                        }
-                        function MM_swapImage() { //v3.0
-                            var i, j = 0, x, a = MM_swapImage.arguments; document.MM_sr = new Array; for (i = 0; i < (a.length - 2); i += 3)
-                                if ((x = MM_findObj(a[i])) != null) { document.MM_sr[j++] = x; if (!x.oSrc) x.oSrc = x.src; x.src = a[i + 2]; }
-                        }
-                        function MM_swapImgRestore() { //v3.0
-                            var i, x, a = document.MM_sr; for (i = 0; a && i < a.length && (x = a[i]) && x.oSrc; i++) x.src = x.oSrc;
-                        }
-
-                        function MM_preloadImages() { //v3.0
-                            var d = document; if (d.images) {
-                                if (!d.MM_p) d.MM_p = new Array();
-                                var i, j = d.MM_p.length, a = MM_preloadImages.arguments; for (i = 0; i < a.length; i++)
-                                    if (a[i].indexOf("#") != 0) { d.MM_p[j] = new Image; d.MM_p[j++].src = a[i]; }
-                            }
-                        }
-
-                        function MM_jumpMenu1(targ, selObj, restore) { //v3.0
-                            eval(targ + ".location='/modemeyap/index.html?teslimatyontemi=" + selObj.options[selObj.selectedIndex].value + "&teslimat=00&fatura=00&odemeyontemi=00&display=0&cid=8448'");
-                            if (restore) selObj.selectedIndex = 0;
-                        }
-                        function MM_jumpMenu2(targ, selObj, restore) { //v3.0
-                            eval(targ + ".location='/modemeyap/index.html?teslimatyontemi=00&teslimat=" + selObj.options[selObj.selectedIndex].value + "&fatura=00&odemeyontemi=00&display=0&cid=8448'");
-                            if (restore) selObj.selectedIndex = 0;
-                        }
-                        function MM_jumpMenu3(targ, selObj, restore) { //v3.0
-                            eval(targ + ".location='/modemeyap/index.html?teslimatyontemi=00&teslimat=00&fatura=" + selObj.options[selObj.selectedIndex].value + "&odemeyontemi=00&display=0&cid=8448'");
-                            if (restore) selObj.selectedIndex = 0;
-                        }
-                        function MM_jumpMenu4(targ, selObj, restore) { //v3.0
-                            eval(targ + ".location='/modemeyap/index.html?teslimatyontemi=00&teslimat=00&fatura=00&odemeyontemi=" + selObj.options[selObj.selectedIndex].value + "&display=0&cid=8448'");
-                            if (restore) selObj.selectedIndex = 0;
-                        }
-                        function MM_jumpMenu5(targ, selObj, restore) { //v3.0
-                            eval(targ + ".location='/modemeyap/index.html?teslimatyontemi=00&teslimat=00&fatura=00&odemeyontemi=" + selObj.options[selObj.selectedIndex].value + "&display=0&cid=8448'");
-                            if (restore) selObj.selectedIndex = 0;
-                        }
-                        function MM_openBrWindow(theURL, winName, features) { //v2.0
-                            window.open(theURL, winName, features);
-                        }
-
-                    </script>
-
-
-
-                    <script>
-                        $("#form").submit(function (event) {
-                            event.preventDefault(); //prevent default action 
-                            var post_url = $(this).attr("action"); //get form action url
-                            var request_method = $(this).attr("method"); //get form GET/POST method
-                            var form_data = $(this).serialize(); //Encode form elements for submission
-
-                            $.ajax({
-                                url: post_url,
-                                type: request_method,
-                                data: form_data
-                            }).done(function (response) { //
-                                $("#server-results2").html(response);
-                            });
-                        });
-                    </script>
-
                     <form name="siparis" id="siparis" action="/modemeyap/index.html" method="get">
 
 
@@ -722,72 +489,7 @@
                                 </div>
                             </div>
                         </div>
-
-                        <script>
-
-                            $('#myselect').change(function () {
-                                var opval = $(this).val();
-                                if (opval == "secondoption") {
-                                    $('#myModal').modal("show");
-                                }
-                            });
-                            $('#myselect2').change(function () {
-                                var opval = $(this).val();
-                                if (opval == "secondoption2") {
-                                    $('#myModal2').modal("show");
-                                }
-                            });
-                        </script>
-
-
-                        <script type="text/javascript">
-
-                            (function () {
-
-                                // get references to select list and display text box
-                                var sel = document.getElementById('myselect2');
-                                var el = document.getElementById('display');
-
-
-                                function getSelectedOption(sel) {
-                                    var opt;
-                                    for (var i = 0, len = sel.options.length; i < len; i++) {
-                                        opt = sel.options[i];
-                                        if (opt.selected === true) {
-                                            break;
-                                        }
-                                    }
-                                    return opt;
-                                }
-
-                                // assign onclick handlers to the buttons
-                                document.getElementById('showVal').onclick = function () {
-                                    el.value = sel.value;
-                                    document.getElementById("myselect").disabled = true;
-                                    document.getElementById("faturakopyala").style.display = "none";
-                                    document.getElementById("faturakopyalama").style.display = "block";
-                                }
-                                document.getElementById('showVal2').onclick = function () {
-                                    el.value = sel.value;
-                                    document.getElementById("myselect").disabled = false;
-                                    document.getElementById("faturakopyala").style.display = "block";
-                                    document.getElementById("faturakopyalama").style.display = "none";
-                                }
-
-                                document.getElementById('showTxt').onclick = function () {
-                                    // access text property of selected option
-                                    el.value = sel.options[sel.selectedIndex].text;
-                                }
-
-                                document.getElementById('doLoop').onclick = function () {
-                                    var opt = getSelectedOption(sel);
-                                    el.value = opt.value;
-                                }
-
-                            }());
-
-// immediate function to preserve global namespace
-                        </script>
+                        
                         <p class="text-center text-secondary mb-0">Secure Payment</p>
                         <div class="card shadow-sm border-0 mb-3">
                             <div class="card-body p-3">
@@ -819,14 +521,7 @@
                                     I have read the Preliminary Information Conditions and the Distance Sales Contract,
                                     I approve</label>
 
-                                <script>
-                                    $(document).ready(function () {
-                                        $('#read-terms').on('click', function (e) {
-                                            e.preventDefault();
-                                            displayPopupContentFromUrl('/t-popup/conditionsofuse', 'Terms of service');
-                                        });
-                                    });
-                                </script>
+                    
                             </div>
                         </div>
                         <style>
@@ -901,40 +596,9 @@
                     </form>
                 </div>
 
-                <script>
-                    $(window).on('load', function () {
 
-                    });
 
-                </script>
 
-                <script type="text/javascript">
-                    $(document).ready(function () {
-                        $("#BillingNewAddress_CountryId").change(function () {
-                            var selectedItem = $(this).val();
-                            var ddlStates = $("#BillingNewAddress_StateProvinceId");
-                            var statesProgress = $("#states-loading-progress");
-                            statesProgress.show();
-                            $.ajax({
-                                cache: false,
-                                type: "GET",
-                                url: "/country/getstatesbycountryid",
-                                data: { "countryId": selectedItem, "addSelectStateItem": "false" },
-                                success: function (data) {
-                                    ddlStates.html('');
-                                    $.each(data, function (id, option) {
-                                        ddlStates.append($('<option></option>').val(option.id).html(option.name));
-                                    });
-                                    statesProgress.hide();
-                                },
-                                error: function (xhr, ajaxOptions, thrownError) {
-                                    alert('Failed to retrieve states.');
-                                    statesProgress.hide();
-                                }
-                            });
-                        });
-                    });
-                </script>
                 <input data-val="true" data-val-number="The field Id must be a number."
                     data-val-required="'Id' değeri boş olamaz." id="BillingNewAddress_Id" name="BillingNewAddress.Id"
                     type="hidden" value="0">
@@ -1744,51 +1408,7 @@
                                                 type="text" value="">
                                         </div>
 
-
-
-
-
-                                        <script>
-                                            function myFunction() {
-                                                var x = document.getElementById("myDIV");
-                                                if (x.style.display === "none") {
-                                                    x.style.display = "block";
-                                                } else {
-                                                    x.style.display = "block";
-                                                }
-                                                var x = document.getElementById("myDIV2");
-                                                if (x.style.display === "none") {
-                                                    x.style.display = "none";
-                                                } else {
-                                                    x.style.display = "none";
-                                                }
-
-
-                                            }
-
-                                            function myFunction2() {
-                                                var x = document.getElementById("myDIV2");
-                                                if (x.style.display === "none") {
-                                                    x.style.display = "block";
-                                                } else {
-
-                                                }
-
-                                                var x = document.getElementById("myDIV");
-                                                if (x.style.display === "none") {
-                                                    x.style.display = "none";
-                                                } else {
-                                                    x.style.display = "none";
-                                                }
-                                            }
-                                        </script>
-
-
-
                                     </div>
-
-
-
 
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                     <button type="submit" class="btn btn-primary">Add Address</button>
@@ -1827,17 +1447,7 @@
                                                 type="text" value="" placeholder="Title: Home, Office, Warehouse"
                                                 required>
                                         </div>
-                                        <script type="text/javascript">
-< !--
-                                                function toggle_visibility(id) {
-                                                    var e = document.getElementById(id);
-                                                    if (e.style.display == 'block')
-                                                        e.style.display = 'none';
-                                                    else
-                                                        e.style.display = 'block';
-                                                }
-//-->
-                                        </script>
+         
 
                                         <!-- Inline Usage in HTML -->
                                         <input type="checkbox" id="faturacopy" name="faturacopy"
@@ -2624,39 +2234,6 @@
                                                 type="text" value="">
                                         </div>
 
-
-                                        <script>
-                                            function myFunction4() {
-                                                var x = document.getElementById("myDIVx");
-                                                if (x.style.display === "none") {
-                                                    x.style.display = "block";
-                                                } else {
-                                                    x.style.display = "block";
-                                                }
-                                                var x = document.getElementById("myDIV2x");
-                                                if (x.style.display === "none") {
-                                                    x.style.display = "none";
-                                                } else {
-                                                    x.style.display = "none";
-                                                }
-                                            }
-
-                                            function myFunction5() {
-                                                var x = document.getElementById("myDIV2x");
-                                                if (x.style.display === "none") {
-                                                    x.style.display = "block";
-                                                } else {
-
-                                                }
-
-                                                var x = document.getElementById("myDIVx");
-                                                if (x.style.display === "none") {
-                                                    x.style.display = "none";
-                                                } else {
-                                                    x.style.display = "none";
-                                                }
-                                            }
-                                        </script>
                                     </div>
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
                                     <button type="submit" class="btn btn-primary">Add Address</button>
@@ -2679,10 +2256,12 @@
 <!-- page main ends -->
  
  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
  <script src="https://unpkg.com/boxicons@latest/dist/boxicons.js"></script>
  <script src="js/owl.carousel.min.js"></script>
  <script src="assets/js/bootstrap.min.js"></script>
+
  
  <!--  Swiper js file   --> 
  <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
