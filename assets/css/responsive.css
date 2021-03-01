@@ -394,6 +394,45 @@
  x-Small devices (landscape phones, 375px and up to 575.98px)
 ===============================================================
 */
+@media only screen and (min-device-width: 0px) and (max-device-width: 575.98px) {
+  .row > .col-xs-1,
+  .row > .col-xs-2,
+  .row > .col-xs-3,
+  .row > .col-xs-4,
+  .row > .col-xs-5,
+  .row > .col-xs-6,
+  .row > .col-xs-7,
+  .row > .col-xs-8,
+  .row > .col-xs-9,
+  .row > .col-xs-10,
+  .row > .col-xs-11,
+  .row > .col-xs-12 {
+      
+    max-width: 60px !important;
+    height: auto;
+  }
+
+  .has-search input.form-control {
+    height: 14px;
+    border-radius: 5px;
+    padding-left: 15px;
+    border: none;
+    background: #eee;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    margin-top: 10px;
+  }
+  header > .right a, header > .left a, header, .logo figure {
+    height: 60px;
+    line-height: 25px;
+  }
+
+
+}
+
+
+
+
 @media only screen and (min-device-width: 992px) and (max-device-width: 1599.98px) {
   /*======== Reusable Componantss =========*/
   /*========== Header Section =========*/
