@@ -1,0 +1,208 @@
+/*=============== Reusable Conponants ===============*/
+.activeBtn {
+  background: #f27a1a !important;
+  color: white !important;
+}
+
+input, button .focus:focus {
+  outline: none;
+  -webkit-box-shadow: none !important;
+          box-shadow: none !important;
+}
+
+.section-login-page {
+  width: 100%;
+  background: #fff;
+  padding: 3rem;
+  max-width: 500px;
+  border: 1px solid #ddd;
+  margin: 50px auto;
+  border-radius: 5px;
+}
+
+.section-login-page .login-title {
+  margin-top: 3rem;
+}
+
+.section-login-page .login-title h2 {
+  font-size: 36px;
+  font-weight: 500;
+  color: #000000;
+}
+
+.section-login-page .login-title p {
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.section-login-page li {
+  width: 50%;
+  text-align: center;
+}
+
+.section-login-page li a {
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 3;
+  margin-left: 3px;
+  color: #333333 !important;
+  display: block;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area {
+  padding: 30px;
+  border: 1px solid #e6e6e6;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .mail {
+  font-size: 16px;
+  margin-bottom: 20px;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .mail .form-control {
+  font-size: 16px;
+  height: 50px;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .mail label {
+  color: #7e7e7e;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .psw {
+  font-size: 16px;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .psw .form-control {
+  font-size: 16px;
+  height: 50px;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .psw label {
+  color: #7e7e7e;
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .forget-password a {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 2.6;
+  color: #333333;
+  text-decoration: underline;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .forget-password a:hover {
+  color: #f27a1a;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .btn {
+  background: #f27a1a;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .btn a {
+  color: #ffffff;
+  line-height: 1.8;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .social-icon {
+  margin: 0 auto;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .social-icon a {
+  width: 50%;
+  margin-top: 30px;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .social-icon a .facebook {
+  padding: 10px 10px;
+  border: 1px solid #e6e6e6;
+  line-height: 1.6;
+  border-radius: 5px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .social-icon a .facebook p {
+  margin: 0;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .social-icon a .facebook i {
+  margin-right: 10px;
+  font-size: 34px;
+  color: #4c6ea8;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .social-icon a .google {
+  padding: 10px 10px;
+  border-radius: 5px;
+  border: 1px solid #e6e6e6;
+  margin-left: 10px;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .social-icon a .google p {
+  margin: 0;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .social-icon a .google i {
+  margin-right: 10px;
+  color: #f14236;
+  font-size: 34px;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .psw-describe a {
+  color: #333333;
+  font-size: 14px;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .gender {
+  margin-top: 20px;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .gender .button-group {
+  width: 100%;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .gender .button-group .gender-btn {
+  width: 49%;
+  background: none;
+  color: #666666;
+  font-size: 1.3rem;
+  border: 1px solid #adabab;
+  margin: 0;
+  text-transform: capitalize;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .form-check {
+  margin-top: 10px;
+  padding-left: 2rem;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .form-check .form-check-input {
+  margin-left: -2rem;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .tearms {
+  margin-top: 10px;
+}
+
+.section-login-page .tab-content .logInTab-menu .logIn-content .logIn-area .tearms p a {
+  color: #333333;
+  text-decoration: underline;
+  font-size: 14px;
+}
+/*# sourceMappingURL=imrul.css.map */

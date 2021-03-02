@@ -88,7 +88,7 @@
     cursor: pointer;
     position: relative;
     -webkit-transform: rotate(0deg);
-    transform: rotate(0deg);
+            transform: rotate(0deg);
   }
   .hamburger.open {
     -webkit-transition: all ease 0.5s;
@@ -119,9 +119,9 @@
   .open span:nth-child(1) {
     background-color: #000;
     -webkit-transform: rotate(45deg);
-    transform: rotate(45deg);
+            transform: rotate(45deg);
     -webkit-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out;
+            transition-timing-function: ease-in-out;
     position: absolute;
     top: 5px;
     right: 8px;
@@ -133,7 +133,7 @@
   .open span:nth-child(2) {
     background-color: #000;
     -webkit-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out;
+            transition-timing-function: ease-in-out;
     margin-top: 18px;
     opacity: 0;
     -webkit-transition: all ease .5s;
@@ -142,9 +142,9 @@
   .open span:nth-child(3) {
     background-color: #000;
     -webkit-transform: rotate(-45deg);
-    transform: rotate(-45deg);
+            transform: rotate(-45deg);
     -webkit-transition-timing-function: ease-in-out;
-    transition-timing-function: ease-in-out;
+            transition-timing-function: ease-in-out;
     margin-top: 0px;
     position: absolute;
     top: 18px;
@@ -270,7 +270,7 @@
     opacity: .6 !important;
   }
   /*=== Search Area ===*/
-  /* .header-section .search-area {
+  .header-section .search-area {
     margin-top: 1rem;
     width: 100% !important;
   }
@@ -279,7 +279,6 @@
   }
   .header-section .search-area .auto-search .search-box input {
     width: 100%;
-    padding: 5px 15px;
     font-size: 14px;
     border-radius: 10px !important;
     background: #fff;
@@ -290,181 +289,60 @@
     font-size: 14px;
     top: 15px;
   }
-
-  .has-search{
-    margin: 5px 5px 5px 5px;
-    background: white;
-    position: relative;
-    float: left;
-    width: 80%;
-    margin-top: 0;
-    display: block;
-  }
-
-
-  .has-search input.form-control {
-    height: 25px;
-    border-radius: 10px;
-    padding-left: 25px;
-    border: none;
-    background: #eee;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    margin-top: 10px;
-
-
-  }
-
-  .has-search i {
-    position: absolute;
-    top: 18px;
-    left: 8px;
-    font-weight: 600;
-    font-size: 14px !important;
-    color: gray;
-  }
-
-
-.overlay .closebtn {
-  top: 14px !important;
-  right: 12px !important;
-  font-size: 15px !important;
-  z-index: 1;
-  font-weight: 600;
-  text-align: center;
-}
-
-.bx-search {
-  color: #F3780E;
-  /* font-size: 14px; */
-} */
-
-.overlay .overlay-content .buttons button {
-  margin-top: 15px;
-  border-color: #d8d8d8;
-}
-
-
-
   /*====== Login page ======*/
   .section-login-page {
     width: 100% !important;
     margin-top: 7rem !important;
     padding: 0;
   }
+  /*============= .product-area css  ===============*/
 
-  dl, ol, ul {
-    margin-top: 0;
-    margin-bottom: 1rem;
-    list-style: none;
-    text-align: center;
-    padding: 0;
+  /* .tab-content .tab-pane .panel-group .product-widget .card-text p a {
+    color: #000;
+    text-decoration: none;
+    background-color: transparent;
+    font-weight: 400;
+    font-size: 12px;
+  } */
+/* 
+  .panel-body {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    
+  } */
+  .tab-content .tab-pane .panel-group .panel-body .product-widget {
+    padding: 1.5rem 1rem;
+    display: flex;
+    
+  }
+  .tab-content .tab-pane .panel-group .panel-body .product-widget .card-text {
+    min-width: 190px !important;
+    max-width: 200px !important;
+    margin-right: 5px;
+  }
+  .panel-group .panel-body .product-widget p a {
+    color: #000;
+    text-decoration: none;
+    background-color: transparent;
+    font-weight: 400 !important;
+    font-size: 12px !important;
+  }
+
 }
-
-
-  .footer-area {
-    background: #000;
-    padding: 70px 0;
-  }
-  .footer-area h4 a {
-    color: #ffffff;
-  }
-  .footer-area ul li a {
-    color: #ffffff;
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /*i
 ===============================================================
  x-Small devices (landscape phones, 375px and up to 575.98px)
 ===============================================================
 */
-@media only screen and (min-device-width: 0px) and (max-device-width: 575.98px) {
-  .row > .col-xs-1,
-  .row > .col-xs-2,
-  .row > .col-xs-3,
-  .row > .col-xs-4,
-  .row > .col-xs-5,
-  .row > .col-xs-6,
-  .row > .col-xs-7,
-  .row > .col-xs-8,
-  .row > .col-xs-9,
-  .row > .col-xs-10,
-  .row > .col-xs-11,
-  .row > .col-xs-12 {
-      
-    max-width: 60px !important;
-    height: auto;
-  }
-  .has-search {
-    /* margin: 5px 5px 5px 5px; */
-    background: white;
-    position: relative;
-    /* margin-top: 0; */
-    height: 60px;
-    padding: 8px 0;
-    display: flex;
-    justify-content: space-around;
-  }
-  .has-search input.form-control {
-    height: 14px;
-    border-radius: 5px;
-    padding-left: 15px;
-    border: none;
-    background: #eee;
-    padding-top: 3px;
-    padding-bottom: 3px;
-    margin-top: 0 !important;
-    padding: 15px 2px;
-  }
-  header > .right a, header > .left a, header, .logo figure {
-    height: 60px;
-    line-height: 25px;
-  }
-  .top-right a i {
-    color: #626365;
-    /* margin: 10px 2px; */
-    font-size: 30px;
-    vertical-align: middle;
-    /* padding: 15px 2px; */
-  }
-
-  .overlay .closebtn {
-    top: 14px !important;
-    right: 12px !important;
-    font-size: 15px !important;
-    z-index: 1;
-    width: 20%;
-    text-align: center;
-    font-weight: 600;
-    padding: 5px 0;
-  }
-
-
-}
-
-
-
-
 @media only screen and (min-device-width: 992px) and (max-device-width: 1599.98px) {
   /*======== Reusable Componantss =========*/
   /*========== Header Section =========*/
-  
+  .header-section {
+    /*=== Search Area ===*/
+  }
   .header-section .logo button {
     margin-right: 1rem;
   }
